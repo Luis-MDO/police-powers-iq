@@ -505,5 +505,51 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertTrue(self.page.locator('[data-answer]').first.is_visible())
         self.assertFalse(self.errors)
 
+
+    def test_true_false_order_and_grading_in_practice_and_exam(self):
+        questions = [q for q in QUESTIONS if q['type'] == 'tf']
+        self.assets(questions=questions, instrument=True)
+        result = self.page.evaluate("""() => {
+          const a=window.__audit;
+          for(const mode of ['practice','exam']){
+            Object.assign(a.s,{mode,count:95,chapter:'all'});a.start();
+            for(let i=0;i<a.s.pool.length;i++){
+              a.s.at=i;a.showQuestion();const q=a.s.pool[i];
+              if(JSON.stringify(q.shownOptions)!==JSON.stringify(['True','False']))throw Error(q.id+': incorrect order');
+              if(q.shownOptions[q.shownCorrect[0]]!==q.options[q.correct[0]])throw Error(q.id+': changed answer key');
+              const labels=[...document.querySelectorAll('[data-answer]')].map(b=>b.lastElementChild.textContent);
+              if(JSON.stringify(labels)!==JSON.stringify(['True','False']))throw Error(q.id+': incorrect displayed order');
+              a.choose(q.shownCorrect[0]);if(mode==='practice')a.check();
+            }
+            a.finish();
+            if(!document.querySelector('h1').textContent.includes('100%'))throw Error(mode+': grading changed');
+          }
+          return true;
+        }""")
+        self.assertTrue(result)
+        self.assertFalse(self.errors)
+
+    def test_dashboard_navigation_and_unfinished_session_confirmation(self):
+        self.assets(instrument=True)
+        home = self.page.locator('#homeBtn')
+        self.assertTrue(home.is_hidden())
+        saved = self.page.evaluate('localStorage.getItem("policePowersIQ_v1")')
+        for mode in ['practice', 'exam']:
+            self.page.evaluate('(mode)=>{window.__audit.s.mode=mode;window.__audit.start()}', mode)
+            self.assertTrue(home.is_visible())
+            self.page.once('dialog', lambda dialog: dialog.dismiss())
+            home.click()
+            self.assertTrue(self.page.locator('.question-area').is_visible())
+            self.page.once('dialog', lambda dialog: dialog.accept())
+            home.click()
+            self.assertTrue(self.page.locator('#startBtn').is_visible())
+            self.assertTrue(home.is_hidden())
+            self.assertEqual(self.page.evaluate('localStorage.getItem("policePowersIQ_v1")'), saved)
+        self.page.evaluate('window.__audit.start();window.__audit.finish()')
+        home.click()
+        self.assertTrue(self.page.locator('#startBtn').is_visible())
+        self.assertTrue(home.is_hidden())
+        self.assertFalse(self.errors)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

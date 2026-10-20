@@ -6,6 +6,8 @@ Interactive Canadian police powers study app. Built as a static website so it ca
 - Question bank with 230 practice items (including alternate-format testing of some of the same concepts)
 - 10, 15, 20, 25 or 30 question rounds; unseen questions first
 - Scantron-compatible single-choice, true/false and selectable completion-style questions
+- True/false choices always display True first, then False; other answer options retain their shuffle rules
+- Dashboard navigation appears during questions and results, with confirmation before abandoning an unfinished session
 - Ten five-option questions using combinations or “All of the above”; select the most complete correct answer with one choice
 - Immediate answer checking and short explanations
 - Linked Canadian legislation and judgments, with explicit pending states for unresolved legal support
