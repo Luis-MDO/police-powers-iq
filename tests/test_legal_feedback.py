@@ -454,5 +454,29 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertFalse(self.errors)
 
 
+
+    def test_topic_labels_and_filters_in_practice_and_exam(self):
+        self.assets(instrument=True)
+        titles = ['Sources of Police Powers', 'Arrest Powers', 'Location of Arrest & Feeney',
+                  'Warrantless Search & Seizure', 'Search With a Warrant']
+        self.assertEqual(self.page.locator('.topic strong').all_text_contents(), titles)
+        self.assertEqual(self.page.locator('#chapterSelect option').all_text_contents(), ['All topics'] + titles)
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.get_by_label('Topic focus').select_option('7')
+        self.page.locator('#startBtn').click()
+        self.assertTrue(self.page.evaluate('window.__audit.s.pool.every(q => q.chapter === 7)'))
+        self.assertEqual(self.page.locator('.q-label').inner_text(), 'WARRANTLESS SEARCH & SEIZURE')
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.evaluate('window.__audit.finish()')
+        self.assertIn('Topic breakdown', self.page.locator('body').inner_text())
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.evaluate("window.__audit.s.mode='exam';window.__audit.start()")
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.evaluate('window.__audit.finish()')
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.set_viewport_size({'width': 320, 'height': 850})
+        self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), 320)
+        self.assertFalse(self.errors)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

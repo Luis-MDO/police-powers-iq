@@ -10,7 +10,7 @@ Interactive Canadian police powers study app. Built as a static website so it ca
 - Immediate answer checking and short explanations
 - Linked Canadian legislation and judgments, with explicit pending states for unresolved legal support
 - 40-question, 90-minute mock exam
-- Chapter filtering, review of mistakes, persistent progress using `localStorage`
+- Topic filtering, review of mistakes, persistent progress using `localStorage`
 - Copper-orange accents with charcoal dark mode and warm cream light mode
 - Persistent theme switch, tactile pressed buttons, CSS 3D scales and reduced-motion support
 - Mobile-friendly interface
@@ -29,6 +29,8 @@ The current review includes 210 legally supported items, 13 explicitly labelled 
 Reviewed statute text was consolidated to September 30, 2026; the source checks were performed October 20, 2026. See [LEGAL-REVIEW.md](LEGAL-REVIEW.md) for scope, outstanding checks and maintenance instructions. Alternate formats repeat concepts: 230 **question items** does not mean 230 independent concepts. The completion-labelled items use selectable answers, not typed input.
 
 The ten former multi-select items keep their M001–M010 IDs and now accept one answer. Five use numbered statements and answer combinations; five use individually true choices, a partial combination, and “All of the above.” No “only” qualifier is added. “All of the above” stays last while the other choices shuffle; numbered statement references stay fixed while their answer combinations shuffle. Existing saved progress is retained.
+
+The interface groups questions by legal topic rather than professor-specific chapter numbers. Existing internal group values and question IDs remain unchanged to preserve filtering and saved progress.
 
 ## Local development and validation
 Serve the repository over HTTP, for example with `python3 -m http.server 8000`. Opening `index.html` directly as a file does not provide the supported JSON-loading workflow.
