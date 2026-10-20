@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-10-20",
+  "disclaimer": "Source identity and question support are separate checks. Only feedback explicitly reviewed as verified or a labelled study aid is eligible for substantive display. Some questions remain pending legal verification.",
+  "authorities": {
+    "CONST1867": {
+      "title": "Constitution Act, 1867, ss. 91(27) and 92(14)",
+      "type": "constitution",
+      "url": "https://laws-lois.justice.gc.ca/eng/const/page-3.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "CHARTER": {
+      "title": "Canadian Charter of Rights and Freedoms",
+      "type": "charter",
+      "url": "https://laws-lois.justice.gc.ca/eng/const/page-12.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "BILL1960": {
+      "title": "Canadian Bill of Rights, 1960",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-12.3/",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "ARREST": {
+      "title": "Criminal Code, s. 495",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-495.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "CITIZEN": {
+      "title": "Criminal Code, s. 494",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-494.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "WARRANT": {
+      "title": "Criminal Code, s. 487",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-487.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "TELE": {
+      "title": "Criminal Code, s. 487.1",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-487.1.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "NIGHT": {
+      "title": "Criminal Code, s. 488",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-488.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "ENTRY": {
+      "title": "Criminal Code, s. 529",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "ENTRY_SEPARATE": {
+      "title": "Criminal Code, s. 529.1",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.1.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "EXIGENT": {
+      "title": "Criminal Code, s. 529.3",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.3.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "ANNOUNCE": {
+      "title": "Criminal Code, s. 529.4",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.4.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "RELEASE": {
+      "title": "Criminal Code, s. 498",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-498.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "BAIL": {
+      "title": "Criminal Code, s. 503",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-503.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "SUMMARY": {
+      "title": "Criminal Code, s. 787",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-787.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "HYBRID": {
+      "title": "Interpretation Act, s. 34",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/I-21/section-34.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "BENCH": {
+      "title": "Criminal Code, s. 512",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-512.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "DUTY": {
+      "title": "Criminal Code, s. 25",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-25.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "DEFINITIONS": {
+      "title": "Criminal Code, s. 2",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-2.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "WARRANT_SEAL": {
+      "title": "Criminal Code, s. 487.3",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-487.3.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "SEIZURE": {
+      "title": "Criminal Code, s. 489",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-489.html",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "YCJA": {
+      "title": "Youth Criminal Justice Act",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/Y-1.5/",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "FEENEY": {
+      "title": "R. v. Feeney, [1997] 2 S.C.R. 13",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1508/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "FEARON": {
+      "title": "R. v. Fearon, 2014 SCC 77",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/14502/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "GRANT": {
+      "title": "R. v. Grant, 2009 SCC 32",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/7799/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "BUHAY": {
+      "title": "R. v. Buhay, 2003 SCC 30",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/2062/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "EVANS": {
+      "title": "R. v. Evans, [1996] 1 S.C.R. 8",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1333/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "CASLAKE": {
+      "title": "R. v. Caslake, [1998] 1 S.C.R. 51",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1582/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "MANN": {
+      "title": "R. v. Mann, 2004 SCC 52",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/2167/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "SCHOOL": {
+      "title": "R. v. M. (M.R.), [1998] 3 S.C.R. 393",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1666/index.do",
+      "note": "Source identity and relevant text checked. Applicability is reviewed separately for each question.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "CPIC": {
+      "title": "Canadian Police Information Centre",
+      "type": "official_resource",
+      "url": "https://www.rcmp-grc.gc.ca/en/canadian-police-information-centre",
+      "note": "The supplied agency page could not be accessed for verification. This is an information-system name, not a statutory power.",
+      "verificationStatus": "needs_review",
+      "reviewedOn": null
+    },
+    "STORREY": {
+      "title": "R. v. Storrey, [1990] 1 S.C.R. 241",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/572/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "BIRON": {
+      "title": "The Queen v. Biron, [1976] 2 S.C.R. 56",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/2690/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "DUDLEY": {
+      "title": "R. v. Dudley, 2009 SCC 58",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/7834/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "SAULT": {
+      "title": "R. v. Sault Ste. Marie, [1978] 2 S.C.R. 1299",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/2605/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "MACOOH": {
+      "title": "R. v. Macooh, [1993] 2 S.C.R. 802",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1025/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "GODOY": {
+      "title": "R. v. Godoy, [1999] 1 S.C.R. 311",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1682/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "HUNTER": {
+      "title": "Hunter v. Southam Inc., [1984] 2 S.C.R. 145",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/5274/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "BORDEN": {
+      "title": "R. v. Borden, [1994] 3 S.C.R. 145",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1174/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "REEVES": {
+      "title": "R. v. Reeves, 2018 SCC 56",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/17405/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "CHEHIL": {
+      "title": "R. v. Chehil, 2013 SCC 49",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/13264/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "MACKENZIE": {
+      "title": "R. v. MacKenzie, 2013 SCC 50",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/13265/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "ARAUJO": {
+      "title": "R. v. Araujo, 2000 SCC 65",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1830/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "MORELLI": {
+      "title": "R. v. Morelli, 2010 SCC 8",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/7847/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "LEIPERT": {
+      "title": "R. v. Leipert, [1997] 1 S.C.R. 281",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1472/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "BROYLES": {
+      "title": "R. v. Broyles, [1991] 3 S.C.R. 595",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/818/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "GENEST": {
+      "title": "R. v. Genest, [1989] 1 S.C.R. 59",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/402/index.do",
+      "note": "Relevant judgment text checked; see the question-specific scope and pinpoint.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "CONST52": {
+      "title": "Constitution Act, 1982, s. 52(1)",
+      "type": "constitution",
+      "url": "https://laws-lois.justice.gc.ca/eng/const/page-13.html",
+      "note": "Justice Canada consolidation checked; see question-specific sections.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "INTERPRETATION": {
+      "title": "Interpretation Act, s. 2",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/I-21/section-2.html",
+      "note": "Justice Canada consolidation checked; see question-specific sections.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "DURATION": {
+      "title": "Criminal Code, s. 511",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-511.html",
+      "note": "Justice Canada consolidation checked; see question-specific sections.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "SALITURO": {
+      "title": "R. v. Salituro, [1991] 3 S.C.R. 654",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/820/index.do",
+      "note": "Identity and cited primary-source text checked. The feedback distinguishes the source proposition from its application.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "COTE": {
+      "title": "R. v. Côté, 2011 SCC 46",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/7962/index.do",
+      "note": "Identity and cited primary-source text checked. The feedback distinguishes the source proposition from its application.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "YUMNU": {
+      "title": "R. v. Yumnu, 2012 SCC 73",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/12782/index.do",
+      "note": "Identity and cited primary-source text checked. The feedback distinguishes the source proposition from its application.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "CDSA_SEARCH_PERSON": {
+      "title": "Controlled Drugs and Substances Act, s. 11(5)",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-38.8/section-11.html",
+      "note": "Identity and cited primary-source text checked. The feedback distinguishes the source proposition from its application.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    },
+    "FORM5": {
+      "title": "Criminal Code, Form 5 — Warrant To Search",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/FullText.html#h-133568",
+      "note": "Identity and cited primary-source text checked. The feedback distinguishes the source proposition from its application.",
+      "verificationStatus": "verified",
+      "reviewedOn": "2026-10-20"
+    }
+  },
+  "legislationCurrentTo": "2026-09-30"
+}

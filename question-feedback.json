@@ -1,0 +1,3551 @@
+{
+  "schemaVersion": 1,
+  "questionCount": 230,
+  "description": "Reviewed question-ID keyed feedback. verified denotes the narrow proposition checked against its listed primary sources; study_aid denotes an explicitly labelled mnemonic. needs_review explanations must not be displayed as established law.",
+  "feedback": {
+    "Q001A": {
+      "questionId": "Q001A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The federal Parliament creates Canadian criminal law.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 91(27)"
+    },
+    "Q001B": {
+      "questionId": "Q001B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The federal Parliament creates Canadian criminal law.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 91(27)"
+    },
+    "Q002A": {
+      "questionId": "Q002A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The provinces have responsibility for administering justice.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 92(14)"
+    },
+    "Q002B": {
+      "questionId": "Q002B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "The provinces have responsibility for administering justice.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 92(14)"
+    },
+    "Q003A": {
+      "questionId": "Q003A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Constitution Act, 1867 divides legislative authority.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "ss. 91–92"
+    },
+    "Q003B": {
+      "questionId": "Q003B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Constitution Act, 1867 divides legislative authority.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "ss. 91–92"
+    },
+    "Q004A": {
+      "questionId": "Q004A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Charter forms part of the Constitution Act, 1982.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q004B": {
+      "questionId": "Q004B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "The Charter forms part of the Constitution Act, 1982.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q005A": {
+      "questionId": "Q005A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Canadian Bill of Rights dates to 1960.",
+      "authorityIds": [
+        "BILL1960"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q005B": {
+      "questionId": "Q005B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Canadian Bill of Rights dates to 1960.",
+      "authorityIds": [
+        "BILL1960"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q006A": {
+      "questionId": "Q006A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Constitution Act, 1982, section 52(1) makes the Constitution the supreme law of Canada. Inconsistent laws have no force or effect to the extent of the inconsistency.",
+      "authorityIds": [
+        "CONST52"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 52(1)"
+    },
+    "Q006B": {
+      "questionId": "Q006B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Constitution Act, 1982, section 52(1) makes the Constitution the supreme law of Canada. Inconsistent laws have no force or effect to the extent of the inconsistency.",
+      "authorityIds": [
+        "CONST52"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 52(1)"
+    },
+    "Q007A": {
+      "questionId": "Q007A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A statute is legislation enacted by a legislature. At the federal level, the Interpretation Act distinguishes an Act of Parliament from regulations made under delegated authority.",
+      "authorityIds": [
+        "CONST1867",
+        "INTERPRETATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 2; Constitution Act, 1867, ss. 91–92"
+    },
+    "Q007B": {
+      "questionId": "Q007B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A statute is legislation enacted by a legislature. At the federal level, the Interpretation Act distinguishes an Act of Parliament from regulations made under delegated authority.",
+      "authorityIds": [
+        "CONST1867",
+        "INTERPRETATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 2; Constitution Act, 1867, ss. 91–92"
+    },
+    "Q008A": {
+      "questionId": "Q008A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Common law develops through judicial decisions. Salituro explains that judges may make appropriate incremental changes to common-law rules, while complex changes with uncertain consequences may be for the legislature.",
+      "authorityIds": [
+        "SALITURO"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Discussion of judicial development of the common law"
+    },
+    "Q008B": {
+      "questionId": "Q008B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Common law develops through judicial decisions. Salituro explains that judges may make appropriate incremental changes to common-law rules, while complex changes with uncertain consequences may be for the legislature.",
+      "authorityIds": [
+        "SALITURO"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Discussion of judicial development of the common law"
+    },
+    "Q009A": {
+      "questionId": "Q009A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Regulations are delegated legislation. The federal Interpretation Act includes instruments made under authority conferred by an Act within its definition of regulation.",
+      "authorityIds": [
+        "INTERPRETATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 2, definition of regulation"
+    },
+    "Q009B": {
+      "questionId": "Q009B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Regulations are delegated legislation. The federal Interpretation Act includes instruments made under authority conferred by an Act within its definition of regulation.",
+      "authorityIds": [
+        "INTERPRETATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 2, definition of regulation"
+    },
+    "Q010A": {
+      "questionId": "Q010A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 7 protects life, liberty and security of the person, and the right not to be deprived of them except in accordance with the principles of fundamental justice.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 7"
+    },
+    "Q010B": {
+      "questionId": "Q010B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 7 protects life, liberty and security of the person, and the right not to be deprived of them except in accordance with the principles of fundamental justice.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 7"
+    },
+    "Q011A": {
+      "questionId": "Q011A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 8 protects against unreasonable searches and seizures.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 8"
+    },
+    "Q011B": {
+      "questionId": "Q011B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 8 protects against unreasonable searches and seizures.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 8"
+    },
+    "Q012A": {
+      "questionId": "Q012A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 9 prohibits arbitrary detention or imprisonment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 9"
+    },
+    "Q012B": {
+      "questionId": "Q012B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 9 prohibits arbitrary detention or imprisonment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 9"
+    },
+    "Q013A": {
+      "questionId": "Q013A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10 contains arrest and detention rights.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 10"
+    },
+    "Q013B": {
+      "questionId": "Q013B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10 contains arrest and detention rights.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 10"
+    },
+    "Q014A": {
+      "questionId": "Q014A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11 outlines rights concerning criminal proceedings.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 11"
+    },
+    "Q014B": {
+      "questionId": "Q014B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 11 outlines rights concerning criminal proceedings.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 11"
+    },
+    "Q015A": {
+      "questionId": "Q015A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 12 protects against cruel and unusual treatment or punishment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 12"
+    },
+    "Q015B": {
+      "questionId": "Q015B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 12 protects against cruel and unusual treatment or punishment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 12"
+    },
+    "Q016A": {
+      "questionId": "Q016A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 13 protects a witness against the use of their incriminating testimony to incriminate them in other proceedings, except prosecutions for perjury or contradictory evidence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 13"
+    },
+    "Q016B": {
+      "questionId": "Q016B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 13 protects a witness against the use of their incriminating testimony to incriminate them in other proceedings, except prosecutions for perjury or contradictory evidence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 13"
+    },
+    "Q017A": {
+      "questionId": "Q017A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 14 gives a party or witness who does not understand or speak the language of the proceedings, or who is deaf, the right to an interpreter’s assistance.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 14"
+    },
+    "Q017B": {
+      "questionId": "Q017B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 14 gives a party or witness who does not understand or speak the language of the proceedings, or who is deaf, the right to an interpreter’s assistance.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 14"
+    },
+    "Q018A": {
+      "questionId": "Q018A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 495 is the general warrantless arrest power for peace officers. Section 494 separately addresses arrest by any person; the conditions and limits of the applicable power must still be met.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(1)–(2)"
+    },
+    "Q018B": {
+      "questionId": "Q018B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 495 is the general warrantless arrest power for peace officers. Section 494 separately addresses arrest by any person; the conditions and limits of the applicable power must still be met.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(1)–(2)"
+    },
+    "Q019A": {
+      "questionId": "Q019A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "For the offence categories listed in section 495(2), an officer shall not arrest without a warrant when the public-interest and court-attendance conditions in that subsection are satisfied.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)"
+    },
+    "Q019B": {
+      "questionId": "Q019B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "For the offence categories listed in section 495(2), an officer shall not arrest without a warrant when the public-interest and court-attendance conditions in that subsection are satisfied.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)"
+    },
+    "Q020A": {
+      "questionId": "Q020A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The arresting officer must actually hold the required belief. Storrey also requires an objectively justifiable basis; a subjective belief alone is insufficient.",
+      "authorityIds": [
+        "ARREST",
+        "STORREY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q020B": {
+      "questionId": "Q020B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "The arresting officer must actually hold the required belief. Storrey also requires an objectively justifiable basis; a subjective belief alone is insufficient.",
+      "authorityIds": [
+        "ARREST",
+        "STORREY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q021A": {
+      "questionId": "Q021A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A reasonable person placed in the officer’s position must be able to find reasonable grounds from the known facts. A guaranteed conviction is not required.",
+      "authorityIds": [
+        "ARREST",
+        "STORREY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q021B": {
+      "questionId": "Q021B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A reasonable person placed in the officer’s position must be able to find reasonable grounds from the known facts. A guaranteed conviction is not required.",
+      "authorityIds": [
+        "ARREST",
+        "STORREY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q022A": {
+      "questionId": "Q022A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Finding a person committing an offence concerns the apparent commission perceived by the arresting person; it does not require a later conviction. The conditions of the particular arrest power still apply.",
+      "authorityIds": [
+        "ARREST",
+        "BIRON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(1)(b); Biron, discussion of found committing"
+    },
+    "Q022B": {
+      "questionId": "Q022B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Finding a person committing an offence concerns the apparent commission perceived by the arresting person; it does not require a later conviction. The conditions of the particular arrest power still apply.",
+      "authorityIds": [
+        "ARREST",
+        "BIRON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(1)(b); Biron, discussion of found committing"
+    },
+    "Q023A": {
+      "questionId": "Q023A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. R refers to repetition or continuation, corresponding to the concern in section 495(2)(d)(iii).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(iii)"
+    },
+    "Q023B": {
+      "questionId": "Q023B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. R refers to repetition or continuation, corresponding to the concern in section 495(2)(d)(iii).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(iii)"
+    },
+    "Q024A": {
+      "questionId": "Q024A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. I refers to identity, corresponding to section 495(2)(d)(i).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(i)"
+    },
+    "Q024B": {
+      "questionId": "Q024B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. I refers to identity, corresponding to section 495(2)(d)(i).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(i)"
+    },
+    "Q025A": {
+      "questionId": "Q025A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. C refers to court attendance, corresponding to section 495(2)(e).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(e)"
+    },
+    "Q025B": {
+      "questionId": "Q025B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. C refers to court attendance, corresponding to section 495(2)(e).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(e)"
+    },
+    "Q026A": {
+      "questionId": "Q026A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. E refers to evidence preservation, corresponding to section 495(2)(d)(ii).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(ii)"
+    },
+    "Q026B": {
+      "questionId": "Q026B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. E refers to evidence preservation, corresponding to section 495(2)(d)(ii).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(ii)"
+    },
+    "Q027A": {
+      "questionId": "Q027A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Protecting property is among the common-law duties of police identified in Mann, alongside preserving the peace, preventing crime and protecting life. A general duty does not itself authorize every intrusion: a particular police action still needs lawful justification.",
+      "authorityIds": [
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, para. 26"
+    },
+    "Q027B": {
+      "questionId": "Q027B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Protecting property is among the common-law duties of police identified in Mann, alongside preserving the peace, preventing crime and protecting life. A general duty does not itself authorize every intrusion: a particular police action still needs lawful justification.",
+      "authorityIds": [
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, para. 26"
+    },
+    "Q028A": {
+      "questionId": "Q028A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Summary conviction is a Criminal Code procedure and offence classification. It is generally associated with less serious offences, but that shorthand does not determine the seriousness or penalty of every particular offence.",
+      "authorityIds": [
+        "SUMMARY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q028B": {
+      "questionId": "Q028B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Summary conviction is a Criminal Code procedure and offence classification. It is generally associated with less serious offences, but that shorthand does not determine the seriousness or penalty of every particular offence.",
+      "authorityIds": [
+        "SUMMARY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q029A": {
+      "questionId": "Q029A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "For a hybrid offence, the Crown elects whether to proceed summarily or by indictment. This procedural choice is distinct from an accused’s election of mode of trial where available.",
+      "authorityIds": [
+        "HYBRID",
+        "DUDLEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 34; Dudley, paras. 19–21"
+    },
+    "Q029B": {
+      "questionId": "Q029B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "For a hybrid offence, the Crown elects whether to proceed summarily or by indictment. This procedural choice is distinct from an accused’s election of mode of trial where available.",
+      "authorityIds": [
+        "HYBRID",
+        "DUDLEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 34; Dudley, paras. 19–21"
+    },
+    "Q030A": {
+      "questionId": "Q030A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Hybrid offences are deemed indictable until the Crown elects summary procedure. This does not remove the restrictions on warrantless arrest in Criminal Code section 495(2).",
+      "authorityIds": [
+        "HYBRID",
+        "DUDLEY",
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 34(1)(a); Dudley, para. 21; Criminal Code, s. 495(2)"
+    },
+    "Q030B": {
+      "questionId": "Q030B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Hybrid offences are deemed indictable until the Crown elects summary procedure. This does not remove the restrictions on warrantless arrest in Criminal Code section 495(2).",
+      "authorityIds": [
+        "HYBRID",
+        "DUDLEY",
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 34(1)(a); Dudley, para. 21; Criminal Code, s. 495(2)"
+    },
+    "Q031A": {
+      "questionId": "Q031A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Actus reus refers to the external elements of an offence, which may include conduct, relevant circumstances and prohibited consequences.",
+      "authorityIds": [
+        "SAULT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q031B": {
+      "questionId": "Q031B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Actus reus refers to the external elements of an offence, which may include conduct, relevant circumstances and prohibited consequences.",
+      "authorityIds": [
+        "SAULT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q032A": {
+      "questionId": "Q032A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Mens rea refers to the fault or mental element. The required fault depends on the offence; strict-liability and absolute-liability categories require separate analysis.",
+      "authorityIds": [
+        "SAULT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q032B": {
+      "questionId": "Q032B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Mens rea refers to the fault or mental element. The required fault depends on the offence; strict-liability and absolute-liability categories require separate analysis.",
+      "authorityIds": [
+        "SAULT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q033A": {
+      "questionId": "Q033A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10(b) provides the right to retain and instruct counsel without delay.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 10(b)"
+    },
+    "Q033B": {
+      "questionId": "Q033B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10(b) provides the right to retain and instruct counsel without delay.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 10(b)"
+    },
+    "Q034A": {
+      "questionId": "Q034A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "An offence does not always require arrest. Section 495(2) prohibits warrantless arrest for its listed categories when its public-interest and court-attendance conditions are met.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)"
+    },
+    "Q034B": {
+      "questionId": "Q034B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "An offence does not always require arrest. Section 495(2) prohibits warrantless arrest for its listed categories when its public-interest and court-attendance conditions are met.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)"
+    },
+    "Q035A": {
+      "questionId": "Q035A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Accompanying police is voluntary only if the agreement is informed and free. Police words and conduct may instead create a detention if a reasonable person would not feel free to leave.",
+      "authorityIds": [
+        "GRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q035B": {
+      "questionId": "Q035B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Accompanying police is voluntary only if the agreement is informed and free. Police words and conduct may instead create a detention if a reasonable person would not feel free to leave.",
+      "authorityIds": [
+        "GRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q036A": {
+      "questionId": "Q036A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Mann requires reasonable grounds to suspect that the person is connected to a particular crime and that detention is necessary in the circumstances. The detention must be brief and reasonable; a hunch is insufficient.",
+      "authorityIds": [
+        "GRANT",
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, paras. 34–45"
+    },
+    "Q036B": {
+      "questionId": "Q036B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Mann requires reasonable grounds to suspect that the person is connected to a particular crime and that detention is necessary in the circumstances. The detention must be brief and reasonable; a hunch is insufficient.",
+      "authorityIds": [
+        "GRANT",
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, paras. 34–45"
+    },
+    "Q037A": {
+      "questionId": "Q037A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The offence classification matters because section 495(2) lists the offence categories to which its restrictions on warrantless arrest apply. Classification does not replace the other arrest grounds and public-interest conditions.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Criminal Code, s. 495(2)(a)–(c)"
+    },
+    "Q037B": {
+      "questionId": "Q037B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The offence classification matters because section 495(2) lists the offence categories to which its restrictions on warrantless arrest apply. Classification does not replace the other arrest grounds and public-interest conditions.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Criminal Code, s. 495(2)(a)–(c)"
+    },
+    "Q038A": {
+      "questionId": "Q038A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 512(2) permits an arrest warrant in specified cases of non-attendance or evasion of service. A bench warrant commonly follows a failure to attend court.",
+      "authorityIds": [
+        "BENCH"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 512(2)"
+    },
+    "Q038B": {
+      "questionId": "Q038B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 512(2) permits an arrest warrant in specified cases of non-attendance or evasion of service. A bench warrant commonly follows a failure to attend court.",
+      "authorityIds": [
+        "BENCH"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 512(2)"
+    },
+    "Q039A": {
+      "questionId": "Q039A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 511(2) says a warrant issued under Part XVI remains in force until executed, with no required return date. It can be cancelled under subsection (2.1), and voluntary appearance can amount to execution under subsection (4).",
+      "authorityIds": [
+        "DURATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 511(2), (2.1), (4)"
+    },
+    "Q039B": {
+      "questionId": "Q039B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 511(2) says a warrant issued under Part XVI remains in force until executed, with no required return date. It can be cancelled under subsection (2.1), and voluntary appearance can amount to execution under subsection (4).",
+      "authorityIds": [
+        "DURATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 511(2), (2.1), (4)"
+    },
+    "Q040A": {
+      "questionId": "Q040A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Youth Criminal Justice Act governs youth criminal proceedings.",
+      "authorityIds": [
+        "YCJA"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q040B": {
+      "questionId": "Q040B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "The Youth Criminal Justice Act governs youth criminal proceedings.",
+      "authorityIds": [
+        "YCJA"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q041A": {
+      "questionId": "Q041A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 494 sets out citizen arrest powers.",
+      "authorityIds": [
+        "CITIZEN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 494"
+    },
+    "Q041B": {
+      "questionId": "Q041B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 494 sets out citizen arrest powers.",
+      "authorityIds": [
+        "CITIZEN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 494"
+    },
+    "Q042A": {
+      "questionId": "Q042A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 494(3) requires a person other than a peace officer who makes a warrantless arrest to deliver the arrested person to a peace officer forthwith. Contact police immediately to arrange that delivery.",
+      "authorityIds": [
+        "CITIZEN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 494(3)"
+    },
+    "Q042B": {
+      "questionId": "Q042B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 494(3) requires a person other than a peace officer who makes a warrantless arrest to deliver the arrested person to a peace officer forthwith. Contact police immediately to arrange that delivery.",
+      "authorityIds": [
+        "CITIZEN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 494(3)"
+    },
+    "Q043A": {
+      "questionId": "Q043A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A dwelling-house attracts strong privacy protection. Sections 529 and 529.1 address judicial authorization to enter a dwelling to arrest; a lawful exception may apply. This distinction does not itself authorize entry elsewhere.",
+      "authorityIds": [
+        "ENTRY",
+        "ENTRY_SEPARATE",
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q043B": {
+      "questionId": "Q043B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A dwelling-house attracts strong privacy protection. Sections 529 and 529.1 address judicial authorization to enter a dwelling to arrest; a lawful exception may apply. This distinction does not itself authorize entry elsewhere.",
+      "authorityIds": [
+        "ENTRY",
+        "ENTRY_SEPARATE",
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q044A": {
+      "questionId": "Q044A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 2 includes a building or structure kept or occupied as a permanent or temporary residence, as well as specified connected buildings and mobile residential units.",
+      "authorityIds": [
+        "DEFINITIONS"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 2, definition of dwelling-house"
+    },
+    "Q044B": {
+      "questionId": "Q044B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 2 includes a building or structure kept or occupied as a permanent or temporary residence, as well as specified connected buildings and mobile residential units.",
+      "authorityIds": [
+        "DEFINITIONS"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 2, definition of dwelling-house"
+    },
+    "Q045A": {
+      "questionId": "Q045A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "R. v. Feeney governs important residential entry protections.",
+      "authorityIds": [
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q045B": {
+      "questionId": "Q045B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "R. v. Feeney governs important residential entry protections.",
+      "authorityIds": [
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q046A": {
+      "questionId": "Q046A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Homes have strong privacy protection.",
+      "authorityIds": [
+        "CHARTER",
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q046B": {
+      "questionId": "Q046B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Homes have strong privacy protection.",
+      "authorityIds": [
+        "CHARTER",
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q047A": {
+      "questionId": "Q047A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Feeney recognizes a general need for judicial authorization to enter a home.",
+      "authorityIds": [
+        "ENTRY",
+        "FEENEY",
+        "ENTRY_SEPARATE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q047B": {
+      "questionId": "Q047B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Feeney recognizes a general need for judicial authorization to enter a home.",
+      "authorityIds": [
+        "ENTRY",
+        "FEENEY",
+        "ENTRY_SEPARATE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q048A": {
+      "questionId": "Q048A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "For issuance under sections 529 and 529.1, there must be reasonable grounds to believe the person is or will be present. Section 529(2) requires reasonable grounds of actual presence immediately before entry under that authorization.",
+      "authorityIds": [
+        "ENTRY",
+        "ENTRY_SEPARATE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "ss. 529(1)–(2), 529.1"
+    },
+    "Q048B": {
+      "questionId": "Q048B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "For issuance under sections 529 and 529.1, there must be reasonable grounds to believe the person is or will be present. Section 529(2) requires reasonable grounds of actual presence immediately before entry under that authorization.",
+      "authorityIds": [
+        "ENTRY",
+        "ENTRY_SEPARATE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "ss. 529(1)–(2), 529.1"
+    },
+    "Q049A": {
+      "questionId": "Q049A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 529.3 permits entry to arrest without an entry warrant only when its other prerequisites are met and exigency makes obtaining the warrant impracticable. Its examples concern imminent bodily harm or death and imminent loss or destruction of specified evidence.",
+      "authorityIds": [
+        "EXIGENT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 529.3"
+    },
+    "Q049B": {
+      "questionId": "Q049B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 529.3 permits entry to arrest without an entry warrant only when its other prerequisites are met and exigency makes obtaining the warrant impracticable. Its examples concern imminent bodily harm or death and imminent loss or destruction of specified evidence.",
+      "authorityIds": [
+        "EXIGENT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 529.3"
+    },
+    "Q050A": {
+      "questionId": "Q050A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Hot pursuit is a limited exception involving immediate, continuous pursuit under lawful arrest authority. Macooh addresses pursuit into a dwelling; it does not authorize a routine later entry merely to investigate.",
+      "authorityIds": [
+        "MACOOH",
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q050B": {
+      "questionId": "Q050B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Hot pursuit is a limited exception involving immediate, continuous pursuit under lawful arrest authority. Macooh addresses pursuit into a dwelling; it does not authorize a routine later entry merely to investigate.",
+      "authorityIds": [
+        "MACOOH",
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q051A": {
+      "questionId": "Q051A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Godoy recognizes emergency entry to investigate a 911 call where necessary to protect life and safety. The circumstances must justify entry, and the intrusion must remain limited to that protective purpose.",
+      "authorityIds": [
+        "GODOY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q051B": {
+      "questionId": "Q051B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Godoy recognizes emergency entry to investigate a 911 call where necessary to protect life and safety. The circumstances must justify entry, and the intrusion must remain limited to that protective purpose.",
+      "authorityIds": [
+        "GODOY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q052A": {
+      "questionId": "Q052A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A knock does not itself authorize entering or searching.",
+      "authorityIds": [
+        "EVANS"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q052B": {
+      "questionId": "Q052B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "A knock does not itself authorize entering or searching.",
+      "authorityIds": [
+        "EVANS"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q053A": {
+      "questionId": "Q053A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Lawful entry authority does not permit unlimited force. Section 25 protects necessary force only when the person is authorized by law and acts on reasonable grounds; the circumstances and other legal limits still matter.",
+      "authorityIds": [
+        "DUTY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 25(1)"
+    },
+    "Q053B": {
+      "questionId": "Q053B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Lawful entry authority does not permit unlimited force. Section 25 protects necessary force only when the person is authorized by law and acts on reasonable grounds; the circumstances and other legal limits still matter.",
+      "authorityIds": [
+        "DUTY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 25(1)"
+    },
+    "Q054A": {
+      "questionId": "Q054A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Privacy protection does not mean immunity from a lawful arrest.",
+      "authorityIds": [
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q054B": {
+      "questionId": "Q054B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Privacy protection does not mean immunity from a lawful arrest.",
+      "authorityIds": [
+        "FEENEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q055A": {
+      "questionId": "Q055A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Separate entry authority may be required.",
+      "authorityIds": [
+        "ENTRY",
+        "FEENEY",
+        "ENTRY_SEPARATE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q055B": {
+      "questionId": "Q055B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Separate entry authority may be required.",
+      "authorityIds": [
+        "ENTRY",
+        "FEENEY",
+        "ENTRY_SEPARATE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q056A": {
+      "questionId": "Q056A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Hunter v. Southam explains the importance of prior authorization by an impartial decision-maker where feasible. Warrantless searches need a recognized legal justification; a hunch is insufficient.",
+      "authorityIds": [
+        "CHARTER",
+        "HUNTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q056B": {
+      "questionId": "Q056B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Hunter v. Southam explains the importance of prior authorization by an impartial decision-maker where feasible. Warrantless searches need a recognized legal justification; a hunch is insufficient.",
+      "authorityIds": [
+        "CHARTER",
+        "HUNTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q057A": {
+      "questionId": "Q057A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Once the relevant privacy interest is established, a warrantless search is presumed unreasonable and the Crown must justify it. Buhay applies this presumption and rejects an unsupported plain-view justification.",
+      "authorityIds": [
+        "CHARTER",
+        "BUHAY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Buhay, paras. 35–39"
+    },
+    "Q057B": {
+      "questionId": "Q057B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Once the relevant privacy interest is established, a warrantless search is presumed unreasonable and the Crown must justify it. Buhay applies this presumption and rejects an unsupported plain-view justification.",
+      "authorityIds": [
+        "CHARTER",
+        "BUHAY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Buhay, paras. 35–39"
+    },
+    "Q058A": {
+      "questionId": "Q058A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Recognized purposes include safety, protecting evidence and discovering evidence. Under Caslake, the search must genuinely serve a valid purpose connected to a lawful arrest and be reasonable.",
+      "authorityIds": [
+        "CASLAKE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Caslake, paras. 19–25"
+    },
+    "Q058B": {
+      "questionId": "Q058B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Recognized purposes include safety, protecting evidence and discovering evidence. Under Caslake, the search must genuinely serve a valid purpose connected to a lawful arrest and be reasonable.",
+      "authorityIds": [
+        "CASLAKE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Caslake, paras. 19–25"
+    },
+    "Q059A": {
+      "questionId": "Q059A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A lawful arrest does not permit every search. The officer must have an objectively reasonable purpose connected to the arrest, and the search must stay within lawful limits.",
+      "authorityIds": [
+        "CASLAKE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Caslake, paras. 19–25"
+    },
+    "Q059B": {
+      "questionId": "Q059B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A lawful arrest does not permit every search. The officer must have an objectively reasonable purpose connected to the arrest, and the search must stay within lawful limits.",
+      "authorityIds": [
+        "CASLAKE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Caslake, paras. 19–25"
+    },
+    "Q060A": {
+      "questionId": "Q060A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Detention does not automatically authorize a search. Mann requires reasonable grounds to believe officer or public safety is at risk, and a protective search that is reasonably necessary and limited to that purpose.",
+      "authorityIds": [
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, paras. 40–45"
+    },
+    "Q060B": {
+      "questionId": "Q060B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Detention does not automatically authorize a search. Mann requires reasonable grounds to believe officer or public safety is at risk, and a protective search that is reasonably necessary and limited to that purpose.",
+      "authorityIds": [
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, paras. 40–45"
+    },
+    "Q061A": {
+      "questionId": "Q061A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Mann requires reasonable grounds to believe that the officer’s safety or the safety of others is at risk. A protective pat-down must be reasonably necessary in the circumstances, not a general evidence search.",
+      "authorityIds": [
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, paras. 40–45"
+    },
+    "Q061B": {
+      "questionId": "Q061B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Mann requires reasonable grounds to believe that the officer’s safety or the safety of others is at risk. A protective pat-down must be reasonably necessary in the circumstances, not a general evidence search.",
+      "authorityIds": [
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, paras. 40–45"
+    },
+    "Q062A": {
+      "questionId": "Q062A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Arrest does not automatically authorize a vehicle search. Caslake requires an actual, objectively reasonable purpose connected to the arrest, such as safety or preserving or discovering relevant evidence. An inventory policy alone is insufficient.",
+      "authorityIds": [
+        "CASLAKE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Caslake, paras. 19–25"
+    },
+    "Q062B": {
+      "questionId": "Q062B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Arrest does not automatically authorize a vehicle search. Caslake requires an actual, objectively reasonable purpose connected to the arrest, such as safety or preserving or discovering relevant evidence. An inventory policy alone is insufficient.",
+      "authorityIds": [
+        "CASLAKE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Caslake, paras. 19–25"
+    },
+    "Q063A": {
+      "questionId": "Q063A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Fearon established conditions for searches of phones incident to arrest.",
+      "authorityIds": [
+        "FEARON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Fearon, para. 83"
+    },
+    "Q063B": {
+      "questionId": "Q063B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Fearon established conditions for searches of phones incident to arrest.",
+      "authorityIds": [
+        "FEARON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Fearon, para. 83"
+    },
+    "Q064A": {
+      "questionId": "Q064A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Fearon requires a lawful arrest, an objectively reasonable valid purpose, a search tailored to that purpose, and detailed notes. For discovering evidence, prompt searching must be needed to avoid stymying or significantly hampering the investigation.",
+      "authorityIds": [
+        "FEARON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Fearon, para. 83"
+    },
+    "Q064B": {
+      "questionId": "Q064B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Fearon requires a lawful arrest, an objectively reasonable valid purpose, a search tailored to that purpose, and detailed notes. For discovering evidence, prompt searching must be needed to avoid stymying or significantly hampering the investigation.",
+      "authorityIds": [
+        "FEARON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Fearon, para. 83"
+    },
+    "Q065A": {
+      "questionId": "Q065A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Police cannot keep relying on consent after it is withdrawn.",
+      "authorityIds": [
+        "CHARTER",
+        "BORDEN"
+      ],
+      "reviewStatus": "needs_review",
+      "reviewNote": "Specific primary support for the withdrawal rule remains to be pinned down.",
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": null,
+      "pinpoint": ""
+    },
+    "Q065B": {
+      "questionId": "Q065B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Police cannot keep relying on consent after it is withdrawn.",
+      "authorityIds": [
+        "CHARTER",
+        "BORDEN"
+      ],
+      "reviewStatus": "needs_review",
+      "reviewNote": "Specific primary support for the withdrawal rule remains to be pinned down.",
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": null,
+      "pinpoint": ""
+    },
+    "Q066A": {
+      "questionId": "Q066A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A landlord’s ownership does not by itself waive a tenant’s reasonable expectation of privacy. Reeves rejects one person waiving another’s Charter privacy rights; its facts involve a shared computer, not a landlord. That general principle explains why ownership alone is not automatic consent to search a tenant’s home. A search may still have another lawful basis.",
+      "authorityIds": [
+        "CHARTER",
+        "REEVES"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Charter, s. 8; Reeves, paras. 39–52"
+    },
+    "Q066B": {
+      "questionId": "Q066B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "A landlord’s ownership does not by itself waive a tenant’s reasonable expectation of privacy. Reeves rejects one person waiving another’s Charter privacy rights; its facts involve a shared computer, not a landlord. That general principle explains why ownership alone is not automatic consent to search a tenant’s home. A search may still have another lawful basis.",
+      "authorityIds": [
+        "CHARTER",
+        "REEVES"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Charter, s. 8; Reeves, paras. 39–52"
+    },
+    "Q067A": {
+      "questionId": "Q067A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "School officials’ searches may be justified by their safety and disciplinary responsibilities, but require reasonable grounds and reasonable scope. M. (M.R.) distinguishes school officials from those acting as police agents.",
+      "authorityIds": [
+        "SCHOOL"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "M. (M.R.), paras. 49–56"
+    },
+    "Q067B": {
+      "questionId": "Q067B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "School officials’ searches may be justified by their safety and disciplinary responsibilities, but require reasonable grounds and reasonable scope. M. (M.R.) distinguishes school officials from those acting as police agents.",
+      "authorityIds": [
+        "SCHOOL"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "M. (M.R.), paras. 49–56"
+    },
+    "Q068A": {
+      "questionId": "Q068A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Police do not gain unrestricted powers in a school. M. (M.R.) explains that the different standard for school officials does not replace normal standards when they act as police agents.",
+      "authorityIds": [
+        "SCHOOL"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "M. (M.R.), distinction between school officials and police agents"
+    },
+    "Q068B": {
+      "questionId": "Q068B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Police do not gain unrestricted powers in a school. M. (M.R.) explains that the different standard for school officials does not replace normal standards when they act as police agents.",
+      "authorityIds": [
+        "SCHOOL"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "M. (M.R.), distinction between school officials and police agents"
+    },
+    "Q069A": {
+      "questionId": "Q069A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Lawful presence is necessary but not enough by itself. Buhay rejects treating evidence inside a closed bag in a locked locker as plain view; section 489 also requires reasonable grounds concerning the thing to be seized.",
+      "authorityIds": [
+        "BUHAY",
+        "SEIZURE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Buhay, paras. 37–39; Criminal Code, s. 489"
+    },
+    "Q069B": {
+      "questionId": "Q069B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Lawful presence is necessary but not enough by itself. Buhay rejects treating evidence inside a closed bag in a locked locker as plain view; section 489 also requires reasonable grounds concerning the thing to be seized.",
+      "authorityIds": [
+        "BUHAY",
+        "SEIZURE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Buhay, paras. 37–39; Criminal Code, s. 489"
+    },
+    "Q070A": {
+      "questionId": "Q070A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Continuity tracks evidence collection, storage and transfer.",
+      "authorityIds": [],
+      "reviewStatus": "needs_review",
+      "reviewNote": "A specific chain-of-custody source is still required; seizure legislation alone is insufficient.",
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": null,
+      "pinpoint": ""
+    },
+    "Q070B": {
+      "questionId": "Q070B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Continuity tracks evidence collection, storage and transfer.",
+      "authorityIds": [],
+      "reviewStatus": "needs_review",
+      "reviewNote": "A specific chain-of-custody source is still required; seizure legislation alone is insufficient.",
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": null,
+      "pinpoint": ""
+    },
+    "Q071A": {
+      "questionId": "Q071A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Chehil and MacKenzie address reasonable suspicion for drug-detection dog sniffs in their particular contexts. The suspicion must rest on objectively discernible facts, not a hunch or an unparticularized possibility.",
+      "authorityIds": [
+        "CHEHIL",
+        "MACKENZIE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q071B": {
+      "questionId": "Q071B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Chehil and MacKenzie address reasonable suspicion for drug-detection dog sniffs in their particular contexts. The suspicion must rest on objectively discernible facts, not a hunch or an unparticularized possibility.",
+      "authorityIds": [
+        "CHEHIL",
+        "MACKENZIE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q072A": {
+      "questionId": "Q072A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Exigent circumstances involve urgency, not convenience. The legal authority and all of its conditions still matter; section 529.3, for example, concerns entry into a dwelling to arrest rather than every type of search.",
+      "authorityIds": [
+        "EXIGENT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q072B": {
+      "questionId": "Q072B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Exigent circumstances involve urgency, not convenience. The legal authority and all of its conditions still matter; section 529.3, for example, concerns entry into a dwelling to arrest rather than every type of search.",
+      "authorityIds": [
+        "EXIGENT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q073A": {
+      "questionId": "Q073A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The application must justify the proposed place and evidence.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q073B": {
+      "questionId": "Q073B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The application must justify the proposed place and evidence.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q074A": {
+      "questionId": "Q074A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The information must connect the sought items to the search place.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q074B": {
+      "questionId": "Q074B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "The information must connect the sought items to the search place.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q075A": {
+      "questionId": "Q075A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "An ITO is sworn support for a search warrant application.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q075B": {
+      "questionId": "Q075B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "An ITO is sworn support for a search warrant application.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q076A": {
+      "questionId": "Q076A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The affiant swears the supporting information.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q076B": {
+      "questionId": "Q076B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "The affiant swears the supporting information.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q077A": {
+      "questionId": "Q077A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Three Fs summarize full, fair and frank disclosure. Araujo and Morelli require full and frank disclosure of material facts in ex parte applications; the mnemonic is not the text of section 487.",
+      "authorityIds": [
+        "WARRANT",
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, para. 46; Morelli, para. 44"
+    },
+    "Q077B": {
+      "questionId": "Q077B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Three Fs summarize full, fair and frank disclosure. Araujo and Morelli require full and frank disclosure of material facts in ex parte applications; the mnemonic is not the text of section 487.",
+      "authorityIds": [
+        "WARRANT",
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, para. 46; Morelli, para. 44"
+    },
+    "Q078A": {
+      "questionId": "Q078A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The ITO needs specific offence facts and basis of knowledge.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q078B": {
+      "questionId": "Q078B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "The ITO needs specific offence facts and basis of knowledge.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q079A": {
+      "questionId": "Q079A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The ITO identifies location, offence and evidence sought.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q079B": {
+      "questionId": "Q079B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The ITO identifies location, offence and evidence sought.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q080A": {
+      "questionId": "Q080A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Material facts cannot be omitted merely because they weaken the police theory. Morelli applies the duty of full and frank disclosure and explains how misleading statements and omissions affect an ITO.",
+      "authorityIds": [
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, para. 46; Morelli, paras. 44–60"
+    },
+    "Q080B": {
+      "questionId": "Q080B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Material facts cannot be omitted merely because they weaken the police theory. Morelli applies the duty of full and frank disclosure and explains how misleading statements and omissions affect an ITO.",
+      "authorityIds": [
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, para. 46; Morelli, paras. 44–60"
+    },
+    "Q081A": {
+      "questionId": "Q081A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Araujo requires full and frank disclosure of material facts in an ex parte application. Applying that duty, an earlier warrant refusal that is material to the new application should be disclosed rather than concealed. This does not mean every unrelated past application must be recounted.",
+      "authorityIds": [
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, paras. 46–47; Morelli, para. 44"
+    },
+    "Q081B": {
+      "questionId": "Q081B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Araujo requires full and frank disclosure of material facts in an ex parte application. Applying that duty, an earlier warrant refusal that is material to the new application should be disclosed rather than concealed. This does not mean every unrelated past application must be recounted.",
+      "authorityIds": [
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, paras. 46–47; Morelli, para. 44"
+    },
+    "Q082A": {
+      "questionId": "Q082A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Material facts about how evidence was obtained must not be concealed. Côté discusses an ITO that hid earlier unconstitutional searches and treats that failure of full and frank disclosure as aggravating police misconduct. The applicant should disclose the material collection facts and relevant constitutional problems, rather than substitute a list of case numbers.",
+      "authorityIds": [
+        "ARAUJO",
+        "COTE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, para. 46; Côté, paras. 24 and 83"
+    },
+    "Q082B": {
+      "questionId": "Q082B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Material facts about how evidence was obtained must not be concealed. Côté discusses an ITO that hid earlier unconstitutional searches and treats that failure of full and frank disclosure as aggravating police misconduct. The applicant should disclose the material collection facts and relevant constitutional problems, rather than substitute a list of case numbers.",
+      "authorityIds": [
+        "ARAUJO",
+        "COTE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, para. 46; Côté, paras. 24 and 83"
+    },
+    "Q083A": {
+      "questionId": "Q083A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Informer privilege generally protects identifying information once the privilege is established. Leipert explains the narrow innocence-at-stake exception; ordinary relevance does not itself override the privilege.",
+      "authorityIds": [
+        "LEIPERT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q083B": {
+      "questionId": "Q083B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Informer privilege generally protects identifying information once the privilege is established. Leipert explains the narrow innocence-at-stake exception; ordinary relevance does not itself override the privilege.",
+      "authorityIds": [
+        "LEIPERT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q084A": {
+      "questionId": "Q084A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Employment by police is not required for state agency. Broyles addresses a non-officer acting as a state agent in the right-to-silence context; agency depends on the police involvement and the facts.",
+      "authorityIds": [
+        "BROYLES"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q084B": {
+      "questionId": "Q084B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Employment by police is not required for state agency. Broyles addresses a non-officer acting as a state agent in the right-to-silence context; agency depends on the police involvement and the facts.",
+      "authorityIds": [
+        "BROYLES"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q085A": {
+      "questionId": "Q085A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "An issuing judicial officer may seal relevant materials.",
+      "authorityIds": [
+        "WARRANT_SEAL"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 487.3"
+    },
+    "Q085B": {
+      "questionId": "Q085B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "An issuing judicial officer may seal relevant materials.",
+      "authorityIds": [
+        "WARRANT_SEAL"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 487.3"
+    },
+    "Q086A": {
+      "questionId": "Q086A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Under section 487.1(5)–(6), an applicant using a means of telecommunication that does not produce a writing must explain why using one that produces a writing is impracticable. This is not a universal requirement to explain inability to appear in person.",
+      "authorityIds": [
+        "TELE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 487.1(5)–(6)"
+    },
+    "Q086B": {
+      "questionId": "Q086B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Under section 487.1(5)–(6), an applicant using a means of telecommunication that does not produce a writing must explain why using one that produces a writing is impracticable. This is not a universal requirement to explain inability to appear in person.",
+      "authorityIds": [
+        "TELE"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 487.1(5)–(6)"
+    },
+    "Q087A": {
+      "questionId": "Q087A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Knock-and-announce is the ordinary common-law approach, subject to legally justified exceptions. Genest addresses search-warrant execution. Section 529.4 separately governs announcement exceptions for specified dwelling entries to arrest.",
+      "authorityIds": [
+        "GENEST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q087B": {
+      "questionId": "Q087B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Knock-and-announce is the ordinary common-law approach, subject to legally justified exceptions. Genest addresses search-warrant execution. Section 529.4 separately governs announcement exceptions for specified dwelling entries to arrest.",
+      "authorityIds": [
+        "GENEST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q088A": {
+      "questionId": "Q088A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A valid warrant does not permit unlimited force. Section 25 requires lawful authority, reasonable grounds and necessary force; Genest addresses the reasonableness of force and entry when executing a search warrant.",
+      "authorityIds": [
+        "DUTY",
+        "GENEST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q088B": {
+      "questionId": "Q088B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "A valid warrant does not permit unlimited force. Section 25 requires lawful authority, reasonable grounds and necessary force; Genest addresses the reasonableness of force and entry when executing a search warrant.",
+      "authorityIds": [
+        "DUTY",
+        "GENEST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q089A": {
+      "questionId": "Q089A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "No-knock means entry without prior announcement. The lack of announcement must have a lawful, fact-specific justification; the arrest-entry provisions in section 529.4 do not govern every search warrant.",
+      "authorityIds": [
+        "GENEST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q089B": {
+      "questionId": "Q089B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "No-knock means entry without prior announcement. The lack of announcement must have a lawful, fact-specific justification; the arrest-entry provisions in section 529.4 do not govern every search warrant.",
+      "authorityIds": [
+        "GENEST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "Q090A": {
+      "questionId": "Q090A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 2 defines night as 9 p.m. to 6 a.m. Section 488 separately requires a section 487 search warrant to be executed by day unless its conditions for nighttime execution are met.",
+      "authorityIds": [
+        "NIGHT",
+        "DEFINITIONS"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 2, definition of night; s. 488"
+    },
+    "Q090B": {
+      "questionId": "Q090B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 2 defines night as 9 p.m. to 6 a.m. Section 488 separately requires a section 487 search warrant to be executed by day unless its conditions for nighttime execution are met.",
+      "authorityIds": [
+        "NIGHT",
+        "DEFINITIONS"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 2, definition of night; s. 488"
+    },
+    "Q091A": {
+      "questionId": "Q091A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A premises warrant does not automatically permit unrestricted full searches of everyone present. A person-search needs an applicable legal power and its conditions. For example, CDSA section 11(5) requires reasonable grounds concerning specified items on the person when executing a warrant under that Act. A protective frisk has its own justification and limits.",
+      "authorityIds": [
+        "WARRANT",
+        "CDSA_SEARCH_PERSON",
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Criminal Code, s. 487(1); CDSA, s. 11(5); Mann, paras. 40–45"
+    },
+    "Q091B": {
+      "questionId": "Q091B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A premises warrant does not automatically permit unrestricted full searches of everyone present. A person-search needs an applicable legal power and its conditions. For example, CDSA section 11(5) requires reasonable grounds concerning specified items on the person when executing a warrant under that Act. A protective frisk has its own justification and limits.",
+      "authorityIds": [
+        "WARRANT",
+        "CDSA_SEARCH_PERSON",
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Criminal Code, s. 487(1); CDSA, s. 11(5); Mann, paras. 40–45"
+    },
+    "Q092A": {
+      "questionId": "Q092A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A search warrant authorizes a search within its terms and lawful scope, not unlimited repeat entries. A completed search must be distinguished from a lawful temporary interruption.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "needs_review",
+      "reviewNote": "Specific re-entry jurisprudence and distinctions between completion and temporary interruption remain outstanding.",
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": null,
+      "pinpoint": ""
+    },
+    "Q092B": {
+      "questionId": "Q092B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "A search warrant authorizes a search within its terms and lawful scope, not unlimited repeat entries. A completed search must be distinguished from a lawful temporary interruption.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "needs_review",
+      "reviewNote": "Specific re-entry jurisprudence and distinctions between completion and temporary interruption remain outstanding.",
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": null,
+      "pinpoint": ""
+    },
+    "Q093A": {
+      "questionId": "Q093A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Form 5 authorizes entry and search between the hours the justice directs. The particular warrant terms therefore matter. Section 488 separately governs nighttime execution of section 487 warrants; a warrant is not permission to ignore its execution limits.",
+      "authorityIds": [
+        "FORM5",
+        "NIGHT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Criminal Code, Form 5; s. 488"
+    },
+    "Q093B": {
+      "questionId": "Q093B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Form 5 authorizes entry and search between the hours the justice directs. The particular warrant terms therefore matter. Section 488 separately governs nighttime execution of section 487 warrants; a warrant is not permission to ignore its execution limits.",
+      "authorityIds": [
+        "FORM5",
+        "NIGHT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Criminal Code, Form 5; s. 488"
+    },
+    "Q094A": {
+      "questionId": "Q094A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "An ITO must be sworn or affirmed.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 487(1)"
+    },
+    "Q094B": {
+      "questionId": "Q094B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "An ITO must be sworn or affirmed.",
+      "authorityIds": [
+        "WARRANT"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 487(1)"
+    },
+    "Q095A": {
+      "questionId": "Q095A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "CPIC stands for Canadian Police Information Centre. Yumnu uses that full name when discussing the database. Identifying the database does not itself establish authority for a search, detention or disclosure of personal information.",
+      "authorityIds": [
+        "YUMNU"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Yumnu, para. 56"
+    },
+    "Q095B": {
+      "questionId": "Q095B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "CPIC stands for Canadian Police Information Centre. Yumnu uses that full name when discussing the database. Identifying the database does not itself establish authority for a search, detention or disclosure of personal information.",
+      "authorityIds": [
+        "YUMNU"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Yumnu, para. 56"
+    },
+    "M001": {
+      "questionId": "M001",
+      "correctOptionIndices": [
+        4
+      ],
+      "explanation": "All of the above is the most complete answer because each preceding option is correct. Charter sections 8, 9 and 10 protect these rights.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M002": {
+      "questionId": "M002",
+      "correctOptionIndices": [
+        2
+      ],
+      "explanation": "Statements 1, 2 and 3 form the most complete correct combination; statement 4 does not belong. RICE is a study mnemonic for Repetition, Identity, Court attendance and Evidence. Section 495(2) contains the underlying arrest considerations; the acronym itself is not statutory wording.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)–(e)",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M003": {
+      "questionId": "M003",
+      "correctOptionIndices": [
+        2
+      ],
+      "explanation": "Statements 1, 2 and 3 reflect Charter section 10(a), (b) and (c). They concern reasons, counsel and review of detention by habeas corpus. A promised conviction is not a Charter right. Section 10(c) provides a right to review; it is not a claim that police must give the same warning about it as section 10(b).",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Charter, s. 10(a)–(c)",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M004": {
+      "questionId": "M004",
+      "correctOptionIndices": [
+        4
+      ],
+      "explanation": "All of the above is the most complete answer because each preceding option is correct. Hot pursuit, exigent entry to arrest and emergency assistance are distinct legal bases with different prerequisites. None allows entry simply because police wish to investigate.",
+      "authorityIds": [
+        "EXIGENT",
+        "MACOOH",
+        "GODOY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 529.3; Macooh; Godoy",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M005": {
+      "questionId": "M005",
+      "correctOptionIndices": [
+        4
+      ],
+      "explanation": "All of the above is the most complete answer because each preceding option is correct. Recognized purposes include safety, protecting evidence and discovering evidence. Under Caslake, the search must genuinely serve a valid purpose connected to a lawful arrest and be reasonable.",
+      "authorityIds": [
+        "CASLAKE",
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Caslake, paras. 19–25",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M006": {
+      "questionId": "M006",
+      "correctOptionIndices": [
+        2
+      ],
+      "explanation": "Statements 1, 2 and 3 form the most complete correct combination; statement 4 does not belong. Fearon requires a lawful arrest, an objectively reasonable valid purpose, a search tailored to that purpose, and detailed notes. For discovering evidence, prompt searching must be needed to avoid stymying or significantly hampering the investigation.",
+      "authorityIds": [
+        "FEARON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Fearon, para. 83",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M007": {
+      "questionId": "M007",
+      "correctOptionIndices": [
+        2
+      ],
+      "explanation": "Continuity depends on reliable documentation and handling.",
+      "authorityIds": [],
+      "reviewStatus": "needs_review",
+      "reviewNote": "A specific chain-of-custody source is still required; seizure legislation alone is insufficient.",
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": null,
+      "pinpoint": "",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M008": {
+      "questionId": "M008",
+      "correctOptionIndices": [
+        4
+      ],
+      "explanation": "All of the above is the most complete answer because each preceding option is correct. The Three Fs summarize full, fair and frank disclosure. Araujo and Morelli require full and frank disclosure of material facts in ex parte applications; the mnemonic is not the text of section 487.",
+      "authorityIds": [
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Araujo, para. 46; Morelli, para. 44",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M009": {
+      "questionId": "M009",
+      "correctOptionIndices": [
+        4
+      ],
+      "explanation": "All of the above is the most complete answer because each preceding option is correct. The ITO must connect the place and items to the offence through supporting grounds. The duty of full and frank disclosure also requires material contrary information; it is not limited to favourable evidence.",
+      "authorityIds": [
+        "WARRANT",
+        "ARAUJO",
+        "MORELLI"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 487(1); Araujo, para. 46; Morelli, para. 44",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "M010": {
+      "questionId": "M010",
+      "correctOptionIndices": [
+        2
+      ],
+      "explanation": "Statements 1, 2 and 3 form the most complete correct combination; statement 4 does not belong. Knock-and-announce is the ordinary common-law approach, subject to legally justified exceptions. Genest addresses search-warrant execution. Section 529.4 separately governs announcement exceptions for specified dwelling entries to arrest.",
+      "authorityIds": [
+        "GENEST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "",
+      "answerFormat": "single_most_complete",
+      "formatNote": "Converted from multiple selections to one Scantron choice. Existing progress IDs are retained."
+    },
+    "F001": {
+      "questionId": "F001",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The federal Parliament creates Canadian criminal law.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 91(27)"
+    },
+    "F002": {
+      "questionId": "F002",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The provinces have responsibility for administering justice.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 92(14)"
+    },
+    "F003": {
+      "questionId": "F003",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Constitution Act, 1867 divides legislative authority.",
+      "authorityIds": [
+        "CONST1867"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "ss. 91–92"
+    },
+    "F004": {
+      "questionId": "F004",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Charter forms part of the Constitution Act, 1982.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "F005": {
+      "questionId": "F005",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The Canadian Bill of Rights dates to 1960.",
+      "authorityIds": [
+        "BILL1960"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "F006": {
+      "questionId": "F006",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Constitution Act, 1982, section 52(1) makes the Constitution the supreme law of Canada. Inconsistent laws have no force or effect to the extent of the inconsistency.",
+      "authorityIds": [
+        "CONST52"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 52(1)"
+    },
+    "F007": {
+      "questionId": "F007",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A statute is legislation enacted by a legislature. At the federal level, the Interpretation Act distinguishes an Act of Parliament from regulations made under delegated authority.",
+      "authorityIds": [
+        "CONST1867",
+        "INTERPRETATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 2; Constitution Act, 1867, ss. 91–92"
+    },
+    "F008": {
+      "questionId": "F008",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Common law develops through judicial decisions. Salituro explains that judges may make appropriate incremental changes to common-law rules, while complex changes with uncertain consequences may be for the legislature.",
+      "authorityIds": [
+        "SALITURO"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Discussion of judicial development of the common law"
+    },
+    "F009": {
+      "questionId": "F009",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Regulations are delegated legislation. The federal Interpretation Act includes instruments made under authority conferred by an Act within its definition of regulation.",
+      "authorityIds": [
+        "INTERPRETATION"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 2, definition of regulation"
+    },
+    "F010": {
+      "questionId": "F010",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 7 protects life, liberty and security of the person, and the right not to be deprived of them except in accordance with the principles of fundamental justice.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 7"
+    },
+    "F011": {
+      "questionId": "F011",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 8 protects against unreasonable searches and seizures.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 8"
+    },
+    "F012": {
+      "questionId": "F012",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 9 prohibits arbitrary detention or imprisonment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 9"
+    },
+    "F013": {
+      "questionId": "F013",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10 contains arrest and detention rights.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 10"
+    },
+    "F014": {
+      "questionId": "F014",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11 outlines rights concerning criminal proceedings.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 11"
+    },
+    "F015": {
+      "questionId": "F015",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 12 protects against cruel and unusual treatment or punishment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 12"
+    },
+    "F016": {
+      "questionId": "F016",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 13 protects a witness against the use of their incriminating testimony to incriminate them in other proceedings, except prosecutions for perjury or contradictory evidence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 13"
+    },
+    "F017": {
+      "questionId": "F017",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 14 gives a party or witness who does not understand or speak the language of the proceedings, or who is deaf, the right to an interpreter’s assistance.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 14"
+    },
+    "F018": {
+      "questionId": "F018",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 495 is the general warrantless arrest power for peace officers. Section 494 separately addresses arrest by any person; the conditions and limits of the applicable power must still be met.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(1)–(2)"
+    },
+    "F019": {
+      "questionId": "F019",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "For the offence categories listed in section 495(2), an officer shall not arrest without a warrant when the public-interest and court-attendance conditions in that subsection are satisfied.",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)"
+    },
+    "F020": {
+      "questionId": "F020",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "The arresting officer must actually hold the required belief. Storrey also requires an objectively justifiable basis; a subjective belief alone is insufficient.",
+      "authorityIds": [
+        "ARREST",
+        "STORREY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "F021": {
+      "questionId": "F021",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "A reasonable person placed in the officer’s position must be able to find reasonable grounds from the known facts. A guaranteed conviction is not required.",
+      "authorityIds": [
+        "ARREST",
+        "STORREY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "F022": {
+      "questionId": "F022",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Finding a person committing an offence concerns the apparent commission perceived by the arresting person; it does not require a later conviction. The conditions of the particular arrest power still apply.",
+      "authorityIds": [
+        "ARREST",
+        "BIRON"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(1)(b); Biron, discussion of found committing"
+    },
+    "F023": {
+      "questionId": "F023",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. R refers to repetition or continuation, corresponding to the concern in section 495(2)(d)(iii).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(iii)"
+    },
+    "F024": {
+      "questionId": "F024",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. I refers to identity, corresponding to section 495(2)(d)(i).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(i)"
+    },
+    "F025": {
+      "questionId": "F025",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. C refers to court attendance, corresponding to section 495(2)(e).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(e)"
+    },
+    "F026": {
+      "questionId": "F026",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "RICE is a study mnemonic, not statutory wording. E refers to evidence preservation, corresponding to section 495(2)(d)(ii).",
+      "authorityIds": [
+        "ARREST"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "s. 495(2)(d)(ii)"
+    },
+    "F027": {
+      "questionId": "F027",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Protecting property is among the common-law duties of police identified in Mann, alongside preserving the peace, preventing crime and protecting life. A general duty does not itself authorize every intrusion: a particular police action still needs lawful justification.",
+      "authorityIds": [
+        "MANN"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Mann, para. 26"
+    },
+    "F028": {
+      "questionId": "F028",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Summary conviction is a Criminal Code procedure and offence classification. It is generally associated with less serious offences, but that shorthand does not determine the seriousness or penalty of every particular offence.",
+      "authorityIds": [
+        "SUMMARY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": ""
+    },
+    "F029": {
+      "questionId": "F029",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "For a hybrid offence, the Crown elects whether to proceed summarily or by indictment. This procedural choice is distinct from an accused’s election of mode of trial where available.",
+      "authorityIds": [
+        "HYBRID",
+        "DUDLEY"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 34; Dudley, paras. 19–21"
+    },
+    "F030": {
+      "questionId": "F030",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Hybrid offences are deemed indictable until the Crown elects summary procedure. This does not remove the restrictions on warrantless arrest in Criminal Code section 495(2).",
+      "authorityIds": [
+        "HYBRID",
+        "DUDLEY",
+        "ARREST"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-20",
+      "pinpoint": "Interpretation Act, s. 34(1)(a); Dudley, para. 21; Criminal Code, s. 495(2)"
+    }
+  },
+  "updated": "2026-10-20"
+}
