@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-10-20",
+  "disclaimer": "Educational legal-source references. Mapping to a source does not mean the question has been individually certified against that source. Verify before publication.",
+  "authorities": {
+    "CONST1867": {
+      "title": "Constitution Act, 1867, ss. 91(27) and 92(14)",
+      "type": "constitution",
+      "url": "https://laws-lois.justice.gc.ca/eng/const/page-3.html",
+      "note": "Check applicable divisions of powers."
+    },
+    "CHARTER": {
+      "title": "Canadian Charter of Rights and Freedoms",
+      "type": "charter",
+      "url": "https://laws-lois.justice.gc.ca/eng/const/page-12.html",
+      "note": ""
+    },
+    "BILL1960": {
+      "title": "Canadian Bill of Rights, 1960",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-12.3/",
+      "note": ""
+    },
+    "ARREST": {
+      "title": "Criminal Code, s. 495",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-495.html",
+      "note": ""
+    },
+    "CITIZEN": {
+      "title": "Criminal Code, s. 494",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-494.html",
+      "note": ""
+    },
+    "WARRANT": {
+      "title": "Criminal Code, s. 487",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-487.html",
+      "note": ""
+    },
+    "TELE": {
+      "title": "Criminal Code, s. 487.1",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-487.1.html",
+      "note": ""
+    },
+    "NIGHT": {
+      "title": "Criminal Code, s. 488",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-488.html",
+      "note": ""
+    },
+    "ENTRY": {
+      "title": "Criminal Code, s. 529",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.html",
+      "note": ""
+    },
+    "ENTRY_SEPARATE": {
+      "title": "Criminal Code, s. 529.1",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.1.html",
+      "note": ""
+    },
+    "EXIGENT": {
+      "title": "Criminal Code, s. 529.3",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.3.html",
+      "note": ""
+    },
+    "ANNOUNCE": {
+      "title": "Criminal Code, s. 529.4",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-529.4.html",
+      "note": ""
+    },
+    "RELEASE": {
+      "title": "Criminal Code, s. 498",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-498.html",
+      "note": ""
+    },
+    "BAIL": {
+      "title": "Criminal Code, s. 503",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-503.html",
+      "note": ""
+    },
+    "SUMMARY": {
+      "title": "Criminal Code, s. 787",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-787.html",
+      "note": ""
+    },
+    "BENCH": {
+      "title": "Criminal Code, s. 512",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-512.html",
+      "note": ""
+    },
+    "DUTY": {
+      "title": "Criminal Code, s. 25",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-25.html",
+      "note": ""
+    },
+    "DEFINITIONS": {
+      "title": "Criminal Code, s. 2",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-2.html",
+      "note": ""
+    },
+    "WARRANT_SEAL": {
+      "title": "Criminal Code, s. 487.3",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-487.3.html",
+      "note": ""
+    },
+    "SEIZURE": {
+      "title": "Criminal Code, s. 489",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/C-46/section-489.html",
+      "note": ""
+    },
+    "YCJA": {
+      "title": "Youth Criminal Justice Act",
+      "type": "statute",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/Y-1.5/",
+      "note": ""
+    },
+    "FEENEY": {
+      "title": "R. v. Feeney, [1997] 2 S.C.R. 13",
+      "type": "case",
+      "url": "https://scc-csc.lexum.com/scc-csc/scc-csc/en/item/1508/index.do",
+      "note": ""
+    },
+    "FEARON": {
+      "title": "R. v. Fearon, 2014 SCC 77",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/14502/index.do",
+      "note": ""
+    },
+    "GRANT": {
+      "title": "R. v. Grant, 2009 SCC 32",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/7799/index.do",
+      "note": ""
+    },
+    "BUHAY": {
+      "title": "R. v. Buhay, 2003 SCC 30",
+      "type": "case",
+      "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/2062/index.do",
+      "note": ""
+    },
+    "EVANS": {
+      "title": "R. v. Evans, [1996] 1 S.C.R. 8",
+      "type": "case",
+      "url": "https://scc-csc.lexum.com/scc-csc/scc-csc/en/item/1333/index.do",
+      "note": ""
+    },
+    "CASLAKE": {
+      "title": "R. v. Caslake, [1998] 1 S.C.R. 51",
+      "type": "case",
+      "url": "https://www.scc-csc.ca/cases-dossiers/search-recherche/25023/",
+      "note": "Case registry page. Check full published judgment before treating this link as complete legal text."
+    },
+    "MANN": {
+      "title": "R. v. Mann, 2004 SCC 52",
+      "type": "case",
+      "url": "https://www.scc-csc.ca/cases-dossiers/search-recherche/29477/",
+      "note": "Case registry page. Check full published judgment before treating this link as complete legal text."
+    },
+    "SCHOOL": {
+      "title": "R. v. M. (M.R.), [1998] 3 S.C.R. 393",
+      "type": "case",
+      "url": "https://www.scc-csc.ca/cases-dossiers/search-recherche/26042/",
+      "note": "Case registry page. Check full published judgment before treating this link as complete legal text."
+    },
+    "CPIC": {
+      "title": "Canadian Police Information Centre",
+      "type": "official_resource",
+      "url": "https://www.rcmp-grc.gc.ca/en/canadian-police-information-centre",
+      "note": "Agency definition, not a statute or independent source of police powers."
+    }
+  }
+}
