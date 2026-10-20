@@ -454,5 +454,56 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertFalse(self.errors)
 
 
+
+    def test_topic_labels_and_filters_in_practice_and_exam(self):
+        self.assets(instrument=True)
+        titles = ['Sources of Police Powers', 'Arrest Powers', 'Location of Arrest & Feeney',
+                  'Warrantless Search & Seizure', 'Search With a Warrant']
+        self.assertEqual(self.page.locator('.topic strong').all_text_contents(), titles)
+        self.assertEqual(self.page.locator('#chapterSelect option').all_text_contents(), ['All topics'] + titles)
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.get_by_label('Topic focus').select_option('7')
+        self.page.locator('#startBtn').click()
+        self.assertTrue(self.page.evaluate('window.__audit.s.pool.every(q => q.chapter === 7)'))
+        self.assertEqual(self.page.locator('.q-label').inner_text(), 'WARRANTLESS SEARCH & SEIZURE')
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.evaluate('window.__audit.finish()')
+        self.assertIn('Topic breakdown', self.page.locator('body').inner_text())
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.evaluate("window.__audit.s.mode='exam';window.__audit.start()")
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.evaluate('window.__audit.finish()')
+        self.assertNotRegex(self.page.locator('body').inner_text(), r'(?i)chapter')
+        self.page.set_viewport_size({'width': 320, 'height': 850})
+        self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), 320)
+        self.assertFalse(self.errors)
+
+
+    def test_power_switch_keyboard_touch_size_and_pressed_feedback(self):
+        self.page.emulate_media(color_scheme='light', reduced_motion='reduce')
+        self.assets()
+        switch = self.page.locator('#themeToggle')
+        self.assertEqual(switch.get_attribute('aria-pressed'), 'false')
+        raised = switch.evaluate('(e)=>getComputedStyle(e, "::before").boxShadow')
+        switch.focus()
+        self.page.keyboard.press('Space')
+        self.assertEqual(switch.get_attribute('aria-pressed'), 'true')
+        self.assertEqual(self.page.locator('html').get_attribute('data-theme'), 'dark')
+        pressed = switch.evaluate('(e)=>getComputedStyle(e, "::before").boxShadow')
+        self.assertNotEqual(raised, pressed)
+        self.assertEqual(switch.evaluate('(e)=>getComputedStyle(e).transitionDuration'), '0s')
+        for width in [320, 375, 768, 1280]:
+            self.page.set_viewport_size({'width': width, 'height': 900})
+            box = switch.bounding_box()
+            self.assertGreaterEqual(box['width'], 44)
+            self.assertEqual(box['width'], box['height'])
+            self.assertLessEqual(box['x'] + box['width'], width)
+            self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), width)
+        self.page.locator('#startBtn').click()
+        switch.click()
+        self.assertEqual(switch.get_attribute('aria-pressed'), 'false')
+        self.assertTrue(self.page.locator('[data-answer]').first.is_visible())
+        self.assertFalse(self.errors)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
