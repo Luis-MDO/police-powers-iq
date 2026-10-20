@@ -12,7 +12,7 @@ Interactive Canadian police powers study app. Built as a static website so it ca
 - 40-question, 90-minute mock exam
 - Topic filtering, review of mistakes, persistent progress using `localStorage`
 - Copper-orange accents with charcoal dark mode and warm cream light mode
-- Persistent theme switch, tactile pressed buttons, CSS 3D scales and reduced-motion support
+- Persistent theme switch with a responsive layered power button, tactile pressed buttons, CSS 3D scales and reduced-motion support
 - Mobile-friendly interface
 
 ## Deploy
