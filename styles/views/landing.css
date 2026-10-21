@@ -35,6 +35,9 @@
 }
 .landing-page {
   padding-top: 18px;
+  /* Cards waiting to fly in sit off to the side; never let them widen the page. */
+  overflow-x: clip;
+  overflow-clip-margin: 40px;
 }
 .landing-hero {
   display: grid;
@@ -67,6 +70,12 @@
   line-height: 1.06;
   letter-spacing: -2.8px;
   margin: 26px 0;
+}
+.landing-copy h1 > * {
+  display: block;
+}
+.landing-copy h1 > span {
+  color: inherit;
 }
 .landing-copy h1 em {
   color: var(--accent);
@@ -111,30 +120,10 @@ body.landing-active {
   position: absolute;
   inset: -25%;
   background:
-    radial-gradient(ellipse at 80% 25%, #d57d354d, transparent 38%),
-    radial-gradient(ellipse at 25% 70%, #a36e343b, transparent 40%),
-    radial-gradient(ellipse at 60% 90%, #55846b2e, transparent 40%);
+    radial-gradient(ellipse at 75% 45%, #e0a24a40, transparent 38%),
+    radial-gradient(ellipse at 25% 70%, #a36e3433, transparent 40%),
+    radial-gradient(ellipse at 60% 90%, #8a5a1a26, transparent 40%);
   animation: atmosphere-drift 16s ease-in-out infinite alternate;
-}
-.landing-art-halo {
-  position: absolute;
-  width: 120vmax;
-  height: 120vmax;
-  left: 8%;
-  top: -60%;
-  border: 1px solid #d69a615c;
-  border-radius: 50%;
-  box-shadow:
-    0 0 80px #dc92471c,
-    inset 0 0 80px #dc92471c;
-  animation: halo-drift 22s linear infinite;
-}
-.landing-art-halo:after {
-  content: "";
-  position: absolute;
-  inset: 8%;
-  border: 1px dashed #d69a6166;
-  border-radius: 50%;
 }
 .landing-scene,
 .landing-scene canvas {
@@ -144,32 +133,107 @@ body.landing-active {
   height: 100%;
   display: block;
 }
+/* Still book-and-scales poster: the phone artwork and the 3D fallback. */
+.landing-art {
+  --poster-stone: #26231e;
+  --poster-line: #c99a4a;
+  --poster-glyph: #f3c97a;
+  --poster-leather: #5b1d16;
+}
+[data-theme="light"] .landing-art {
+  --poster-stone: #d9ccb4;
+  --poster-line: #a8741f;
+  --poster-glyph: #9a5a12;
+  --poster-leather: #7a2a1f;
+}
 .landing-scales-fallback {
   position: absolute;
-  width: 65%;
-  height: 85%;
-  right: -4%;
-  top: 2%;
-  opacity: 0.75;
-  filter: drop-shadow(15px 20px 30px var(--shadow));
-  animation: scales-float 7s ease-in-out infinite;
-  transition: opacity 0.5s;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.8s;
 }
-.scene-ready .landing-scales-fallback {
+.scene-ready .landing-scales-fallback,
+.landing-art-cinematic .landing-scales-fallback {
   opacity: 0;
+}
+.poster-line {
+  stroke: var(--poster-line);
+  stroke-opacity: 0.22;
+}
+.poster-column {
+  fill: var(--poster-stone);
+}
+.poster-candle {
+  fill: #efe2c6;
+  opacity: 0.8;
+}
+.poster-flame {
+  fill: url(#posterBokeh);
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: poster-flicker 1.8s ease-in-out infinite alternate;
+}
+.poster-bokeh {
+  fill: url(#posterBokeh);
+}
+.poster-ray {
+  fill: url(#posterRay);
+  animation: poster-ray 6s ease-in-out infinite alternate;
+}
+.poster-glow {
+  fill: url(#posterGlow);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: poster-breathe 5s ease-in-out infinite alternate;
+}
+.poster-leather {
+  fill: var(--poster-leather);
+}
+.poster-paper {
+  fill: url(#posterPaper);
+  stroke: #b89a62;
+  stroke-width: 0.8;
+}
+.poster-turn {
+  transform-box: view-box;
+  transform-origin: 990px 700px;
+  animation: poster-turn 6s ease-in-out infinite;
+}
+.poster-gold {
+  fill: url(#posterGold);
+}
+.poster-beam {
+  stroke: url(#posterGold);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+.poster-chain {
+  stroke: #e2b45a;
+  stroke-width: 1.6;
+  stroke-dasharray: 4 3;
+}
+.poster-scales {
+  transform-box: view-box;
+  transform-origin: 990px 700px;
+  animation: poster-sway 8s ease-in-out infinite alternate;
+}
+.poster-spark {
+  fill: #ffe2a0;
+  transform-box: fill-box;
+  animation: poster-spark 6s linear infinite;
+}
+.poster-glyph {
+  fill: var(--poster-glyph);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
 }
 .landing-backdrop-veil {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(
-      90deg,
-      #191c17f5 0%,
-      #191c17d9 30%,
-      #191c1726 72%,
-      #191c174d
-    ),
-    linear-gradient(0deg, #191c17a6, transparent 55%);
+    linear-gradient(90deg, #191c17f2 0%, #191c17cc 30%, #191c1700 58%),
+    linear-gradient(0deg, #191c1799, transparent 30%);
 }
 [data-theme="light"] .landing-backdrop-veil {
   background:
@@ -191,6 +255,10 @@ body.landing-active {
   font-size: 9px;
   letter-spacing: 1.8px;
 }
+.landing-toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
 .motion-control {
   color: var(--link);
   background: var(--surface);
@@ -209,23 +277,90 @@ body.landing-active {
     transform: translate3d(-6%, 8%, 0) rotate(12deg) scale(1.12);
   }
 }
-@keyframes halo-drift {
+@keyframes poster-ray {
   from {
-    transform: rotate(-25deg) scaleY(0.65);
+    opacity: 0.45;
   }
   to {
-    transform: rotate(335deg) scaleY(0.65);
+    opacity: 0.9;
   }
 }
-@keyframes scales-float {
+@keyframes poster-breathe {
+  from {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+@keyframes poster-flicker {
+  from {
+    transform: scale(0.9, 0.95);
+  }
+  to {
+    transform: scale(1.05, 1.1);
+  }
+}
+@keyframes poster-turn {
   0%,
+  70%,
   100% {
-    transform: perspective(900px) rotateY(-22deg) rotateZ(-6deg)
-      translateY(-18px);
+    transform: none;
   }
-  50% {
-    transform: perspective(900px) rotateY(12deg) rotateZ(5deg) translateY(20px);
+  85% {
+    transform: scaleX(0.82) skewY(-2deg);
   }
+}
+@keyframes poster-sway {
+  from {
+    transform: rotate(-0.6deg);
+  }
+  to {
+    transform: rotate(0.6deg);
+  }
+}
+@keyframes poster-spark {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-260px);
+    opacity: 0;
+  }
+}
+/* Opening sequence: content waits, then flies in from different directions. */
+[data-fly="left"] {
+  --fly-from: -90px 0;
+}
+[data-fly="right"] {
+  --fly-from: 90px 0;
+}
+[data-fly="up"] {
+  --fly-from: 0 60px;
+}
+[data-fly="down"] {
+  --fly-from: 0 -40px;
+}
+.landing-staged [data-fly] {
+  opacity: 0;
+  translate: var(--fly-from);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--fly-delay, 0s),
+    translate 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--fly-delay, 0s);
+}
+.landing-revealed [data-fly] {
+  opacity: 1;
+  translate: none;
+}
+.landing-skip {
+  border-color: var(--line);
+  color: var(--soft);
 }
 .landing-section-label {
   display: flex;
@@ -506,9 +641,6 @@ body.landing-active {
     font-size: clamp(44px, 10vw, 65px);
     letter-spacing: -2px;
   }
-  .landing-copy h1 br:last-of-type {
-    display: none;
-  }
   .landing-intro {
     max-width: 100%;
     font-size: 13px;
@@ -516,16 +648,11 @@ body.landing-active {
   .landing-hero {
     min-height: 480px;
   }
-  .landing-scales-fallback {
-    width: 110%;
-    right: -35%;
-    opacity: 0.4;
-  }
   .landing-backdrop-veil {
-    background: linear-gradient(90deg, #191c17eb, #191c1773);
+    background: linear-gradient(180deg, #191c1794 0%, #191c17c7 45%, #191c17f0);
   }
   [data-theme="light"] .landing-backdrop-veil {
-    background: linear-gradient(90deg, #f4efe5f0, #f4efe58c);
+    background: linear-gradient(180deg, #f4efe5a3 0%, #f4efe5d1 45%, #f4efe5f2);
   }
   .exam-choices {
     gap: 14px;
@@ -553,6 +680,15 @@ body.landing-active {
     font-size: 11px;
   }
 }
+/* Portrait screens: keep the poster's vanishing point centred rather than cropped. */
+@media (max-aspect-ratio: 1/1) {
+  .landing-scales-fallback {
+    width: 112vh;
+    height: 70vh;
+    left: 50%;
+    margin-left: -69vh;
+  }
+}
 @media (max-width: 540px) {
   .exam-choices {
     grid-template-columns: 1fr;
@@ -570,18 +706,19 @@ body.landing-active {
   .landing-copy h1 {
     font-size: 49px;
   }
-  .landing-copy h1 br:last-of-type {
-    display: initial;
-  }
   .final-placeholder {
     padding: 40px 0;
     min-height: 500px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .landing-scales-fallback,
+  .poster-ray,
+  .poster-glow,
+  .poster-flame,
+  .poster-turn,
+  .poster-scales,
+  .poster-spark,
   .landing-atmosphere,
-  .landing-art-halo,
   .exam-portal {
     animation: none;
   }

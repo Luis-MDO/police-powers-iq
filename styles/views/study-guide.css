@@ -262,6 +262,30 @@
 .guide-recall button {
   margin-top: 8px;
 }
+/* Quick reference below the topic notes; not part of the reading checklist. */
+.guide-reference {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.guide-reference-card > summary > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.guide-reference-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.guide-reference-intro {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 12px 0 0;
+}
 @media (max-width: 850px) {
   .guide-layout {
     grid-template-columns: 210px minmax(0, 1fr);

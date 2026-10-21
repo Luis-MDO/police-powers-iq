@@ -12,7 +12,7 @@ Reviewed October 20, 2026. This records a proposition-level check against primar
 - `study_aid`: a reviewed mnemonic is labelled as such; it is not represented as statutory wording.
 - `needs_review`, unknown statuses, missing records, mismatched answer keys, unsafe URLs and failed asset loads: do not display substantive legal explanations. Show a pending state and the existing recorded answer key. Related links are explicitly labelled as pending support.
 
-Current totals: **210 verified, 13 study aids, 7 pending**. A `mapped_authority` status from the initial handoff is never sufficient for substantive display.
+Current totals: **234 verified, 29 study aids, 7 pending** (270 items). A `mapped_authority` status from the initial handoff is never sufficient for substantive display.
 
 ## Confirmed corrections
 
@@ -79,3 +79,7 @@ Student reports are reviewed before sending or exporting. They never change an e
 The uploaded study guide was used as an outline, not as legal authority or an instruction to publish its professor-specific claims. The new guide uses the existing Q001A–Q095A explanation records through the same `lookup` gate as feedback, with escaped text, allowlisted primary-source URLs and existing review dates. All five public topic names are preserved. No question, answer key, authority record, legal-review status or date changed for this feature.
 
 Professor slide references, the institution/course label, the old exam schedule and 90-minute duration were removed from the public guide. The standalone quiz is replaced by links into existing graded topic practice. Unsupported extra claims are not silently added; the mapped consent-withdrawal, continuity and re-entry topics explicitly remain pending. This is an editorial integration of previously reviewed notes, not a new legal currency audit. Technical tests check rendering and status enforcement, not the correctness of law.
+
+## Charter subsections and memory cues (October 21, 2026)
+
+Charter ss. 10(a)–(c) and 11(a)–(i) items (Q096–Q107, A and B forms) were added on October 21, 2026, after their wording was checked against the official Justice Laws Charter page (modified October 15, 2026). Memory-cue items for ss. 7–14 (Q108–Q115) are labelled study aids. The s. 9 cue reads “No arbitrary detention” to match the Charter’s wording rather than “unlawful”. Answer feedback for those cues states that they are not statutory wording. All new records use the verified `CHARTER` source with paragraph pinpoints such as `s. 11(d)`. Each explanation paraphrases or restates the paragraph's text without adding case-law gloss. No existing question, answer key or review status changed. The seven pending items are unchanged. The original 95 true/false truth-value contract still applies to Q001B–Q095B; the new true/false items are outside it. The offline queue lists the same eight tasks as before: the seven pending questions and the CPIC source check.
