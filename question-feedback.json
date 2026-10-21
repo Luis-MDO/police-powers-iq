@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "questionCount": 230,
+  "questionCount": 270,
   "description": "Reviewed question-ID keyed feedback. verified denotes the narrow proposition checked against its listed primary sources; study_aid denotes an explicitly labelled mnemonic. needs_review explanations must not be displayed as established law.",
   "feedback": {
     "Q001A": {
@@ -7209,7 +7209,1247 @@
           "3": "This choice removes the hybrid offence from its pre-election indictable treatment. That treatment does not eliminate arrest restrictions."
         }
       }
+    },
+    "Q096A": {
+      "questionId": "Q096A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10(a) gives everyone on arrest or detention the right to be informed promptly of the reasons for the arrest or detention.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10(a)",
+      "optionFeedback": {
+        "question": "Under Charter section 10(a), what must a person be told on arrest or detention?",
+        "options": [
+          "The reasons for the arrest or detention, promptly",
+          "The name of the Crown prosecutor",
+          "The date of the trial",
+          "The maximum sentence for the offence"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 10(a) gives everyone on arrest or detention the right to be informed promptly of the reasons for the arrest or detention.",
+        "notes": {
+          "1": "Section 10(a) is about being informed promptly of the reasons for the arrest or detention, not this information.",
+          "2": "Section 10(a) is about being informed promptly of the reasons for the arrest or detention, not this information.",
+          "3": "Section 10(a) is about being informed promptly of the reasons for the arrest or detention, not this information."
+        }
+      }
+    },
+    "Q096B": {
+      "questionId": "Q096B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10(a) gives everyone on arrest or detention the right to be informed promptly of the reasons for the arrest or detention.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10(a)",
+      "optionFeedback": {
+        "question": "Charter section 10(a) requires that a detained person be informed promptly of the reasons for the detention.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 10(a) gives everyone on arrest or detention the right to be informed promptly of the reasons for the arrest or detention.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q097A": {
+      "questionId": "Q097A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10(b) gives everyone on arrest or detention the right to retain and instruct counsel without delay and to be informed of that right.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10(b)",
+      "optionFeedback": {
+        "question": "Which right does Charter section 10(b) give a person on arrest or detention?",
+        "options": [
+          "To retain and instruct counsel without delay and to be informed of that right",
+          "To be tried within a reasonable time",
+          "To the assistance of an interpreter",
+          "Not to be denied reasonable bail without just cause"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 10(b) gives everyone on arrest or detention the right to retain and instruct counsel without delay and to be informed of that right.",
+        "notes": {
+          "1": "This right appears elsewhere in the Charter; section 10(b) is the right to counsel on arrest or detention.",
+          "2": "This right appears elsewhere in the Charter; section 10(b) is the right to counsel on arrest or detention.",
+          "3": "This right appears elsewhere in the Charter; section 10(b) is the right to counsel on arrest or detention."
+        }
+      }
+    },
+    "Q097B": {
+      "questionId": "Q097B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10(b) gives everyone on arrest or detention the right to retain and instruct counsel without delay and to be informed of that right.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10(b)",
+      "optionFeedback": {
+        "question": "Charter section 10(b) includes the right to be informed of the right to retain and instruct counsel.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 10(b) gives everyone on arrest or detention the right to retain and instruct counsel without delay and to be informed of that right.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q098A": {
+      "questionId": "Q098A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 10(c) gives everyone on arrest or detention the right to have the validity of the detention determined by way of habeas corpus and to be released if the detention is not lawful.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10(c)",
+      "optionFeedback": {
+        "question": "What does Charter section 10(c) guarantee to a person who is arrested or detained?",
+        "options": [
+          "To have the validity of the detention determined by way of habeas corpus, and to be released if it is not lawful",
+          "A jury trial for every offence",
+          "Protection from being tried twice for the same offence",
+          "The benefit of the lesser punishment"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 10(c) gives everyone on arrest or detention the right to have the validity of the detention determined by way of habeas corpus and to be released if the detention is not lawful.",
+        "notes": {
+          "1": "This protection belongs to section 11; section 10(c) concerns habeas corpus review of the detention.",
+          "2": "This protection belongs to section 11; section 10(c) concerns habeas corpus review of the detention.",
+          "3": "This protection belongs to section 11; section 10(c) concerns habeas corpus review of the detention."
+        }
+      }
+    },
+    "Q098B": {
+      "questionId": "Q098B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 10(c) gives everyone on arrest or detention the right to have the validity of the detention determined by way of habeas corpus and to be released if the detention is not lawful.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10(c)",
+      "optionFeedback": {
+        "question": "Charter section 10(c) is the right to be tried within a reasonable time.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "Section 10(c) gives everyone on arrest or detention the right to have the validity of the detention determined by way of habeas corpus and to be released if the detention is not lawful.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q099A": {
+      "questionId": "Q099A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(a) gives any person charged with an offence the right to be informed without unreasonable delay of the specific offence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(a)",
+      "optionFeedback": {
+        "question": "Under Charter section 11(a), a person charged with an offence has the right to…",
+        "options": [
+          "Be informed without unreasonable delay of the specific offence",
+          "Choose the judge who hears the case",
+          "Have the charge kept confidential from the public",
+          "Be released without conditions"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(a) gives any person charged with an offence the right to be informed without unreasonable delay of the specific offence.",
+        "notes": {
+          "1": "Section 11(a) is the right to be informed without unreasonable delay of the specific offence charged.",
+          "2": "Section 11(a) is the right to be informed without unreasonable delay of the specific offence charged.",
+          "3": "Section 11(a) is the right to be informed without unreasonable delay of the specific offence charged."
+        }
+      }
+    },
+    "Q099B": {
+      "questionId": "Q099B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(a) gives any person charged with an offence the right to be informed without unreasonable delay of the specific offence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(a)",
+      "optionFeedback": {
+        "question": "Charter section 11(a) gives a charged person the right to be informed without unreasonable delay of the specific offence.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(a) gives any person charged with an offence the right to be informed without unreasonable delay of the specific offence.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q100A": {
+      "questionId": "Q100A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(b) gives any person charged with an offence the right to be tried within a reasonable time.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(b)",
+      "optionFeedback": {
+        "question": "Which paragraph of Charter section 11 protects the right to be tried within a reasonable time?",
+        "options": [
+          "11(b)",
+          "11(d)",
+          "11(f)",
+          "11(h)"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(b) gives any person charged with an offence the right to be tried within a reasonable time.",
+        "notes": {
+          "1": "That paragraph protects a different right; trial within a reasonable time is section 11(b).",
+          "2": "That paragraph protects a different right; trial within a reasonable time is section 11(b).",
+          "3": "That paragraph protects a different right; trial within a reasonable time is section 11(b)."
+        }
+      }
+    },
+    "Q100B": {
+      "questionId": "Q100B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(b) gives any person charged with an offence the right to be tried within a reasonable time.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(b)",
+      "optionFeedback": {
+        "question": "Charter section 11(b) protects a charged person’s right to be tried within a reasonable time.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(b) gives any person charged with an offence the right to be tried within a reasonable time.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q101A": {
+      "questionId": "Q101A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(c) gives any person charged with an offence the right not to be compelled to be a witness in proceedings against that person in respect of the offence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(c)",
+      "optionFeedback": {
+        "question": "Charter section 11(c) protects a person charged with an offence from…",
+        "options": [
+          "Being compelled to be a witness in proceedings against that person in respect of the offence",
+          "Being searched without a warrant",
+          "Being arbitrarily detained",
+          "Being denied an interpreter"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(c) gives any person charged with an offence the right not to be compelled to be a witness in proceedings against that person in respect of the offence.",
+        "notes": {
+          "1": "That protection comes from a different Charter section; section 11(c) concerns compelled testimony against oneself.",
+          "2": "That protection comes from a different Charter section; section 11(c) concerns compelled testimony against oneself.",
+          "3": "That protection comes from a different Charter section; section 11(c) concerns compelled testimony against oneself."
+        }
+      }
+    },
+    "Q101B": {
+      "questionId": "Q101B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 11(c) gives any person charged with an offence the right not to be compelled to be a witness in proceedings against that person in respect of the offence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(c)",
+      "optionFeedback": {
+        "question": "Charter section 11(c) allows the Crown to compel an accused to testify in the proceedings against them for the offence.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "Section 11(c) gives any person charged with an offence the right not to be compelled to be a witness in proceedings against that person in respect of the offence.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q102A": {
+      "questionId": "Q102A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(d) gives any person charged with an offence the right to be presumed innocent until proven guilty according to law in a fair and public hearing by an independent and impartial tribunal.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(d)",
+      "optionFeedback": {
+        "question": "Which right is found in Charter section 11(d)?",
+        "options": [
+          "To be presumed innocent until proven guilty according to law in a fair and public hearing by an independent and impartial tribunal",
+          "To retain and instruct counsel without delay",
+          "To be secure against unreasonable search or seizure",
+          "To the assistance of an interpreter"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(d) gives any person charged with an offence the right to be presumed innocent until proven guilty according to law in a fair and public hearing by an independent and impartial tribunal.",
+        "notes": {
+          "1": "This right is in a different Charter section; section 11(d) is the presumption of innocence and a fair, public hearing.",
+          "2": "This right is in a different Charter section; section 11(d) is the presumption of innocence and a fair, public hearing.",
+          "3": "This right is in a different Charter section; section 11(d) is the presumption of innocence and a fair, public hearing."
+        }
+      }
+    },
+    "Q102B": {
+      "questionId": "Q102B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(d) gives any person charged with an offence the right to be presumed innocent until proven guilty according to law in a fair and public hearing by an independent and impartial tribunal.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(d)",
+      "optionFeedback": {
+        "question": "Charter section 11(d) includes the presumption of innocence until proven guilty according to law.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(d) gives any person charged with an offence the right to be presumed innocent until proven guilty according to law in a fair and public hearing by an independent and impartial tribunal.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q103A": {
+      "questionId": "Q103A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(e) gives any person charged with an offence the right not to be denied reasonable bail without just cause.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(e)",
+      "optionFeedback": {
+        "question": "Under Charter section 11(e), a person charged with an offence has the right not to be denied…",
+        "options": [
+          "Reasonable bail without just cause",
+          "A lawyer of their choice at public expense in every case",
+          "A trial in their home province",
+          "A jury in every case"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(e) gives any person charged with an offence the right not to be denied reasonable bail without just cause.",
+        "notes": {
+          "1": "Section 11(e) concerns reasonable bail, not this entitlement.",
+          "2": "Section 11(e) concerns reasonable bail, not this entitlement.",
+          "3": "Section 11(e) concerns reasonable bail, not this entitlement."
+        }
+      }
+    },
+    "Q103B": {
+      "questionId": "Q103B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(e) gives any person charged with an offence the right not to be denied reasonable bail without just cause.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(e)",
+      "optionFeedback": {
+        "question": "Charter section 11(e) protects a charged person from being denied reasonable bail without just cause.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(e) gives any person charged with an offence the right not to be denied reasonable bail without just cause.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q104A": {
+      "questionId": "Q104A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(f) gives a charged person the benefit of trial by jury where the maximum punishment for the offence is imprisonment for five years or a more severe punishment, except for an offence under military law tried before a military tribunal.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(f)",
+      "optionFeedback": {
+        "question": "When does Charter section 11(f) give a charged person the benefit of trial by jury?",
+        "options": [
+          "When the maximum punishment for the offence is imprisonment for five years or a more severe punishment",
+          "For every summary conviction offence",
+          "Only when the accused is a youth",
+          "Only when the Crown consents"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(f) gives a charged person the benefit of trial by jury where the maximum punishment for the offence is imprisonment for five years or a more severe punishment, except for an offence under military law tried before a military tribunal.",
+        "notes": {
+          "1": "Section 11(f) ties the jury right to a maximum punishment of five years’ imprisonment or more, subject to the military-law exception.",
+          "2": "Section 11(f) ties the jury right to a maximum punishment of five years’ imprisonment or more, subject to the military-law exception.",
+          "3": "Section 11(f) ties the jury right to a maximum punishment of five years’ imprisonment or more, subject to the military-law exception."
+        }
+      }
+    },
+    "Q104B": {
+      "questionId": "Q104B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 11(f) gives a charged person the benefit of trial by jury where the maximum punishment for the offence is imprisonment for five years or a more severe punishment, except for an offence under military law tried before a military tribunal.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(f)",
+      "optionFeedback": {
+        "question": "Charter section 11(f) gives the benefit of trial by jury where the maximum punishment for the offence is imprisonment for two years.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "Section 11(f) gives a charged person the benefit of trial by jury where the maximum punishment for the offence is imprisonment for five years or a more severe punishment, except for an offence under military law tried before a military tribunal.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q105A": {
+      "questionId": "Q105A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(g) protects a charged person from being found guilty of an act or omission unless, at the time it occurred, it was an offence under Canadian or international law or was criminal according to the general principles of law recognized by the community of nations.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(g)",
+      "optionFeedback": {
+        "question": "What does Charter section 11(g) protect against?",
+        "options": [
+          "Being found guilty of an act or omission that was not an offence when it occurred",
+          "Questioning without a lawyer present",
+          "Cruel and unusual punishment",
+          "Unreasonable delay before trial"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(g) protects a charged person from being found guilty of an act or omission unless, at the time it occurred, it was an offence under Canadian or international law or was criminal according to the general principles of law recognized by the community of nations.",
+        "notes": {
+          "1": "That protection is elsewhere in the Charter; section 11(g) guards against retroactive offences.",
+          "2": "That protection is elsewhere in the Charter; section 11(g) guards against retroactive offences.",
+          "3": "That protection is elsewhere in the Charter; section 11(g) guards against retroactive offences."
+        }
+      }
+    },
+    "Q105B": {
+      "questionId": "Q105B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(g) protects a charged person from being found guilty of an act or omission unless, at the time it occurred, it was an offence under Canadian or international law or was criminal according to the general principles of law recognized by the community of nations.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(g)",
+      "optionFeedback": {
+        "question": "Charter section 11(g) protects against being found guilty of conduct that was not an offence when it occurred.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(g) protects a charged person from being found guilty of an act or omission unless, at the time it occurred, it was an offence under Canadian or international law or was criminal according to the general principles of law recognized by the community of nations.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q106A": {
+      "questionId": "Q106A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(h) provides that a person finally acquitted of an offence is not to be tried for it again and, if finally found guilty and punished, is not to be tried or punished for it again.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(h)",
+      "optionFeedback": {
+        "question": "Which Charter paragraph protects a person who has been finally acquitted from being tried again for the same offence?",
+        "options": [
+          "11(h)",
+          "11(b)",
+          "11(e)",
+          "11(i)"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(h) provides that a person finally acquitted of an offence is not to be tried for it again and, if finally found guilty and punished, is not to be tried or punished for it again.",
+        "notes": {
+          "1": "That paragraph protects a different right; protection from being tried or punished twice is section 11(h).",
+          "2": "That paragraph protects a different right; protection from being tried or punished twice is section 11(h).",
+          "3": "That paragraph protects a different right; protection from being tried or punished twice is section 11(h)."
+        }
+      }
+    },
+    "Q106B": {
+      "questionId": "Q106B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "Section 11(h) provides that a person finally acquitted of an offence is not to be tried for it again and, if finally found guilty and punished, is not to be tried or punished for it again.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(h)",
+      "optionFeedback": {
+        "question": "Under Charter section 11(h), a person finally found guilty and punished for an offence may be tried and punished for it again.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "Section 11(h) provides that a person finally acquitted of an offence is not to be tried for it again and, if finally found guilty and punished, is not to be tried or punished for it again.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q107A": {
+      "questionId": "Q107A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(i) gives a person found guilty the benefit of the lesser punishment if the punishment for the offence was varied between the time of commission and the time of sentencing.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(i)",
+      "optionFeedback": {
+        "question": "If the punishment for an offence changes between the time it was committed and the time of sentencing, what does Charter section 11(i) give the person found guilty?",
+        "options": [
+          "The benefit of the lesser punishment",
+          "The more severe punishment",
+          "A new trial",
+          "An automatic discharge"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(i) gives a person found guilty the benefit of the lesser punishment if the punishment for the offence was varied between the time of commission and the time of sentencing.",
+        "notes": {
+          "1": "Section 11(i) gives the benefit of the lesser punishment when the punishment changed before sentencing.",
+          "2": "Section 11(i) gives the benefit of the lesser punishment when the punishment changed before sentencing.",
+          "3": "Section 11(i) gives the benefit of the lesser punishment when the punishment changed before sentencing."
+        }
+      }
+    },
+    "Q107B": {
+      "questionId": "Q107B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "Section 11(i) gives a person found guilty the benefit of the lesser punishment if the punishment for the offence was varied between the time of commission and the time of sentencing.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "verified",
+      "reviewNote": null,
+      "packageReviewStatus": "mapped_authority",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11(i)",
+      "optionFeedback": {
+        "question": "Charter section 11(i) gives a person found guilty the benefit of the lesser punishment where the punishment was varied between commission and sentencing.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "Section 11(i) gives a person found guilty the benefit of the lesser punishment if the punishment for the offence was varied between the time of commission and the time of sentencing.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q108A": {
+      "questionId": "Q108A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Personal freedom” is a study memory cue, not statutory wording. It recalls section 7: life, liberty and security of the person, and not being deprived of them except in accordance with the principles of fundamental justice.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 7",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “Personal freedom”?",
+        "options": [
+          "Section 7",
+          "Section 9",
+          "Section 12",
+          "Section 14"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Personal freedom” is a study memory cue, not statutory wording. It recalls section 7: life, liberty and security of the person, and not being deprived of them except in accordance with the principles of fundamental justice.",
+        "notes": {
+          "1": "The cue “Personal freedom” is meant to recall section 7, not this section.",
+          "2": "The cue “Personal freedom” is meant to recall section 7, not this section.",
+          "3": "The cue “Personal freedom” is meant to recall section 7, not this section."
+        }
+      }
+    },
+    "Q108B": {
+      "questionId": "Q108B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "“Personal freedom” is a study memory cue, not statutory wording. It recalls section 7: life, liberty and security of the person, and not being deprived of them except in accordance with the principles of fundamental justice.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 7",
+      "optionFeedback": {
+        "question": "The memory cue “Personal freedom” points to Charter section 9.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "“Personal freedom” is a study memory cue, not statutory wording. It recalls section 7: life, liberty and security of the person, and not being deprived of them except in accordance with the principles of fundamental justice.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q109A": {
+      "questionId": "Q109A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Privacy” is a study memory cue, not statutory wording. It recalls section 8: being secure against unreasonable search or seizure.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 8",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “Privacy”?",
+        "options": [
+          "Section 8",
+          "Section 9",
+          "Section 13",
+          "Section 7"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Privacy” is a study memory cue, not statutory wording. It recalls section 8: being secure against unreasonable search or seizure.",
+        "notes": {
+          "1": "The cue “Privacy” is meant to recall section 8, not this section.",
+          "2": "The cue “Privacy” is meant to recall section 8, not this section.",
+          "3": "The cue “Privacy” is meant to recall section 8, not this section."
+        }
+      }
+    },
+    "Q109B": {
+      "questionId": "Q109B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "“Privacy” is a study memory cue, not statutory wording. It recalls section 8: being secure against unreasonable search or seizure.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 8",
+      "optionFeedback": {
+        "question": "The memory cue “Privacy” points to Charter section 13.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "“Privacy” is a study memory cue, not statutory wording. It recalls section 8: being secure against unreasonable search or seizure.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q110A": {
+      "questionId": "Q110A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“No arbitrary detention” is a study memory cue, not statutory wording. It recalls section 9: not being arbitrarily detained or imprisoned.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 9",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “No arbitrary detention”?",
+        "options": [
+          "Section 9",
+          "Section 10",
+          "Section 12",
+          "Section 8"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“No arbitrary detention” is a study memory cue, not statutory wording. It recalls section 9: not being arbitrarily detained or imprisoned.",
+        "notes": {
+          "1": "The cue “No arbitrary detention” is meant to recall section 9, not this section.",
+          "2": "The cue “No arbitrary detention” is meant to recall section 9, not this section.",
+          "3": "The cue “No arbitrary detention” is meant to recall section 9, not this section."
+        }
+      }
+    },
+    "Q110B": {
+      "questionId": "Q110B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“No arbitrary detention” is a study memory cue, not statutory wording. It recalls section 9: not being arbitrarily detained or imprisoned.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 9",
+      "optionFeedback": {
+        "question": "The memory cue “No arbitrary detention” points to Charter section 9.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“No arbitrary detention” is a study memory cue, not statutory wording. It recalls section 9: not being arbitrarily detained or imprisoned.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q111A": {
+      "questionId": "Q111A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Reasons and lawyer” is a study memory cue, not statutory wording. It recalls section 10: rights on arrest or detention: being told the reasons promptly and retaining counsel without delay.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “Reasons and lawyer”?",
+        "options": [
+          "Section 10",
+          "Section 11",
+          "Section 14",
+          "Section 9"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Reasons and lawyer” is a study memory cue, not statutory wording. It recalls section 10: rights on arrest or detention: being told the reasons promptly and retaining counsel without delay.",
+        "notes": {
+          "1": "The cue “Reasons and lawyer” is meant to recall section 10, not this section.",
+          "2": "The cue “Reasons and lawyer” is meant to recall section 10, not this section.",
+          "3": "The cue “Reasons and lawyer” is meant to recall section 10, not this section."
+        }
+      }
+    },
+    "Q111B": {
+      "questionId": "Q111B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "“Reasons and lawyer” is a study memory cue, not statutory wording. It recalls section 10: rights on arrest or detention: being told the reasons promptly and retaining counsel without delay.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 10",
+      "optionFeedback": {
+        "question": "The memory cue “Reasons and lawyer” points to Charter section 11.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "“Reasons and lawyer” is a study memory cue, not statutory wording. It recalls section 10: rights on arrest or detention: being told the reasons promptly and retaining counsel without delay.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q112A": {
+      "questionId": "Q112A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Fair criminal proceedings” is a study memory cue, not statutory wording. It recalls section 11: the rights of a person charged with an offence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “Fair criminal proceedings”?",
+        "options": [
+          "Section 11",
+          "Section 10",
+          "Section 13",
+          "Section 12"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Fair criminal proceedings” is a study memory cue, not statutory wording. It recalls section 11: the rights of a person charged with an offence.",
+        "notes": {
+          "1": "The cue “Fair criminal proceedings” is meant to recall section 11, not this section.",
+          "2": "The cue “Fair criminal proceedings” is meant to recall section 11, not this section.",
+          "3": "The cue “Fair criminal proceedings” is meant to recall section 11, not this section."
+        }
+      }
+    },
+    "Q112B": {
+      "questionId": "Q112B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Fair criminal proceedings” is a study memory cue, not statutory wording. It recalls section 11: the rights of a person charged with an offence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 11",
+      "optionFeedback": {
+        "question": "The memory cue “Fair criminal proceedings” points to Charter section 11.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Fair criminal proceedings” is a study memory cue, not statutory wording. It recalls section 11: the rights of a person charged with an offence.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
+    },
+    "Q113A": {
+      "questionId": "Q113A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Humane treatment” is a study memory cue, not statutory wording. It recalls section 12: not being subjected to any cruel and unusual treatment or punishment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 12",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “Humane treatment”?",
+        "options": [
+          "Section 12",
+          "Section 7",
+          "Section 9",
+          "Section 14"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Humane treatment” is a study memory cue, not statutory wording. It recalls section 12: not being subjected to any cruel and unusual treatment or punishment.",
+        "notes": {
+          "1": "The cue “Humane treatment” is meant to recall section 12, not this section.",
+          "2": "The cue “Humane treatment” is meant to recall section 12, not this section.",
+          "3": "The cue “Humane treatment” is meant to recall section 12, not this section."
+        }
+      }
+    },
+    "Q113B": {
+      "questionId": "Q113B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "“Humane treatment” is a study memory cue, not statutory wording. It recalls section 12: not being subjected to any cruel and unusual treatment or punishment.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 12",
+      "optionFeedback": {
+        "question": "The memory cue “Humane treatment” points to Charter section 7.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "“Humane treatment” is a study memory cue, not statutory wording. It recalls section 12: not being subjected to any cruel and unusual treatment or punishment.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q114A": {
+      "questionId": "Q114A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Testimony protection” is a study memory cue, not statutory wording. It recalls section 13: a witness’s incriminating evidence not being used to incriminate that witness in other proceedings, except for perjury or contradictory evidence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 13",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “Testimony protection”?",
+        "options": [
+          "Section 13",
+          "Section 11",
+          "Section 14",
+          "Section 8"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Testimony protection” is a study memory cue, not statutory wording. It recalls section 13: a witness’s incriminating evidence not being used to incriminate that witness in other proceedings, except for perjury or contradictory evidence.",
+        "notes": {
+          "1": "The cue “Testimony protection” is meant to recall section 13, not this section.",
+          "2": "The cue “Testimony protection” is meant to recall section 13, not this section.",
+          "3": "The cue “Testimony protection” is meant to recall section 13, not this section."
+        }
+      }
+    },
+    "Q114B": {
+      "questionId": "Q114B",
+      "correctOptionIndices": [
+        1
+      ],
+      "explanation": "“Testimony protection” is a study memory cue, not statutory wording. It recalls section 13: a witness’s incriminating evidence not being used to incriminate that witness in other proceedings, except for perjury or contradictory evidence.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 13",
+      "optionFeedback": {
+        "question": "The memory cue “Testimony protection” points to Charter section 14.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          1
+        ],
+        "basisExplanation": "“Testimony protection” is a study memory cue, not statutory wording. It recalls section 13: a witness’s incriminating evidence not being used to incriminate that witness in other proceedings, except for perjury or contradictory evidence.",
+        "notes": {
+          "0": "The assertion contradicts the reviewed rule below; selecting True accepts the incorrect assertion."
+        }
+      }
+    },
+    "Q115A": {
+      "questionId": "Q115A",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Understand proceedings” is a study memory cue, not statutory wording. It recalls section 14: a party or witness who does not understand or speak the language of the proceedings, or who is deaf, having an interpreter’s assistance.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 14",
+      "optionFeedback": {
+        "question": "Which Charter section matches the memory cue “Understand proceedings”?",
+        "options": [
+          "Section 14",
+          "Section 13",
+          "Section 10",
+          "Section 11"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Understand proceedings” is a study memory cue, not statutory wording. It recalls section 14: a party or witness who does not understand or speak the language of the proceedings, or who is deaf, having an interpreter’s assistance.",
+        "notes": {
+          "1": "The cue “Understand proceedings” is meant to recall section 14, not this section.",
+          "2": "The cue “Understand proceedings” is meant to recall section 14, not this section.",
+          "3": "The cue “Understand proceedings” is meant to recall section 14, not this section."
+        }
+      }
+    },
+    "Q115B": {
+      "questionId": "Q115B",
+      "correctOptionIndices": [
+        0
+      ],
+      "explanation": "“Understand proceedings” is a study memory cue, not statutory wording. It recalls section 14: a party or witness who does not understand or speak the language of the proceedings, or who is deaf, having an interpreter’s assistance.",
+      "authorityIds": [
+        "CHARTER"
+      ],
+      "reviewStatus": "study_aid",
+      "reviewNote": null,
+      "packageReviewStatus": "needs_review",
+      "reviewedOn": "2026-10-21",
+      "pinpoint": "s. 14",
+      "optionFeedback": {
+        "question": "The memory cue “Understand proceedings” points to Charter section 14.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "key": [
+          0
+        ],
+        "basisExplanation": "“Understand proceedings” is a study memory cue, not statutory wording. It recalls section 14: a party or witness who does not understand or speak the language of the proceedings, or who is deaf, having an interpreter’s assistance.",
+        "notes": {
+          "1": "The assertion agrees with the reviewed rule below; selecting False rejects that proposition."
+        }
+      }
     }
   },
-  "updated": "2026-10-20"
+  "updated": "2026-10-21"
 }

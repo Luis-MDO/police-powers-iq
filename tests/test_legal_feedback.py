@@ -119,7 +119,7 @@ class LegalFeedbackTests(unittest.TestCase):
     def test_section_progress_uses_each_topic_denominator_and_persists(self):
         self.assets(instrument=True)
         self.page.locator('#studyGuideTab').click()
-        expected={'1':5,'2':7,'3':4,'7':8,'8':8}
+        expected={'1':8,'2':7,'3':4,'7':8,'8':8}
         for id,total in expected.items():
             self.page.locator('#guide-tab-'+id).click()
             panel=self.page.locator('#guide-panel-'+id)
@@ -140,14 +140,14 @@ class LegalFeedbackTests(unittest.TestCase):
             panel.locator('.section-review').last.click()
             self.assertEqual(self.page.locator('#guide-tab-'+id+' .review-ring-check').count(),0)
             panel.locator('.section-review').last.click()
-        self.assertIn('32 of 32',self.page.locator('#guideReviewCount').inner_text())
+        self.assertIn('35 of 35',self.page.locator('#guideReviewCount').inner_text())
         self.assertEqual(self.page.locator('[data-guide-reviewed]').count(),0)
         self.assertEqual(self.page.evaluate('__audit.progress.attempts'),0)
         self.assertEqual(self.page.evaluate('__audit.progress.seen'),[])
         self.page.reload()
         self.page.locator('#chooseMidterm').click()
         self.page.locator('.guide-hero').wait_for()
-        self.assertIn('32 of 32',self.page.locator('#guideReviewCount').inner_text())
+        self.assertIn('35 of 35',self.page.locator('#guideReviewCount').inner_text())
         self.assertEqual(self.page.locator('.review-ring-check').count(),5)
         self.assertFalse(self.errors)
 
@@ -155,7 +155,7 @@ class LegalFeedbackTests(unittest.TestCase):
         self.page.add_init_script("localStorage.setItem('ppiq_guide_v1',JSON.stringify({selected:'2',reviewed:{'2':true,'8':true}}))")
         self.assets(instrument=True)
         self.page.locator('#studyGuideTab').click()
-        self.assertIn('15 of 32',self.page.locator('#guideReviewCount').inner_text())
+        self.assertIn('15 of 35',self.page.locator('#guideReviewCount').inner_text())
         self.assertTrue(self.page.locator('#guide-panel-2').is_visible())
         self.assertEqual(self.page.locator('#guide-tab-2 .review-ring-value').evaluate('(el)=>el.childNodes[0].textContent'),'100%')
         self.page.locator('#guide-panel-2 .section-review').first.click()
@@ -167,7 +167,7 @@ class LegalFeedbackTests(unittest.TestCase):
         self.page.once('dialog',lambda d:d.accept())
         self.page.locator('#clearBtn').click()
         self.page.locator('#studyGuideTab').click()
-        self.assertIn('0 of 32',self.page.locator('#guideReviewCount').inner_text())
+        self.assertIn('0 of 35',self.page.locator('#guideReviewCount').inner_text())
         self.assertFalse(self.errors)
 
     def test_exam_selection_exit_confirms_submission_and_cannot_resume_exam(self):
@@ -211,6 +211,89 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertTrue(self.page.locator('.landing-page').is_visible())
         self.assertFalse(self.errors)
 
+    def test_phone_landing_uses_still_poster_without_3d_download(self):
+        scene_requests=[]
+        self.page.on('request',lambda request:scene_requests.append(request.url) if '/assets/landing-scene.js' in request.url else None)
+        self.page.set_viewport_size({'width':375,'height':812})
+        self.assets(landing=True)
+        self.page.wait_for_timeout(400)
+        self.assertTrue(self.page.locator('.landing-poster').is_visible())
+        self.assertGreater(self.page.locator('.poster-paper').count(),0)
+        self.assertEqual(self.page.locator('.poster-scales').count(),1)
+        self.assertEqual(self.page.locator('.landing-scene canvas').count(),0)
+        self.assertEqual(scene_requests,[])
+        self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'),375)
+        self.page.locator('#landingMotion').click()
+        self.assertTrue(self.page.locator('.landing-art').evaluate('(el)=>el.classList.contains("motion-paused")'))
+        # Widening to tablet size requests the optional scene.
+        self.page.set_viewport_size({'width':1024,'height':768})
+        self.page.wait_for_timeout(400)
+        self.assertEqual(len(scene_requests),1)
+        self.assertTrue(self.page.locator('.landing-poster').is_visible())
+        self.assertFalse(self.errors)
+
+    def test_landing_intro_stages_content_skips_on_input_and_plays_once(self):
+        self.assets(instrument=True,landing=True)
+        section=self.page.locator('.landing-page')
+        self.assertIn('landing-staged',section.get_attribute('class'))
+        self.assertNotIn('landing-revealed',section.get_attribute('class'))
+        # Any key skips ahead; controls stay usable throughout.
+        self.page.keyboard.press('Shift')
+        self.assertIn('landing-revealed',section.get_attribute('class'))
+        self.assertTrue(self.page.locator('#landingSkip').is_hidden())
+        self.page.locator('#chooseMidterm').click()
+        self.page.locator('.guide-hero').wait_for()
+        self.page.locator('#chooseExamBtn').click()
+        self.assertTrue(self.page.locator('.landing-page').is_visible())
+        self.assertNotIn('landing-staged',self.page.locator('.landing-page').get_attribute('class'))
+        self.assertFalse(self.errors)
+
+    def test_study_guide_quick_reference_is_separate_from_checklist(self):
+        self.assets(instrument=True)
+        self.page.locator('#studyGuideTab').click()
+        reference=self.page.locator('.guide-reference')
+        self.assertEqual(reference.locator('details.guide-card').count(),4)
+        # Reference cards add no checklist sections, notes or progress.
+        self.assertEqual(reference.locator('input,[data-guide-note],[data-guide-section]').count(),0)
+        self.assertIn('0 of 35 sections reviewed',self.page.locator('#guideReviewCount').inner_text())
+        catalogue={source['url'] for source in AUTHORITIES['authorities'].values()}
+        hrefs=reference.locator('.guide-citations a').evaluate_all('(items)=>items.map(a=>a.getAttribute("href"))')
+        self.assertEqual(len(hrefs),12)
+        self.assertTrue(set(hrefs)<=catalogue)
+        reference.locator('summary',has_text='RICE').click()
+        self.assertIn('not statutory wording',reference.inner_text())
+        for heading in ['Canadian Charter of Rights and Freedoms','Criminal Code','Key court decisions']:
+            self.assertIn(heading,reference.inner_text())
+        # Expanding a topic's notes leaves the reference cards alone.
+        self.page.locator('#guide-panel-1 [data-guide-expand]').click()
+        self.assertEqual(reference.locator('details.guide-card[open]').count(),1)
+        self.assertFalse(self.errors)
+
+    def test_charter_subsections_and_memory_cues_reach_guide_and_question_pool(self):
+        new=[f'Q{n:03}{s}' for n in range(96,116) for s in 'AB']
+        for qid in new:
+            with self.subTest(question=qid):
+                record=FEEDBACK['feedback'][qid]
+                self.assertEqual(BANK[qid]['chapter'],1)
+                self.assertEqual(record['authorityIds'],['CHARTER'])
+                self.assertEqual(record['reviewStatus'],'study_aid' if int(qid[1:4])>=108 else 'verified')
+                self.assertEqual(record['correctOptionIndices'],BANK[qid]['correct'])
+        pinpoints={FEEDBACK['feedback'][f'Q{n:03}A']['pinpoint'] for n in range(96,108)}
+        self.assertEqual(pinpoints,{f's. 10({p})' for p in 'abc'}|{f's. 11({p})' for p in 'abcdefghi'})
+        self.assets(instrument=True)
+        self.page.locator('#studyGuideTab').click()
+        panel=self.page.locator('#guide-panel-1')
+        for title in ['Section 10 · paragraphs (a)–(c)','Section 11 · paragraphs (a)–(i)','Memory cues · sections 7–14']:
+            self.assertEqual(panel.locator('details.guide-card > summary',has_text=title).count(),1)
+        panel.locator('[data-guide-expand]').click()
+        cues=panel.locator('details.guide-card',has_text='Memory cues')
+        self.assertIn('Study mnemonic · not statutory wording',cues.inner_text())
+        self.assertIn('presumed innocent',panel.inner_text())
+        # Topic practice for Sources of Police Powers includes the new items.
+        result=self.page.evaluate("""()=>{const a=__audit;Object.assign(a.s,{mode:'practice',chapter:'1',count:270});a.start();return a.s.pool.map(q=>q.id)}""")
+        self.assertTrue(set(new)<=set(result))
+        self.assertFalse(self.errors)
+
     def test_study_guide_topics_notes_and_primary_sources(self):
         self.assets(instrument=True)
         self.page.locator('#studyGuideTab').click()
@@ -237,7 +320,7 @@ class LegalFeedbackTests(unittest.TestCase):
                 self.assertEqual(urlsplit(link.get_attribute('href')).scheme,'https')
                 self.assertIn(urlsplit(link.get_attribute('href')).hostname,ALLOWED_HOSTS)
         # The complete A-version concept set covers the supplied topic outline.
-        self.assertEqual(self.page.locator('[data-guide-note]').count(),95)
+        self.assertEqual(self.page.locator('[data-guide-note]').count(),115)
         text=self.page.locator('#root').text_content()
         for absent in ["Professor",'Chapter 1','90 minutes','1:45 PM','Your answer:','Correct answer:']:
             self.assertNotIn(absent,text)
@@ -250,7 +333,7 @@ class LegalFeedbackTests(unittest.TestCase):
         self.page.keyboard.press('ArrowDown')
         self.assertEqual(self.page.locator('#guide-tab-2').get_attribute('aria-selected'),'true')
         self.page.locator('#guide-panel-2 .section-review').first.click()
-        self.assertIn('1 of 32',self.page.locator('#guideReviewCount').inner_text())
+        self.assertIn('1 of 35',self.page.locator('#guideReviewCount').inner_text())
         self.assertEqual(self.page.evaluate('__audit.progress.attempts'),0)
         self.assertEqual(self.page.evaluate('__audit.progress.seen'),[])
         self.page.reload()
@@ -324,7 +407,7 @@ class LegalFeedbackTests(unittest.TestCase):
         self.page.locator('#studyGuideTab').click()
         self.page.locator('#guide-panel-1 .section-review').first.click()
         self.assertIn('storage is unavailable',self.page.locator('#guideSaveStatus').inner_text())
-        self.assertIn('1 of 32',self.page.locator('#guideReviewCount').inner_text())
+        self.assertIn('1 of 35',self.page.locator('#guideReviewCount').inner_text())
         for width in [320,375,768,1280]:
             self.page.set_viewport_size({'width':width,'height':900})
             for theme in ['dark','light']:
@@ -339,11 +422,11 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertFalse(self.errors)
 
     def test_catalogue_and_all_230_contracts(self):
-        expected = {f'Q{n:03}{suffix}' for n in range(1, 96) for suffix in 'AB'} | {f'F{n:03}' for n in range(1, 31)} | {f'M{n:03}' for n in range(1, 11)}
+        expected = {f'Q{n:03}{suffix}' for n in range(1, 116) for suffix in 'AB'} | {f'F{n:03}' for n in range(1, 31)} | {f'M{n:03}' for n in range(1, 11)}
         self.assertEqual(set(BANK), expected)
         self.assertEqual(set(FEEDBACK['feedback']), expected)
-        self.assertEqual(len(QUESTIONS), 230)
-        self.assertEqual(collections.Counter(q['type'] for q in QUESTIONS), {'single': 105, 'tf': 95, 'cloze': 30})
+        self.assertEqual(len(QUESTIONS), 270)
+        self.assertEqual(collections.Counter(q['type'] for q in QUESTIONS), {'single': 125, 'tf': 115, 'cloze': 30})
         for id, source in AUTHORITIES['authorities'].items():
             with self.subTest(authority=id):
                 url = urlsplit(source['url'])
@@ -372,8 +455,9 @@ class LegalFeedbackTests(unittest.TestCase):
         for q in QUESTIONS:
             if q['type'] == 'tf':
                 self.assertNotIn('correct response to the question', q['question'])
-                # Original 95 truth values are a saved bank contract.
-                self.assertEqual(q['correct'], [int(q['id'][1:4]) % 2 == 0])
+                # Original 95 truth values are a saved bank contract; later items are outside it.
+                if int(q['id'][1:4]) <= 95:
+                    self.assertEqual(q['correct'], [int(q['id'][1:4]) % 2 == 0])
 
     def test_followup_support_and_unresolved_items(self):
         unresolved = {'Q065A', 'Q065B', 'Q070A', 'Q070B', 'Q092A', 'Q092B', 'M007'}
@@ -419,7 +503,7 @@ class LegalFeedbackTests(unittest.TestCase):
           }
           return count;
         }''')
-        self.assertEqual(result, 230)
+        self.assertEqual(result, 270)
         self.assertFalse(self.errors)
 
     def test_exhaustive_option_mapping_and_exact_set_grading(self):
@@ -436,7 +520,7 @@ class LegalFeedbackTests(unittest.TestCase):
             }
           }return cases;
         }''')
-        self.assertEqual(result, 87160)
+        self.assertEqual(result, 95000)
 
     def test_actual_practice_all_scantron_formats_correct_and_wrong(self):
         for id in ['Q001A', 'Q001B', 'M006', 'F001']:
@@ -491,7 +575,7 @@ class LegalFeedbackTests(unittest.TestCase):
         result = self.page.evaluate('''() => {
           const a=window.__audit,original=window.PPIQ_QUESTIONS;
           for(let iteration=0;iteration<30;iteration++){
-            Object.assign(a.s,{count:230,chapter:'all',mode:'practice'});a.start();
+            Object.assign(a.s,{count:270,chapter:'all',mode:'practice'});a.start();
             for(const q of a.s.pool.filter(q=>q.answerStyle==='most_complete')){
               if(q.pinLastOption){
                 if(q.shownOptions[4]!=='All of the above'||q.shownCorrect.join()!=='4')throw Error(q.id+': positional answer moved');
@@ -527,10 +611,10 @@ class LegalFeedbackTests(unittest.TestCase):
           a.progress.seen=all.slice(0,225).map(q=>q.id);const sampled=a.sample(all,10);
           if(sampled.slice(0,5).some(q=>a.progress.seen.includes(q.id)))throw Error('Unseen priority changed');
           a.progress.seen=all.map(q=>q.id);if(a.sample(all,30).length!==30)throw Error('Exhausted bank failed');
-          Object.assign(a.s,{mode:'practice',chapter:'all',count:230});a.start();
+          Object.assign(a.s,{mode:'practice',chapter:'all',count:270});a.start();
           return {length:a.s.pool.length,pending:a.s.pool.filter(q=>!window.PPIQ_LEGAL.isReviewed(q)).length};
         }''')
-        self.assertEqual(result, {'length': 230, 'pending': sum(record['reviewStatus'] == 'needs_review' for record in FEEDBACK['feedback'].values())})
+        self.assertEqual(result, {'length': 270, 'pending': sum(record['reviewStatus'] == 'needs_review' for record in FEEDBACK['feedback'].values())})
 
     def test_existing_progress_survives_and_correct_retry_removes_mistake(self):
         self.assets(questions=[BANK['M006']])
