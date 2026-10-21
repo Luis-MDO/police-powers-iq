@@ -979,7 +979,7 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assets(questions=[BANK['Q001A']])
         self.page.locator('#startBtn').click()
         self.page.get_by_role('button',name='Report a question',exact=True).click()
-        note='Please check this wording. <img src=x onerror="window.__injected=true">'
+        note='Please check this wording — café.\nSecond line. <img src=x onerror="window.__injected=true">'
         self.page.get_by_label('Issue type').select_option('wording')
         self.page.get_by_label('What should be checked?').fill(note)
         self.page.get_by_role('button',name='Preview report →').click()
@@ -990,16 +990,36 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertIn('Nothing has been sent',self.page.locator('#reportStatus').inner_text())
         self.assertEqual(self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_reports_v1"))[0].note'),note)
         with self.page.expect_download() as info:
-            self.page.get_by_role('button',name='Download report',exact=True).click()
-        downloaded=json.loads(Path(info.value.path()).read_text())
-        self.assertEqual(downloaded['report']['questionId'],'Q001A')
-        self.assertEqual(downloaded['report']['note'],note)
+            self.page.get_by_role('button',name='Download report (.txt)',exact=True).click()
+        self.assertEqual(info.value.suggested_filename,'Police-PowersIQ-report-Q001A.txt')
+        downloaded=Path(info.value.path()).read_text(encoding='utf-8-sig')
+        self.assertTrue(downloaded.startswith('Police PowersIQ — Question report'))
+        self.assertIn('Question ID: Q001A',downloaded)
+        self.assertIn(BANK['Q001A']['question'],downloaded)
+        self.assertIn('Answer choices (question-bank order):',downloaded)
+        self.assertIn('A) '+BANK['Q001A']['options'][0],downloaded)
+        self.assertIn('Issue: Unclear wording',downloaded)
+        self.assertIn('Student note:\n'+note,downloaded)
+        self.assertIn('No confirmed submission',downloaded)
         self.page.get_by_role('button',name='Close dialog').click()
         self.page.locator('#homeBtn').click()
         self.page.locator('#reportsQueueBtn').click()
         self.assertIn(note,self.page.locator('#studyDialog').inner_text())
         self.page.get_by_role('button',name='Mark resolved locally').click()
         self.assertIn('Marked resolved locally',self.page.locator('#studyDialog').inner_text())
+        # Older saved reports without options or timestamps still export readably.
+        self.page.evaluate("""const rows=JSON.parse(localStorage.getItem('ppiq_reports_v1'));
+          rows.push({id:'old-report',questionId:'Q003B',question:'A saved question',category:'other',note:'An older note',status:'open'});
+          localStorage.setItem('ppiq_reports_v1',JSON.stringify(rows));PPIQ_REPORTS.queue();""")
+        with self.page.expect_download() as batch:
+            self.page.locator('#exportReports').click()
+        self.assertEqual(batch.value.suggested_filename,'Police-PowersIQ-question-reports.txt')
+        all_text=Path(batch.value.path()).read_text(encoding='utf-8-sig')
+        self.assertIn(note,all_text)
+        self.assertIn('Local status: Marked resolved on this device',all_text)
+        self.assertIn('Question ID: Q003B',all_text)
+        self.assertIn('An older note',all_text)
+        self.assertIn('Created: Not recorded',all_text)
         self.assertIsNone(self.page.evaluate('window.__injected'))
         self.assertFalse(self.errors)
 
@@ -1033,7 +1053,7 @@ class LegalFeedbackTests(unittest.TestCase):
             self.assertEqual(sum(r['attempts'] for r in learning['questions'].values()),1)
         self.assertFalse(self.errors)
 
-    def test_online_report_requires_preview_and_acknowledged_form_redirect(self):
+    def test_online_report_accepts_redirect_and_preserves_readable_receipt(self):
         self.assets(questions=[BANK['Q001A']])
         posted=[]
         def form_route(route):
@@ -1056,19 +1076,63 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertIn('form-name=question-report',posted[0])
         self.assertTrue(self.page.locator('#submitReport').is_disabled())
         self.assertTrue(self.page.evaluate('!!JSON.parse(localStorage.getItem("ppiq_reports_v1"))[0].submittedAt'))
+        with self.page.expect_download() as info:
+            self.page.locator('#downloadReport').click()
+        text=Path(info.value.path()).read_text(encoding='utf-8-sig')
+        self.assertIn('Online delivery: Submission confirmed',text)
+        self.page.locator('#saveReport').click()
+        self.assertTrue(self.page.evaluate('!!JSON.parse(localStorage.getItem("ppiq_reports_v1"))[0].submittedAt'))
+        # Editing a delivered report creates an unsent revision, not a false receipt.
+        self.page.locator('#editReport').click()
+        self.page.get_by_label('What should be checked?').fill('A revised note that has not been submitted yet.')
+        self.page.get_by_role('button',name='Preview report →').click()
+        with self.page.expect_download() as revision:
+            self.page.locator('#downloadReport').click()
+        revised=Path(revision.value.path()).read_text(encoding='utf-8-sig')
+        self.assertIn('No confirmed submission',revised)
+        self.assertIn('A revised note',revised)
+        self.assertEqual(len(posted),1)
         self.assertFalse(self.errors)
 
-    def test_static_http_200_is_not_falsely_reported_as_form_receipt(self):
+    def test_online_report_accepts_netlify_http_200_without_redirect(self):
         self.assets(questions=[BANK['Q001A']])
-        self.page.route('**/report-confirmed*',lambda route:route.fulfill(status=200,body='Static page, not a confirmed form receipt'))
+        posted=[]
+        def acknowledge(route):
+            posted.append(route.request.post_data)
+            route.fulfill(status=200,body='Thank you! Your form submission has been received.')
+        self.page.route('**/report-confirmed*',acknowledge)
         self.page.locator('#startBtn').click()
         self.page.get_by_role('button',name='Report a question',exact=True).click()
         self.page.get_by_label('What should be checked?').fill('Please check this wording for clarity.')
         self.page.get_by_role('button',name='Preview report →').click()
         self.page.locator('#submitReport').click()
-        self.page.wait_for_function("document.getElementById('reportStatus').textContent.includes('not been confirmed')")
-        self.assertTrue(self.page.locator('#downloadReport').is_enabled())
-        self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_reports_v1")'))
+        self.page.wait_for_function("document.getElementById('reportStatus').textContent.startsWith('Report submitted to the site owner.')")
+        self.assertTrue(self.page.locator('#submitReport').is_disabled())
+        self.assertEqual(len(posted),1)
+        self.assertIn('form-name=question-report',posted[0])
+        self.assertTrue(self.page.evaluate('!!JSON.parse(localStorage.getItem("ppiq_reports_v1"))[0].submittedAt'))
+        self.assertFalse(self.errors)
+
+    def test_online_report_http_errors_and_network_failure_keep_unsent_copy(self):
+        self.assets(questions=[BANK['Q001A']])
+        self.page.locator('#startBtn').click()
+        self.page.get_by_role('button',name='Report a question',exact=True).click()
+        self.page.get_by_label('What should be checked?').fill('Please check this wording for clarity.')
+        self.page.get_by_role('button',name='Preview report →').click()
+        for status in [400,404,429,500,None]:
+            self.page.unroute('**/report-confirmed*')
+            if status is None:
+                self.page.route('**/report-confirmed*',lambda route:route.abort('failed'))
+            else:
+                self.page.route('**/report-confirmed*',lambda route:route.fulfill(status=status,body='Submission failed'))
+            self.page.locator('#submitReport').click()
+            self.page.wait_for_function("document.getElementById('reportStatus').textContent.includes('not been confirmed')")
+            self.assertTrue(self.page.locator('#submitReport').is_enabled())
+            self.assertTrue(self.page.locator('#downloadReport').is_enabled())
+            self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_reports_v1")'))
+        with self.page.expect_download() as info:
+            self.page.locator('#downloadReport').click()
+        self.assertIn('No confirmed submission',Path(info.value.path()).read_text(encoding='utf-8-sig'))
         self.assertFalse(self.errors)
 
     def test_submission_recovery_does_not_duplicate_grading_or_learning(self):

@@ -15,7 +15,7 @@ Interactive Canadian police powers study app. Built as a static website so it ca
 - Spaced review after 1, 3, 7, 14 and 30 days, with missed questions scheduled for the next day
 - Topic accuracy, recent trends and targeted practice for the weakest topic
 - Selected-choice explanations derived from reviewed legal feedback; answer comparisons appear only for wrong or unanswered items, and unresolved items stay pending
-- Question reports with a preview, optional Netlify Forms submission, local saving and JSON export
+- Question reports with a preview, optional Netlify Forms submission, local saving and readable text (.txt) downloads
 - Legal review dates, an exportable maintenance queue and an optional weekly source-change monitor
 - Topic filtering, review of mistakes, persistent progress using `localStorage`
 - Copper-orange accents with charcoal dark mode and warm cream light mode
@@ -28,7 +28,7 @@ Interactive Canadian police powers study app. Built as a static website so it ca
 2. In Netlify, connect the GitHub repository if not connected already.
 3. Build command: **leave blank**. Publish directory: **`.`** (repository root).
 4. Trigger deploy. Study features need no API keys or environment variables.
-5. For online question reports, enable **Netlify Forms / form detection**, deploy the static `question-report` form in `index.html`, and confirm it appears in the Netlify Forms dashboard. Test a reviewed report on the deployed site. Reports are sent only when a student presses Submit. Until the service is enabled, local save and download remain available. Do not interpret a normal static-page HTTP 200 as receipt of a report.
+5. For online question reports, enable **Netlify Forms / form detection**, deploy the static `question-report` form in `index.html`, and confirm it appears in the Netlify Forms dashboard. Test a reviewed report on the deployed site. Reports are sent only when a student presses Submit. Until the service is enabled, local save and download remain available. The app uses Netlify’s successful HTTP response to the form POST as its submission acknowledgement; no redirect is required.
 
 ## Legal feedback
 Feedback joins `question-feedback.json.feedback[question.id]` to the catalogue in `legal-authorities.json`. The same renderer supplies immediate practice feedback and final practice/mock-exam reviews. It does not fall back to historical slide references or unreviewed explanations in `questions.js`.
@@ -89,9 +89,9 @@ The included `.github/workflows/legal-source-review.yml` runs weekly or manually
 
 ## Question reports
 
-Students can report wording, answer/explanation issues, legal sources or another concern from practice or answer reviews (including submitted exams). A preview precedes submission, local save and download. Netlify Forms submission sends only the reviewed report fields to the site owner’s configured form service. The UI requires an acknowledged redirect to the confirmation page before reporting success; failures retain the save/download options. A live Netlify test is required after deployment to validate the provider configuration.
+Students can report wording, answer/explanation issues, legal sources or another concern from practice or answer reviews (including submitted exams). A preview precedes submission, local save and download. Netlify Forms submission sends only the reviewed report fields to the site owner’s configured form service. The UI accepts a successful HTTP response to the form POST, including Netlify’s direct HTTP 200 response. A redirect is not required. HTTP errors and network failures retain the save/download options. A live Netlify test is required after deployment to validate the provider configuration.
 
-Local reports can be downloaded, marked resolved locally, or removed from the dashboard. That local status does not mean the owner has resolved a legal issue. The owner must inspect reports and make reviewed repository changes; reports never alter grading or approve a legal claim automatically. Do not include personal information in a report.
+Individual reports and all saved reports download as readable UTF-8 `.txt` files for Notepad, TextEdit or Word. They include the question ID and wording, choices in question-bank order, issue category, student note, timestamps and delivery/local-review status. Downloading does not transmit the report. Internal browser storage remains compatible with existing saved reports. The owner’s legal-maintenance queue retains its JSON export. Local reports can also be marked resolved locally or removed from the dashboard. That local status does not mean the owner has resolved a legal issue. The owner must inspect reports and make reviewed repository changes; reports never alter grading or approve a legal claim automatically. Do not include personal information in a report.
 
 ## Local development and validation
 Serve the repository over HTTP, for example with `python3 -m http.server 8000`. Opening `index.html` directly as a file does not provide the supported JSON-loading workflow.
@@ -100,3 +100,10 @@ Run `python3 tests/test_legal_feedback.py` with Python, Playwright and Chromium 
 
 ## Privacy
 Study progress, unfinished sessions and review history stay in the browser’s `localStorage` and are not synchronized between devices. Reports stay local unless the student chooses online submission or downloads and shares them. Online submission uses the site owner’s Netlify Forms service. Clearing site data removes local progress, unfinished sessions, review history and local reports; it does not remove reports already submitted to the owner.
+
+
+## Enable online reports in Netlify
+
+Open the `police-powers-iq` project → **Forms**, enable form detection if offered, then redeploy the production branch containing the static `question-report` form in `index.html`. Confirm **question-report** appears in Forms. Submit one clearly labelled test from the live site and verify it in Netlify’s submissions (including spam if necessary). Optionally configure a form notification to your own email.
+
+If the form already exists, check submissions before resending: an unconfirmed-delivery message is not proof that nothing arrived. Inspect the live request/response if it appears in Netlify but the app still reports an error. The owner’s Netlify screenshots confirm form detection is enabled and a test report was received. The old client incorrectly required a redirect and therefore displayed a failure despite receipt. This update accepts Netlify’s direct successful HTTP response. Direct site inspection remains blocked by the development network policy; browser tests simulate provider responses.

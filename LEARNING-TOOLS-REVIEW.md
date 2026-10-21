@@ -28,7 +28,7 @@ Active exam questions discourage selection, copy/cut, context menus and dragging
 
 ## Checks requiring deployment or external services
 
-1. Enable Netlify Forms/form detection and redeploy the hidden `question-report` form. Confirm the form appears in the owner's Netlify dashboard. Submit a previewed test report and verify receipt there. Browser tests simulate the service contract; no real report was sent during local development. A plain static HTTP 200 is not treated as a confirmed receipt.
+1. Enable Netlify Forms/form detection and redeploy the hidden `question-report` form. Confirm the form appears in the owner's Netlify dashboard. Submit a previewed test report and verify receipt there. Browser tests simulate the service contract; no real report was sent during local development. The owner subsequently confirmed a test submission in Netlify. The client now accepts Netlify’s successful AJAX POST response without requiring a redirect.
 2. The weekly monitor starts only after its workflow is pushed to the default branch and GitHub Actions is enabled. Its local audit produced eight manual-review tasks with external link checks explicitly unrun. The five maintenance tests use simulated source responses; they are not a fresh legal currency audit.
 3. Seven question items remain pending legal verification. No source or question was promoted merely because a feature or test was added. Existing review dates are unchanged.
 
@@ -40,3 +40,8 @@ See README.md for deployment files, local storage keys, review intervals and mai
 A separate Study Guide view now offers the five dashboard topic names, 32 expandable groups with 95 mapped notes, linked primary sources, recall prompts and topic practice. The selected topic and five self-marked review flags persist under `ppiq_guide_v1`, independently of scored learning. The uploaded course-specific outline is adapted to the app’s existing legally reviewed feedback; three unresolved concepts stay visibly pending. No new legal audit or status promotion was performed.
 
 Practice can be saved while reading. An active mock exam must be submitted before opening the guide; cancelling the confirmation preserves the exam and deadline. The main navigation, topic selectors and disclosures support keyboard access and both themes at mobile and desktop widths. The upload’s class date and 90-minute paper-exam schedule are excluded.
+
+
+## Readable report downloads
+
+Individual and combined student report exports now use UTF-8 `.txt` files with Windows-compatible line endings. They include question details, notes and truthful delivery status. Existing local reports remain readable, and the owner’s legal-review queue remains JSON. Confirmed submission metadata survives saving/exporting; editing a submitted report creates a new unsent revision. Six focused browser tests cover downloads, redirect and direct-200 submission acknowledgement, HTTP/network failures, legal-queue compatibility and responsive dialogs. The owner’s screenshot confirms a real test report reached Netlify. Provider responses are simulated in browser tests; direct inspection of the site remains blocked by the environment’s network policy.
