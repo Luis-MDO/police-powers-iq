@@ -8,10 +8,10 @@ export function createScene(host, { paused = false } = {}) {
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'low-power' });
   } catch (_) { return null; }
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 60);
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
   camera.position.set(4.2, 2.6, 7.6);
   camera.lookAt(0, 0.2, 0);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
   renderer.setClearColor(0, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -29,7 +29,7 @@ export function createScene(host, { paused = false } = {}) {
   const copper = new THREE.MeshStandardMaterial({ color: 0xc97d49, metalness: 0.9, roughness: 0.25 });
   const bronze = new THREE.MeshStandardMaterial({ color: 0xe9af77, metalness: 0.85, roughness: 0.3 });
   const charcoal = new THREE.MeshStandardMaterial({ color: 0x252a25, metalness: 0.65, roughness: 0.3 });
-  const glass = new THREE.MeshStandardMaterial({ color: 0xffad6b, metalness: 0.65, roughness: 0.35, transparent: true, opacity: 0.32 });
+  const glass = new THREE.MeshStandardMaterial({ color: 0xffad6b, metalness: 0.65, roughness: 0.35, transparent: true, opacity: 0.6 });
   const group = new THREE.Group();
   scene.add(group);
   const geometries = new Set();
@@ -96,18 +96,18 @@ export function createScene(host, { paused = false } = {}) {
   const orbit = mesh(new THREE.TorusGeometry(2.48,0.006,6,140),glass);
   orbit.rotation.set(1.08,-0.38,0.4);
 
-  const positions = new Float32Array(60*3);
+  const positions = new Float32Array(180*3);
   // Deterministic positions avoid a different scene on every visit.
-  for(let i=0;i<60;i++){
-    const a=i*2.39996,r=1.9+(i%7)*0.16;
+  for(let i=0;i<180;i++){
+    const a=i*2.39996,r=3+(i%17)*0.65;
     positions[i*3]=Math.cos(a)*r;
-    positions[i*3+1]=Math.sin(i*1.7)*1.6;
+    positions[i*3+1]=Math.sin(i*1.7)*5;
     positions[i*3+2]=Math.sin(a)*r;
   }
   const particleGeometry=new THREE.BufferGeometry();
   particleGeometry.setAttribute('position',new THREE.BufferAttribute(positions,3));
   geometries.add(particleGeometry);
-  const particleMaterial=new THREE.PointsMaterial({color:0xe9ad70,size:0.027,transparent:true,opacity:0.65,depthWrite:false});
+  const particleMaterial=new THREE.PointsMaterial({color:0xe9ad70,size:0.055,transparent:true,opacity:0.85,depthWrite:false});
   const particles=new THREE.Points(particleGeometry,particleMaterial);
   scene.add(particles);
   scene.add(new THREE.HemisphereLight(0xffe6c4,0x233128,2));
@@ -126,19 +126,26 @@ export function createScene(host, { paused = false } = {}) {
     const box=host.getBoundingClientRect();
     if(!box.width||!box.height)return;
     renderer.setSize(box.width,box.height,false);
-    camera.aspect=box.width/box.height;camera.updateProjectionMatrix();draw();
+    camera.aspect=box.width/box.height;
+    // Shift the camera framing rather than limiting the artwork to a card.
+    camera.setViewOffset(box.width,box.height,-box.width*(box.width>750?.22:.28),box.height*.03,box.width,box.height);
+    camera.updateProjectionMatrix();draw();
   }
   function animate(now){
     if(!alive||paused||motion.matches||document.hidden||!visible){frame=0;return}
     frame=requestAnimationFrame(animate);
     if(now-last<33)return;
     const delta=Math.min((now-last)/1000,0.05);last=now;time+=delta;
-    group.position.y=Math.sin(time*0.6)*0.065;
-    group.rotation.y+=(targetX*0.14-0.2-group.rotation.y)*0.04;
-    group.rotation.x+=(targetY*0.06-group.rotation.x)*0.04;
-    beamGroup.rotation.z=Math.sin(time*0.55)*0.023;
-    particles.rotation.y=time*0.018;
-    halo.rotation.z=Math.sin(time*0.18)*0.12;
+    group.position.y=Math.sin(time*0.8)*0.16;
+    group.rotation.y+=(targetX*0.45+Math.sin(time*.45)*.4-0.2-group.rotation.y)*0.04;
+    group.rotation.x+=(targetY*0.14-group.rotation.x)*0.04;
+    beamGroup.rotation.z=Math.sin(time*0.9)*0.095;
+    particles.rotation.y=time*0.065;
+    particles.rotation.x=Math.sin(time*.16)*.15;
+    halo.rotation.z=time*.16;
+    halo.rotation.y=Math.sin(time*.3)*.55;
+    orbit.rotation.z=-time*.12;
+    orbit.rotation.x=1.08+Math.sin(time*.4)*.3;
     draw();
   }
   function resume(){
@@ -161,8 +168,8 @@ export function createScene(host, { paused = false } = {}) {
     if(!visible){cancelAnimationFrame(frame);frame=0}else resume();
   }):null;
   intersection?.observe(host);
-  host.addEventListener('pointermove',pointer);
-  host.addEventListener('pointerleave',resetPointer);
+  window.addEventListener('pointermove',pointer);
+  document.documentElement.addEventListener('pointerleave',resetPointer);
   renderer.domElement.addEventListener('webglcontextlost',lost);
   document.addEventListener('visibilitychange',visibility);
   motion.addEventListener('change',preference);
@@ -170,7 +177,7 @@ export function createScene(host, { paused = false } = {}) {
   function dispose(){
     if(!alive)return;alive=false;
     cancelAnimationFrame(frame);observer?.disconnect();intersection?.disconnect();
-    host.removeEventListener('pointermove',pointer);host.removeEventListener('pointerleave',resetPointer);
+    window.removeEventListener('pointermove',pointer);document.documentElement.removeEventListener('pointerleave',resetPointer);
     document.removeEventListener('visibilitychange',visibility);motion.removeEventListener('change',preference);
     window.removeEventListener('resize',resize);renderer.domElement.removeEventListener('webglcontextlost',lost);
     for(const geometry of geometries)geometry.dispose();

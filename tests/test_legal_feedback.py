@@ -61,7 +61,7 @@ class LegalFeedbackTests(unittest.TestCase):
         if authorities is not None:
             self.page.route('**/legal-authorities.json', lambda route: route.fulfill(json=authorities))
         if instrument:
-            source = (ROOT / 'app.js').read_text().replace('})();', ';window.__audit={eq,shuffle,sample,start,orderOptions,choose,check,finish,showQuestion,dashboard,s,get progress(){return progress}};})();')
+            source = (ROOT / 'app.js').read_text().replace('})();', ';window.__audit={legalReviewQueue,eq,shuffle,sample,start,orderOptions,choose,check,finish,showQuestion,dashboard,s,get progress(){return progress}};})();')
             self.page.route('**/app.js', lambda route: route.fulfill(body=source, content_type='application/javascript'))
         self.page.route('**/assets/landing-scene.js',lambda route:route.abort())
         self.page.goto(self.url)
@@ -88,6 +88,11 @@ class LegalFeedbackTests(unittest.TestCase):
         self.page.on('request',lambda request:css_requests.append(request.url) if request.resource_type=='stylesheet' else None)
         self.assets(instrument=True,landing=True)
         self.assertTrue(self.page.locator('.landing-page').is_visible())
+        self.assertEqual(self.page.locator('.landing-art').evaluate('(el)=>getComputedStyle(el).position'),'fixed')
+        self.assertEqual(self.page.locator('.landing-art').bounding_box()['width'],self.page.viewport_size['width'])
+        self.page.locator('#landingMotion').click()
+        self.assertEqual(self.page.locator('#landingMotion').get_attribute('aria-pressed'),'true')
+        self.assertTrue(self.page.locator('.landing-art').evaluate('(el)=>el.classList.contains("motion-paused")'))
         self.assertTrue(self.page.locator('#studyNav').is_hidden())
         self.assertTrue(self.page.locator('#chooseExamBtn').is_hidden())
         self.assertEqual(len(css_requests),1)
@@ -96,6 +101,7 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertTrue(self.page.locator('.landing-scales-fallback').is_visible())
         self.page.locator('#chooseFinal').click()
         self.page.locator('.final-placeholder').wait_for()
+        self.assertEqual(self.page.locator('.landing-art').count(),0)
         self.assertIn('Final exam material is not available yet.',self.page.locator('#root').inner_text())
         self.assertEqual(self.page.locator('.question-area,.guide-hero').count(),0)
         self.assertEqual(self.page.evaluate('__audit.progress.attempts'),0)
@@ -1178,11 +1184,9 @@ class LegalFeedbackTests(unittest.TestCase):
 
     def test_review_dates_and_manual_queue_do_not_promote_pending_law(self):
         self.assets(questions=[BANK['Q001A'],BANK['Q065A']],instrument=True)
-        self.page.locator('.source-status summary').click()
-        self.assertIn('Q065A',self.page.locator('.legal-queue-list').inner_text())
-        with self.page.expect_download() as info:
-            self.page.locator('#exportLegalQueue').click()
-        queue=json.loads(Path(info.value.path()).read_text())
+        self.assertEqual(self.page.locator('.source-status,#exportLegalQueue').count(),0)
+        self.assertNotIn('Legal source review',self.page.locator('#root').inner_text())
+        queue=self.page.evaluate('__audit.legalReviewQueue()')
         self.assertEqual([q['questionId'] for q in queue['questions']],['Q065A'])
         self.assertEqual(queue['questions'][0]['status'],'needs_review')
         self.page.evaluate("const q=PPIQ_QUESTIONS[0];Object.assign(__audit.s,{pool:[{...q,shownOptions:q.options,shownCorrect:q.correct}],at:0,answers:{[q.id]:q.correct},checked:{[q.id]:true},mode:'practice',final:false});__audit.showQuestion()")
@@ -1324,7 +1328,7 @@ class LegalFeedbackTests(unittest.TestCase):
         for theme in ['light','dark']:
             self.page.evaluate('(theme)=>document.documentElement.dataset.theme=theme',theme)
             self.page.evaluate('__audit.dashboard()')
-            self.page.locator('.source-status summary').click()
+            self.assertEqual(self.page.locator('.source-status').count(),0)
             for width in [320,375,768,1280]:
                 self.page.set_viewport_size({'width':width,'height':900})
                 self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'),width)
