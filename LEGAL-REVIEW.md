@@ -64,3 +64,18 @@ Update the relevant A/B/F variants together. Confirm the truth of each actual Tr
 Only promote an item after its question, all answer choices, explanation and source support agree. Keep genuinely unresolved items pending. Run the integration suite after changing data or rendering code. Tests check technical integrity; passing tests do not establish legal accuracy.
 
 The browser suite uses a local HTTP server and fresh browser storage. No Netlify deployment or publication was performed as part of this integration.
+
+## Learning-tools integration
+
+The learning update adds selected-choice comparisons derived from existing reviewed explanations. They are keyed to original option indices and bound to a snapshot of the question, options, answer key and explanation. The renderer checks those snapshots and the original legal-review gate before display. A changed or pending basis suppresses these comparisons; no unresolved item was promoted, and no legal-review date was renewed by this update.
+
+Feedback now displays its existing review date. Browser and command-line queues identify pending items, missing dates and reviews older than 90 days. The optional source checker flags unreachable or changed pages and propagates source flags to linked questions. It preserves TLS verification and restricts redirects to known primary-source hosts. A reachable page or changed hash is a maintenance signal, not legal verification. The local integration ran the offline audit and simulated source-change tests; it did not perform a fresh primary-source currency audit.
+
+Student reports are reviewed before sending or exporting. They never change an explanation, answer key or verification state automatically. The Netlify Forms path requires a live provider check once deployed.
+
+
+## Study-guide adaptation
+
+The uploaded study guide was used as an outline, not as legal authority or an instruction to publish its professor-specific claims. The new guide uses the existing Q001A–Q095A explanation records through the same `lookup` gate as feedback, with escaped text, allowlisted primary-source URLs and existing review dates. All five public topic names are preserved. No question, answer key, authority record, legal-review status or date changed for this feature.
+
+Professor slide references, the institution/course label, the old exam schedule and 90-minute duration were removed from the public guide. The standalone quiz is replaced by links into existing graded topic practice. Unsupported extra claims are not silently added; the mapped consent-withdrawal, continuity and re-entry topics explicitly remain pending. This is an editorial integration of previously reviewed notes, not a new legal currency audit. Technical tests check rendering and status enforcement, not the correctness of law.

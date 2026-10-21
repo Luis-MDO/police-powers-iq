@@ -77,6 +77,132 @@ class LegalFeedbackTests(unittest.TestCase):
             else:
                 self.fail('Displayed option missing: ' + text)
 
+    def test_study_guide_topics_notes_and_primary_sources(self):
+        self.assets(instrument=True)
+        self.page.locator('#studyGuideTab').click()
+        names={'1':'Sources of Police Powers','2':'Arrest Powers','3':'Location of Arrest & Feeney','7':'Warrantless Search & Seizure','8':'Search With a Warrant'}
+        self.assertEqual(self.page.locator('#studyGuideTab').get_attribute('aria-current'),'page')
+        self.assertEqual(self.page.get_by_role('tab').count(),5)
+        for id,name in names.items():
+            self.page.get_by_role('tab',name=name,exact=True).click()
+            panel=self.page.locator('#guide-panel-'+id)
+            self.assertTrue(panel.is_visible())
+            self.assertEqual(panel.locator('h2').inner_text(),name)
+            panel.locator('[data-guide-expand]').click()
+            self.assertTrue(panel.locator('details.guide-card').evaluate_all('(nodes)=>nodes.every(n=>n.open)'))
+            for note in panel.locator('[data-guide-note]').all():
+                qid=note.get_attribute('data-guide-note')
+                self.assertEqual(str(BANK[qid]['chapter']),id)
+                record=FEEDBACK['feedback'][qid]
+                if record['reviewStatus']=='needs_review':
+                    self.assertIn('Legal review pending',note.inner_text())
+                    self.assertNotIn(record['explanation'],note.inner_text())
+                else:
+                    self.assertIn(record['explanation'],note.inner_text())
+            for link in panel.locator('.guide-citations a').all():
+                self.assertEqual(urlsplit(link.get_attribute('href')).scheme,'https')
+                self.assertIn(urlsplit(link.get_attribute('href')).hostname,ALLOWED_HOSTS)
+        # The complete A-version concept set covers the supplied topic outline.
+        self.assertEqual(self.page.locator('[data-guide-note]').count(),95)
+        text=self.page.locator('#root').text_content()
+        for absent in ["Professor",'Chapter 1','90 minutes','1:45 PM','Your answer:','Correct answer:']:
+            self.assertNotIn(absent,text)
+        self.assertFalse(self.errors)
+
+    def test_study_guide_review_checklist_keyboard_and_topic_practice(self):
+        self.assets(instrument=True)
+        self.page.locator('#studyGuideTab').click()
+        self.page.locator('#guide-tab-1').focus()
+        self.page.keyboard.press('ArrowDown')
+        self.assertEqual(self.page.locator('#guide-tab-2').get_attribute('aria-selected'),'true')
+        self.page.locator('[data-guide-reviewed="2"]').click()
+        self.assertIn('1 of 5',self.page.locator('#guideReviewCount').inner_text())
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),0)
+        self.assertEqual(self.page.evaluate('__audit.progress.seen'),[])
+        self.page.reload()
+        self.page.locator('#studyGuideTab').click()
+        self.assertTrue(self.page.locator('#guide-panel-2').is_visible())
+        self.assertEqual(self.page.locator('[data-guide-reviewed="2"]').get_attribute('aria-pressed'),'true')
+        self.page.locator('[data-guide-practice="2"]').click()
+        self.assertEqual(self.page.evaluate('__audit.s.mode'),'practice')
+        self.assertTrue(self.page.evaluate('__audit.s.pool.every(q=>q.chapter===2)'))
+        self.assertEqual(self.page.evaluate('__audit.s.pool.length'),10)
+        self.assertEqual(self.page.locator('#trainingTab').get_attribute('aria-current'),'page')
+        self.assertFalse(self.errors)
+
+    def test_study_guide_preserves_practice_and_confirms_replacement(self):
+        self.assets(instrument=True)
+        self.page.locator('#startBtn').click()
+        self.page.locator('[data-answer]').first.click()
+        self.page.locator('#checkBtn').click()
+        snapshot=self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_session_v1"))')
+        self.page.locator('#studyGuideTab').click()
+        self.page.once('dialog',lambda d:d.dismiss())
+        self.page.locator('[data-guide-practice="1"]').click()
+        self.assertTrue(self.page.locator('.guide-hero').is_visible())
+        self.page.locator('#trainingTab').click()
+        self.page.locator('#resumeBtn').click()
+        self.assertEqual(self.page.evaluate('__audit.s.id'),snapshot['id'])
+        self.assertEqual(self.page.evaluate('__audit.s.answers'),snapshot['answers'])
+        self.assertEqual(self.page.evaluate('__audit.s.checked'),snapshot['checked'])
+        self.assertEqual(self.page.evaluate('__audit.s.pool.map(q=>({id:q.id,order:q.optionOrder}))'),snapshot['pool'])
+        self.assertTrue(self.page.locator('[data-answer]').first.is_disabled())
+        self.assertFalse(self.errors)
+
+    def test_study_guide_cannot_bypass_exam_exit_rules(self):
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.page.locator('#startBtn').click()
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        self.page.once('dialog',lambda d:d.dismiss())
+        self.page.locator('#studyGuideTab').click()
+        self.assertTrue(self.page.locator('.question-area').is_visible())
+        self.assertEqual(self.page.locator('.guide-hero').count(),0)
+        self.assertFalse(self.page.evaluate('__audit.s.final'))
+        self.page.once('dialog',lambda d:d.accept())
+        self.page.locator('#studyGuideTab').click()
+        self.assertTrue(self.page.locator('.guide-hero').is_visible())
+        self.assertTrue(self.page.evaluate('__audit.s.final'))
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),1)
+        self.assertEqual(self.page.evaluate('__audit.progress.scoreSum'),3)
+        self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_session_v1")'))
+        self.page.locator('#trainingTab').click()
+        self.assertEqual(self.page.locator('#resumeBtn').count(),0)
+        self.assertFalse(self.errors)
+
+    def test_study_guide_fails_closed_for_bad_legal_data_and_escapes_notes(self):
+        feedback=copy.deepcopy(FEEDBACK)
+        feedback['feedback']['Q001A']['explanation']='<img src=x onerror=alert(1)> Safe as text'
+        feedback['feedback']['Q002A']['correctOptionIndices']=[99]
+        feedback['feedback']['Q065A']['explanation']='DO NOT PUBLISH PENDING CONSENT CLAIM'
+        self.assets(feedback=feedback,instrument=True)
+        self.page.locator('#studyGuideTab').click()
+        self.assertIn('<img src=x',self.page.locator('[data-guide-note="Q001A"]').inner_text())
+        self.assertEqual(self.page.locator('.guide-note img').count(),0)
+        self.assertIn('Legal review pending',self.page.locator('[data-guide-note="Q002A"]').inner_text())
+        self.assertNotIn('DO NOT PUBLISH',self.page.locator('#root').text_content())
+        self.assertFalse(self.errors)
+
+    def test_study_guide_storage_failure_and_responsive_themes(self):
+        self.page.add_init_script("Storage.prototype.setItem=function(){throw new Error('Storage unavailable')}")
+        self.assets(instrument=True)
+        self.page.locator('#studyGuideTab').click()
+        self.page.locator('[data-guide-reviewed="1"]').click()
+        self.assertIn('storage is unavailable',self.page.locator('#guideSaveStatus').inner_text())
+        self.assertIn('1 of 5',self.page.locator('#guideReviewCount').inner_text())
+        for width in [320,375,768,1280]:
+            self.page.set_viewport_size({'width':width,'height':900})
+            for theme in ['dark','light']:
+                self.page.evaluate('(theme)=>document.documentElement.dataset.theme=theme',theme)
+                for id in ['1','2','3','7','8']:
+                    self.page.locator('#guide-tab-'+id).click()
+                    self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'),width)
+                    self.assertTrue(self.page.locator('#guide-panel-'+id).is_visible())
+                    self.assertGreaterEqual(self.page.locator('#guide-tab-'+id).bounding_box()['height'],44)
+                if width in [375,1280]:
+                    self.page.screenshot(path=f'/tmp/ppiq-guide-{theme}-{width}.png',full_page=True)
+        self.assertFalse(self.errors)
+
     def test_catalogue_and_all_230_contracts(self):
         expected = {f'Q{n:03}{suffix}' for n in range(1, 96) for suffix in 'AB'} | {f'F{n:03}' for n in range(1, 31)} | {f'M{n:03}' for n in range(1, 11)}
         self.assertEqual(set(BANK), expected)
@@ -137,18 +263,20 @@ class LegalFeedbackTests(unittest.TestCase):
           const a=window.__audit; let count=0;
           for(const q of window.PPIQ_QUESTIONS){
             const mapped={...q,shownOptions:q.options,shownCorrect:q.correct};
-            Object.assign(a.s,{pool:[mapped],at:0,answers:{[q.id]:q.correct},checked:{[q.id]:true},mode:'practice',final:false});
+            Object.assign(a.s,{id:window.PPIQ_STUDY.sessionId(),started:Date.now(),deadline:Date.now()+window.PPIQ_STUDY.EXAM_MS,pool:[mapped],at:0,answers:{[q.id]:q.correct},checked:{[q.id]:true},mode:'practice',final:false});
             a.showQuestion();
             const expected=window.PPIQ_LEGAL.isReviewed(q);
             const feedback=document.querySelector('.feedback');
             if(!!feedback.querySelector('.legal-explanation')!==expected)throw Error(q.id+': wrong verification state');
             if(!expected&&!feedback.querySelector('.legal-status.pending'))throw Error(q.id+': missing pending state');
             if(/professor|slides|Chapter \\d/i.test(feedback.textContent))throw Error(q.id+': professor source leaked');
+            if([...feedback.querySelectorAll('p > b')].some(b=>/^(Your answer:|Correct answer:|Recorded answer key)/.test(b.textContent)))throw Error(q.id+': redundant comparison for a matching answer');
             const practice=feedback.querySelector('.legal-authorities').innerHTML;
             a.finish();
             const review=document.querySelector('.result-item');
             if(review.querySelector('.legal-authorities').innerHTML!==practice)throw Error(q.id+': sources differ between surfaces');
             if(!!review.querySelector('.legal-explanation')!==expected)throw Error(q.id+': final review state differs');
+            if([...review.querySelectorAll('p > b')].some(b=>/^(Your answer:|Correct answer:|Recorded answer key)/.test(b.textContent)))throw Error(q.id+': redundant comparison in final review');
             for(const link of review.querySelectorAll('a')){
               if(new URL(link.href).protocol!=='https:'||link.target!=='_blank'||link.rel!=='noopener noreferrer')throw Error(q.id+': unsafe link');
             }
@@ -200,7 +328,7 @@ class LegalFeedbackTests(unittest.TestCase):
           const a=window.__audit,out=[];
           for(const q of window.PPIQ_QUESTIONS.filter(q=>q.answerStyle==='most_complete'))for(const mode of ['practice','exam']){
             const before=a.progress.attempts;
-            Object.assign(a.s,{pool:[{...q,shownOptions:q.options,shownCorrect:q.correct}],at:0,answers:{},checked:{},mode,final:false});
+            Object.assign(a.s,{id:window.PPIQ_STUDY.sessionId(),started:Date.now(),deadline:Date.now()+window.PPIQ_STUDY.EXAM_MS,pool:[{...q,shownOptions:q.options,shownCorrect:q.correct}],at:0,answers:{},checked:{},mode,final:false});
             a.showQuestion();a.choose(0);a.choose(1);
             if(JSON.stringify(a.s.answers[q.id])!=='[1]'||document.querySelectorAll('.answer.selected').length!==1)throw Error(q.id+': more than one selection');
             a.choose(q.correct[0]);
@@ -529,26 +657,472 @@ class LegalFeedbackTests(unittest.TestCase):
         self.assertTrue(result)
         self.assertFalse(self.errors)
 
-    def test_dashboard_navigation_and_unfinished_session_confirmation(self):
+    def test_dashboard_navigation_saves_and_resumes_unfinished_sessions(self):
         self.assets(instrument=True)
         home = self.page.locator('#homeBtn')
         self.assertTrue(home.is_hidden())
         saved = self.page.evaluate('localStorage.getItem("policePowersIQ_v1")')
-        for mode in ['practice', 'exam']:
+        for mode in ['practice']:
             self.page.evaluate('(mode)=>{window.__audit.s.mode=mode;window.__audit.start()}', mode)
             self.assertTrue(home.is_visible())
-            self.page.once('dialog', lambda dialog: dialog.dismiss())
             home.click()
-            self.assertTrue(self.page.locator('.question-area').is_visible())
-            self.page.once('dialog', lambda dialog: dialog.accept())
-            home.click()
-            self.assertTrue(self.page.locator('#startBtn').is_visible())
+            self.assertTrue(self.page.locator('#resumeBtn').is_visible())
             self.assertTrue(home.is_hidden())
             self.assertEqual(self.page.evaluate('localStorage.getItem("policePowersIQ_v1")'), saved)
-        self.page.evaluate('window.__audit.start();window.__audit.finish()')
+            self.page.locator('#resumeBtn').click()
+            self.assertTrue(self.page.locator('.question-area').is_visible())
+        self.page.evaluate('window.__audit.finish()')
         home.click()
         self.assertTrue(self.page.locator('#startBtn').is_visible())
-        self.assertTrue(home.is_hidden())
+        self.assertEqual(self.page.locator('#resumeBtn').count(), 0)
+        self.assertFalse(self.errors)
+
+    def test_resume_preserves_shuffled_answers_position_and_checked_state(self):
+        self.assets(instrument=True)
+        self.page.locator('#startBtn').click()
+        self.page.locator('[data-answer]').nth(1).click()
+        self.page.locator('#checkBtn').click()
+        snapshot = self.page.evaluate('({id:__audit.s.pool[0].id,options:__audit.s.pool[0].shownOptions,answers:__audit.s.answers,checked:__audit.s.checked})')
+        self.page.reload()
+        self.page.locator('#resumeBtn').click()
+        restored = self.page.evaluate('({id:__audit.s.pool[0].id,options:__audit.s.pool[0].shownOptions,answers:__audit.s.answers,checked:__audit.s.checked})')
+        self.assertEqual(snapshot, restored)
+        self.assertTrue(self.page.locator('[data-answer]').first.is_disabled())
+        self.page.locator('#nextBtn').click()
+        next_id = self.page.evaluate('__audit.s.pool[__audit.s.at].id')
+        self.page.reload()
+        self.page.locator('#resumeBtn').click()
+        self.assertEqual(self.page.evaluate('__audit.s.pool[__audit.s.at].id'), next_id)
+        self.assertIn('Question 2 of 10', self.page.locator('.q-header').inner_text())
+        self.assertFalse(self.errors)
+
+    def test_exam_fixed_deadline_auto_submits_once(self):
+        self.page.clock.install()
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.assertIn('30 minutes', self.page.locator('#modeInfo').inner_text())
+        self.page.locator('#startBtn').click()
+        self.assertEqual(self.page.locator('#timer').inner_text(), '30:00')
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        self.page.clock.fast_forward(5 * 60 * 1000)
+        self.assertEqual(self.page.locator('#timer').inner_text(), '25:00')
+        self.page.clock.fast_forward(25 * 60 * 1000 + 1000)
+        self.assertIn('automatically submitted', self.page.locator('.hero').inner_text().lower())
+        self.assertIn('1 answered; 39 unanswered', self.page.locator('.hero').inner_text())
+        self.assertEqual(self.page.locator('.result-item').count(), 40)
+        saved = self.page.evaluate('JSON.parse(localStorage.getItem("policePowersIQ_v1"))')
+        self.assertEqual(saved['attempts'], 1)
+        self.assertEqual(saved['scoreSum'], 3)
+        self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_session_v1")'))
+        self.page.clock.fast_forward(10000)
+        self.page.reload()
+        self.page.locator('#startBtn').wait_for()
+        self.assertEqual(self.page.evaluate('JSON.parse(localStorage.getItem("policePowersIQ_v1")).attempts'), 1)
+        self.assertFalse(self.errors)
+
+    def test_interrupted_exam_is_finalized_on_next_visit_even_before_deadline(self):
+        self.assets(instrument=True)
+        for expired in [False, True]:
+            self.page.evaluate("__audit.s.mode='exam';__audit.start();__audit.choose(__audit.s.pool[0].shownCorrect[0])")
+            snapshot=self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_session_v1"))')
+            self.page.evaluate('__audit.finish()')
+            # A new, ungraded ID models a browser process killed without any exit event.
+            snapshot['id'] += '-interrupted'
+            if expired:
+                snapshot['started'] -= 31*60*1000
+                snapshot['deadline'] = snapshot['started'] + 30*60*1000
+            self.page.evaluate('d=>localStorage.setItem("ppiq_session_v1",JSON.stringify(d))',snapshot)
+            self.page.reload()
+            self.page.locator('.result-list').wait_for()
+            self.assertIn('time is up' if expired else 'exam ended when you left',self.page.locator('.hero').inner_text().lower())
+            self.assertIn('1 answered; 39 unanswered',self.page.locator('.hero').inner_text())
+            self.assertEqual(self.page.locator('#resumeBtn').count(),0)
+            self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_session_v1")'))
+        self.assertFalse(self.errors)
+
+    def test_exam_dashboard_exit_warns_cancel_continues_and_confirm_submits(self):
+        self.page.clock.install()
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.page.locator('#startBtn').click()
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        messages=[]
+        self.page.once('dialog',lambda d:(messages.append(d.message),d.dismiss()))
+        self.page.locator('#homeBtn').click()
+        self.assertIn('cannot be resumed',messages[0])
+        self.assertTrue(self.page.locator('.question-area').is_visible())
+        self.page.clock.fast_forward(60000)
+        self.assertEqual(self.page.locator('#timer').inner_text(),'29:00')
+        self.page.once('dialog',lambda d:d.accept())
+        self.page.locator('#exitBtn').click()
+        self.assertIn('exam ended when you left',self.page.locator('.hero').inner_text().lower())
+        self.assertIn('1 answered; 39 unanswered',self.page.locator('.hero').inner_text())
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),1)
+        self.page.locator('#dash').click()
+        self.assertEqual(self.page.locator('#resumeBtn').count(),0)
+        self.assertFalse(self.errors)
+
+    def test_exam_reload_native_warning_cancel_then_accept(self):
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.page.locator('#startBtn').click()
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        deadline=self.page.evaluate('__audit.s.deadline')
+        dialogs=[]
+        self.page.once('dialog',lambda d:(dialogs.append(d.type),d.dismiss()))
+        self.page.evaluate('setTimeout(()=>location.reload(),0)')
+        self.page.wait_for_timeout(200)
+        self.assertEqual(dialogs,['beforeunload'])
+        self.assertTrue(self.page.locator('.question-area').is_visible())
+        self.assertEqual(self.page.evaluate('__audit.s.deadline'),deadline)
+        self.page.once('dialog',lambda d:(dialogs.append(d.type),d.accept()))
+        self.page.reload()
+        self.page.locator('.result-list').wait_for()
+        self.assertEqual(dialogs,['beforeunload','beforeunload'])
+        self.assertIn('exam ended when you left',self.page.locator('.hero').inner_text().lower())
+        self.assertIn('1 answered; 39 unanswered',self.page.locator('.hero').inner_text())
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),1)
+        self.page.reload()
+        self.page.locator('#startBtn').wait_for()
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),1)
+        self.assertFalse(self.errors)
+
+    def test_hidden_exam_submits_once_and_restores_results(self):
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.page.locator('#startBtn').click()
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        # Exercise the browser visibility event explicitly; headless tabs stay visible.
+        self.page.evaluate("""Object.defineProperty(document,'visibilityState',{configurable:true,value:'hidden'});
+          document.dispatchEvent(new Event('visibilitychange'));
+          window.dispatchEvent(new PageTransitionEvent('pagehide'));
+          document.dispatchEvent(new Event('visibilitychange'));
+          delete document.visibilityState;
+          document.dispatchEvent(new Event('visibilitychange'));""")
+        self.assertIn('exam ended when you left',self.page.locator('.hero').inner_text().lower())
+        snapshot=self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_session_v1"))')
+        self.assertEqual(snapshot['phase'],'submitting')
+        self.assertEqual(snapshot['submissionReason'],'left')
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),1)
+        answers=self.page.evaluate('__audit.s.answers')
+        self.page.evaluate('__audit.choose(0)')
+        self.assertEqual(self.page.evaluate('__audit.s.answers'),answers)
+        self.page.reload()
+        self.page.locator('.result-list').wait_for()
+        self.assertIn('1 answered; 39 unanswered',self.page.locator('.hero').inner_text())
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),1)
+        self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_session_v1")'))
+        self.assertFalse(self.errors)
+
+    def test_exam_navigation_away_and_back_restores_submitted_results(self):
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.page.locator('#startBtn').click()
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        self.page.once('dialog',lambda d:d.accept())
+        self.page.goto(self.url+'report-confirmed.html')
+        self.page.go_back()
+        self.page.locator('.result-list').wait_for()
+        self.assertIn('exam ended when you left',self.page.locator('.hero').inner_text().lower())
+        self.assertIn('1 answered; 39 unanswered',self.page.locator('.hero').inner_text())
+        self.assertEqual(self.page.evaluate('__audit.progress.attempts'),1)
+        self.assertFalse(self.errors)
+
+    def test_closing_exam_tab_restores_results_on_new_tab(self):
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.page.locator('#startBtn').click()
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        self.page.once('dialog',lambda d:d.accept())
+        with self.page.expect_event('close'):
+            self.page.close(run_before_unload=True)
+        self.page=self.context.new_page()
+        self.page.on('pageerror',lambda error:self.errors.append(str(error)))
+        self.page.goto(self.url)
+        self.page.locator('.result-list').wait_for()
+        self.assertIn('exam ended when you left',self.page.locator('.hero').inner_text().lower())
+        self.assertIn('1 answered; 39 unanswered',self.page.locator('.hero').inner_text())
+        self.assertEqual(self.page.evaluate('JSON.parse(localStorage.getItem("policePowersIQ_v1")).attempts'),1)
+        self.assertEqual(self.page.locator('#resumeBtn').count(),0)
+        self.assertFalse(self.errors)
+
+    def test_exam_copy_restrictions_keep_keyboard_answers_and_release_after_submit(self):
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        self.page.locator('#startBtn').click()
+        self.assertEqual(self.page.locator('.q-title').evaluate('(el)=>getComputedStyle(el).userSelect'),'none')
+        for event in ['copy','cut','contextmenu','selectstart','dragstart']:
+            allowed=self.page.locator('.q-title').evaluate('(el,type)=>el.dispatchEvent(new Event(type,{bubbles:true,cancelable:true}))',event)
+            self.assertFalse(allowed,event)
+        self.page.locator('[data-answer]').first.focus()
+        self.page.keyboard.press('Space')
+        self.assertEqual(self.page.locator('.answer.selected').count(),1)
+        self.page.locator('#nextBtn').focus()
+        self.page.keyboard.press('Enter')
+        self.assertIn('Question 2 of 40',self.page.locator('.q-header').inner_text())
+        self.assertEqual(self.page.locator('[data-report-question]').count(),0)
+        self.page.evaluate('__audit.finish()')
+        self.assertEqual(self.page.locator('#root.exam-active').count(),0)
+        self.assertTrue(self.page.locator('.result-item h3').first.evaluate("el=>el.dispatchEvent(new Event('copy',{bubbles:true,cancelable:true}))"))
+        self.page.locator('#nextPool').click()
+        self.assertNotEqual(self.page.locator('.q-title').evaluate('(el)=>getComputedStyle(el).userSelect'),'none')
+        self.assertTrue(self.page.locator('.q-title').evaluate("el=>el.dispatchEvent(new Event('copy',{bubbles:true,cancelable:true}))"))
+        self.assertFalse(self.errors)
+
+    def test_corrupt_or_outdated_session_does_not_change_legacy_progress(self):
+        self.assets()
+        self.page.locator('#startBtn').click()
+        self.page.locator('[data-answer]').first.click()
+        self.page.locator('#homeBtn').click()
+        self.page.evaluate("localStorage.setItem('ppiq_session_v1','{invalid')")
+        self.page.reload()
+        self.page.locator('#startBtn').wait_for()
+        self.assertEqual(self.page.locator('#resumeBtn').count(), 0)
+        self.assertIsNone(self.page.evaluate('localStorage.getItem("policePowersIQ_v1")'))
+        self.assertFalse(self.errors)
+
+    def test_selected_wrong_choice_feedback_for_every_reviewed_option(self):
+        self.assets(instrument=True)
+        count=self.page.evaluate("""() => {
+          let count=0;
+          for(const q of window.PPIQ_QUESTIONS){
+            const order=[...q.options.keys()].reverse();
+            const mapped={...q,optionOrder:order,shownOptions:order.map(i=>q.options[i]),shownCorrect:q.correct.map(i=>order.indexOf(i))};
+            for(let i=0;i<order.length;i++){
+              const element=document.createElement('div');element.innerHTML=PPIQ_LEGAL.render(mapped,[i]);
+              const expected=PPIQ_LEGAL.isReviewed(q)&&!mapped.shownCorrect.includes(i);
+              if(!!element.querySelector('.choice-feedback')!==expected)throw Error(q.id+': wrong choice feedback missing or unverified');
+              if(!mapped.shownCorrect.includes(i)){
+                const text=element.textContent;
+                if(!text.includes('Your answer:')||!text.includes(PPIQ_LEGAL.isReviewed(q)?'Correct answer:':'Recorded answer key (pending legal verification):'))throw Error(q.id+': missing incorrect-answer comparison');
+              }
+              if(expected)count++;
+            }
+          }return count;
+        }""")
+        self.assertGreater(count,400)
+        self.assertFalse(self.errors)
+
+    def test_stale_or_injected_choice_rationales_are_safely_handled(self):
+        data=copy.deepcopy(FEEDBACK)
+        data['feedback']['Q001A']['optionFeedback']['notes']['1']='<img src=x onerror="window.__injected=true">'
+        self.assets(questions=[BANK['Q001A']],feedback=data)
+        self.page.locator('#startBtn').click()
+        self.choose(BANK['Q001A'],False)
+        self.page.locator('#checkBtn').click()
+        self.assertIn('<img',self.page.locator('.choice-feedback').inner_text())
+        self.assertEqual(self.page.locator('.choice-feedback img').count(),0)
+        self.assertIsNone(self.page.evaluate('window.__injected'))
+        self.page.unroute_all()
+        question=copy.deepcopy(BANK['Q001A']);question['question']='Updated wording requires a new comparison'
+        self.assets(questions=[question],feedback=data)
+        self.page.locator('#startBtn').click()
+        self.choose(question,False)
+        self.page.locator('#checkBtn').click()
+        self.assertEqual(self.page.locator('.choice-feedback').count(),0)
+        self.assertFalse(self.errors)
+
+    def test_spaced_review_schedule_and_pending_exclusion(self):
+        self.assets(questions=[BANK['Q001A'],BANK['Q065A']],instrument=True)
+        result=self.page.evaluate("""() => {
+          const q=PPIQ_QUESTIONS.find(q=>q.id==='Q001A'),pending=PPIQ_QUESTIONS.find(q=>q.id==='Q065A');
+          const t=PPIQ_STUDY,day=86400000,now=Date.now(),days=[];
+          for(let i=0;i<6;i++){
+            const at=now+i*day;t.recordAnswer(q,i>0,'session-'+i,at);
+            const record=JSON.parse(localStorage.getItem(t.LEARNING_KEY)).questions[q.id];
+            days.push((record.dueAt-at)/day);
+            t.recordAnswer(q,i>0,'session-'+i,at);
+            if(JSON.parse(localStorage.getItem(t.LEARNING_KEY)).questions[q.id].attempts!==i+1)throw Error('Duplicate attempt');
+          }
+          t.recordAnswer(pending,false,'pending',now);
+          const records=JSON.parse(localStorage.getItem(t.LEARNING_KEY)).questions;
+          const due=t.dueQuestions(PPIQ_QUESTIONS,now+40*day).map(q=>q.id);
+          return {days,due,pendingSaved:!!records.Q065A};
+        }""")
+        self.assertEqual(result,{'days':[1,1,3,7,14,30],'due':['Q001A'],'pendingSaved':False})
+        self.assertFalse(self.errors)
+
+    def test_review_due_button_starts_scheduled_questions(self):
+        self.assets(questions=[BANK['Q001A']],instrument=True)
+        self.page.evaluate("PPIQ_STUDY.recordAnswer(PPIQ_QUESTIONS[0],false,'old-session',Date.now()-2*86400000);__audit.dashboard()")
+        self.assertTrue(self.page.locator('#spacedReviewBtn').is_enabled())
+        self.page.locator('#spacedReviewBtn').click()
+        self.assertEqual(self.page.evaluate('__audit.s.mode'),'review')
+        self.choose(BANK['Q001A'])
+        self.page.locator('#checkBtn').click()
+        self.page.locator('#nextBtn').click()
+        self.page.locator('#homeBtn').click()
+        self.assertTrue(self.page.locator('#spacedReviewBtn').is_disabled())
+        record=self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_learning_v1")).questions.Q001A')
+        self.assertEqual((record['attempts'],record['correct']),(2,1))
+        self.assertFalse(self.errors)
+
+    def test_weak_topic_accuracy_recent_trend_and_targeted_pool(self):
+        self.assets(instrument=True)
+        result=self.page.evaluate("""() => {
+          const t=PPIQ_STUDY,q1=PPIQ_QUESTIONS.find(q=>q.id==='Q001A'),q2=PPIQ_QUESTIONS.find(q=>q.id==='Q043A');
+          for(let i=0;i<10;i++)t.recordAnswer(q1,i>=5,'history-'+i,Date.now()-100000+i*1000);
+          t.recordAnswer(q2,true,'strong-topic');
+          const stats=t.topicStats(PPIQ_QUESTIONS,{1:'Sources',3:'Entry'});
+          __audit.dashboard();
+          return stats;
+        }""")
+        self.assertEqual((result[0]['accuracy'],result[0]['delta'],result[0]['attempts']),(50,100,10))
+        self.assertEqual(result[1]['accuracy'],100)
+        self.assertIn('Recent accuracy up 100 percentage points',self.page.locator('body').inner_text())
+        self.page.locator('#weakTopicsBtn').click()
+        self.assertEqual(self.page.evaluate('__audit.s.mode'),'weak')
+        self.assertTrue(self.page.evaluate('__audit.s.pool.every(q=>q.chapter===1&&PPIQ_LEGAL.isReviewed(q))'))
+        self.assertFalse(self.errors)
+
+    def test_question_report_preview_local_save_and_reviewed_export(self):
+        self.assets(questions=[BANK['Q001A']])
+        self.page.locator('#startBtn').click()
+        self.page.get_by_role('button',name='Report a question',exact=True).click()
+        note='Please check this wording. <img src=x onerror="window.__injected=true">'
+        self.page.get_by_label('Issue type').select_option('wording')
+        self.page.get_by_label('What should be checked?').fill(note)
+        self.page.get_by_role('button',name='Preview report →').click()
+        self.assertIn(note,self.page.locator('#studyDialog').inner_text())
+        self.assertEqual(self.page.locator('#studyDialog img').count(),0)
+        self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_reports_v1")'))
+        self.page.get_by_role('button',name='Save on this device',exact=True).click()
+        self.assertIn('Nothing has been sent',self.page.locator('#reportStatus').inner_text())
+        self.assertEqual(self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_reports_v1"))[0].note'),note)
+        with self.page.expect_download() as info:
+            self.page.get_by_role('button',name='Download report',exact=True).click()
+        downloaded=json.loads(Path(info.value.path()).read_text())
+        self.assertEqual(downloaded['report']['questionId'],'Q001A')
+        self.assertEqual(downloaded['report']['note'],note)
+        self.page.get_by_role('button',name='Close dialog').click()
+        self.page.locator('#homeBtn').click()
+        self.page.locator('#reportsQueueBtn').click()
+        self.assertIn(note,self.page.locator('#studyDialog').inner_text())
+        self.page.get_by_role('button',name='Mark resolved locally').click()
+        self.assertIn('Marked resolved locally',self.page.locator('#studyDialog').inner_text())
+        self.assertIsNone(self.page.evaluate('window.__injected'))
+        self.assertFalse(self.errors)
+
+    def test_review_dates_and_manual_queue_do_not_promote_pending_law(self):
+        self.assets(questions=[BANK['Q001A'],BANK['Q065A']],instrument=True)
+        self.page.locator('.source-status summary').click()
+        self.assertIn('Q065A',self.page.locator('.legal-queue-list').inner_text())
+        with self.page.expect_download() as info:
+            self.page.locator('#exportLegalQueue').click()
+        queue=json.loads(Path(info.value.path()).read_text())
+        self.assertEqual([q['questionId'] for q in queue['questions']],['Q065A'])
+        self.assertEqual(queue['questions'][0]['status'],'needs_review')
+        self.page.evaluate("const q=PPIQ_QUESTIONS[0];Object.assign(__audit.s,{pool:[{...q,shownOptions:q.options,shownCorrect:q.correct}],at:0,answers:{[q.id]:q.correct},checked:{[q.id]:true},mode:'practice',final:false});__audit.showQuestion()")
+        self.assertIn('2026-10-20',self.page.locator('.legal-reviewed-date').inner_text())
+        self.assertFalse(self.errors)
+
+    def test_exam_instructions_and_early_submission_score_unanswered_zero(self):
+        self.assets(instrument=True)
+        self.page.locator('[data-mode="exam"]').click()
+        instructions=self.page.locator('#modeInfo').inner_text()
+        for phrase in ['40 mixed questions','30 minutes','No negative marking','unanswered questions count as incorrect','timer','next visit']:
+            self.assertIn(phrase,instructions)
+        self.page.locator('#startBtn').click()
+        self.page.evaluate('__audit.choose(__audit.s.pool[0].shownCorrect[0])')
+        self.page.once('dialog',lambda dialog:dialog.accept())
+        self.page.locator('#submitExamBtn').click()
+        self.assertIn('3%',self.page.locator('h1').inner_text())
+        self.assertIn('1 answered; 39 unanswered',self.page.locator('.hero').inner_text())
+        learning=self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_learning_v1"))')
+        if learning:
+            self.assertEqual(sum(r['attempts'] for r in learning['questions'].values()),1)
+        self.assertFalse(self.errors)
+
+    def test_online_report_requires_preview_and_acknowledged_form_redirect(self):
+        self.assets(questions=[BANK['Q001A']])
+        posted=[]
+        def form_route(route):
+            if route.request.method=='POST':
+                posted.append(route.request.post_data)
+                route.fulfill(status=303,headers={'Location':'/report-confirmed.html?received=1'},body='')
+            else:
+                route.fulfill(status=200,body='Report received')
+        self.page.route('**/report-confirmed*',form_route)
+        self.page.locator('#startBtn').click()
+        self.page.get_by_role('button',name='Report a question',exact=True).click()
+        self.page.get_by_label('What should be checked?').fill('Please check this question against its cited source.')
+        self.assertEqual(len(posted),0)
+        self.page.get_by_role('button',name='Preview report →').click()
+        self.assertEqual(len(posted),0)
+        self.page.locator('#submitReport').click()
+        self.page.wait_for_function("document.getElementById('reportStatus').textContent.startsWith('Report submitted to the site owner.')")
+        self.assertEqual(len(posted),1)
+        self.assertIn('question-id=Q001A',posted[0])
+        self.assertIn('form-name=question-report',posted[0])
+        self.assertTrue(self.page.locator('#submitReport').is_disabled())
+        self.assertTrue(self.page.evaluate('!!JSON.parse(localStorage.getItem("ppiq_reports_v1"))[0].submittedAt'))
+        self.assertFalse(self.errors)
+
+    def test_static_http_200_is_not_falsely_reported_as_form_receipt(self):
+        self.assets(questions=[BANK['Q001A']])
+        self.page.route('**/report-confirmed*',lambda route:route.fulfill(status=200,body='Static page, not a confirmed form receipt'))
+        self.page.locator('#startBtn').click()
+        self.page.get_by_role('button',name='Report a question',exact=True).click()
+        self.page.get_by_label('What should be checked?').fill('Please check this wording for clarity.')
+        self.page.get_by_role('button',name='Preview report →').click()
+        self.page.locator('#submitReport').click()
+        self.page.wait_for_function("document.getElementById('reportStatus').textContent.includes('not been confirmed')")
+        self.assertTrue(self.page.locator('#downloadReport').is_enabled())
+        self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_reports_v1")'))
+        self.assertFalse(self.errors)
+
+    def test_submission_recovery_does_not_duplicate_grading_or_learning(self):
+        self.assets(questions=[BANK['Q001A']],instrument=True)
+        self.page.locator('#startBtn').click()
+        self.choose(BANK['Q001A'])
+        snapshot=self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_session_v1"))')
+        self.page.evaluate('__audit.finish()')
+        snapshot['phase']='submitting'
+        self.page.evaluate('d=>localStorage.setItem("ppiq_session_v1",JSON.stringify(d))',snapshot)
+        self.page.reload()
+        self.page.locator('.result-list').wait_for()
+        self.assertEqual(self.page.evaluate('JSON.parse(localStorage.getItem("policePowersIQ_v1")).attempts'),1)
+        self.assertEqual(self.page.evaluate('JSON.parse(localStorage.getItem("ppiq_learning_v1")).questions.Q001A.attempts'),1)
+        self.assertIsNone(self.page.evaluate('localStorage.getItem("ppiq_session_v1")'))
+        self.assertFalse(self.errors)
+
+    def test_blocked_storage_warns_and_allows_in_visit_resume(self):
+        self.page.add_init_script("Storage.prototype.setItem=function(){throw new Error('Storage unavailable')}")
+        self.assets(questions=[BANK['Q001A']])
+        self.page.locator('#startBtn').click()
+        self.page.locator('[data-answer]').first.click()
+        self.assertIn('may not survive',self.page.locator('.storage-warning').inner_text())
+        selected=self.page.locator('.answer.selected').inner_text()
+        self.page.locator('#homeBtn').click()
+        self.page.locator('#resumeBtn').click()
+        self.assertEqual(self.page.locator('.answer.selected').inner_text(),selected)
+        self.page.locator('#checkBtn').click()
+        self.page.locator('#nextBtn').click()
+        self.page.locator('#homeBtn').click()
+        self.assertEqual(self.page.locator('#resumeBtn').count(),0)
+        self.assertFalse(self.errors)
+
+    def test_reports_and_new_learning_panels_fit_both_themes_and_mobile(self):
+        self.assets(questions=[BANK['Q001A'],BANK['Q065A']],instrument=True)
+        for theme in ['light','dark']:
+            self.page.evaluate('(theme)=>document.documentElement.dataset.theme=theme',theme)
+            self.page.evaluate('__audit.dashboard()')
+            self.page.locator('.source-status summary').click()
+            for width in [320,375,768,1280]:
+                self.page.set_viewport_size({'width':width,'height':900})
+                self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'),width)
+            self.page.locator('#startBtn').click()
+            self.page.get_by_role('button',name='Report a question',exact=True).click()
+            self.page.get_by_label('What should be checked?').fill('Check this source: https://example.test/'+('longword'*30))
+            self.page.get_by_role('button',name='Preview report →').click()
+            for width in [320,375,768,1280]:
+                self.page.set_viewport_size({'width':width,'height':900})
+                self.assertTrue(self.page.locator('#studyDialog').is_visible())
+                self.assertTrue(self.page.locator('#submitReport').is_visible())
+                self.assertTrue(self.page.evaluate('document.getElementById("studyDialog").scrollWidth <= document.getElementById("studyDialog").clientWidth'))
+                self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'),width)
+            self.page.get_by_role('button',name='Close dialog').click()
+            self.page.evaluate('__audit.finish()')
         self.assertFalse(self.errors)
 
 if __name__ == '__main__':

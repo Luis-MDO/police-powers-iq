@@ -1,0 +1,137 @@
+/* Topic outlines adapted from the supplied study guide. Legal prose comes
+   exclusively from the app's gated legal-feedback records, never the upload. */
+(() => {
+  'use strict';
+  const KEY = 'ppiq_guide_v1', study = window.PPIQ_STUDY;
+  const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const note = (label, number) => [label, `Q${String(number).padStart(3,'0')}A`];
+  const topics = {
+    1: {
+      icon:'§', intro:'Start with where police authority comes from, then connect each power to its constitutional limits.',
+      recall:'Without looking, name the sources of police authority and explain what Charter sections 8, 9 and 10 protect.',
+      cards:[
+        ['Who makes the law?',[note('Federal criminal law',1),note('Provincial administration of justice',2),note('Division of powers',3)]],
+        ['Sources of authority',[note('Statutes',7),note('Regulations',9),note('Common law',8)]],
+        ['Constitutional foundations',[note('Canadian Bill of Rights · 1960',5),note('Canadian Charter · 1982',4),note('Constitutional supremacy',6)]],
+        ['Charter rights · sections 7–10',[note('Section 7 · life, liberty and security',10),note('Section 8 · search and seizure',11),note('Section 9 · detention',12),note('Section 10 · arrest and detention rights',13)]],
+        ['Charter rights · sections 11–14',[note('Section 11 · criminal proceedings',14),note('Section 12 · treatment and punishment',15),note('Section 13 · witness testimony',16),note('Section 14 · interpreters',17)]]
+      ]
+    },
+    2: {
+      icon:'⚖', intro:'Work through the authority, the required grounds, and the restrictions before deciding whether an arrest is lawful.',
+      recall:'Explain reasonable grounds in your own words. Then compare arrest, investigative detention and voluntary accompaniment.',
+      cards:[
+        ['Police and citizen arrest powers',[note('Section 495 · peace officers',18),note('Section 494 · citizen arrest',41),note('Delivery to a peace officer',42)]],
+        ['Grounds for arrest',[note('Subjective belief',20),note('Objective justification',21),note('Found committing',22)]],
+        ['Arrest restrictions and RICE',[note('Section 495(2) · restrictions',19),note('R · repetition or continuation',23),note('I · identity',24),note('C · court attendance',25),note('E · evidence',26),note('Arrest is not always required',34)]],
+        ['Arrest, detention and choice',[note('Investigative detention',36),note('Voluntary accompaniment',35),note('Right to counsel',33),note('Police duties and lawful justification',27)]],
+        ['Offence classification',[note('Summary conviction',28),note('Hybrid offences · Crown election',29),note('Before the Crown elects',30),note('Classification and arrest restrictions',37)]],
+        ['Elements of an offence',[note('Actus reus',31),note('Mens rea',32)]],
+        ['Warrants and youth proceedings',[note('Bench warrants',38),note('Duration of arrest warrants',39),note('Youth Criminal Justice Act',40)]]
+      ]
+    },
+    3: {
+      icon:'⌂', intro:'Separate the power to arrest a person from the authority to enter a dwelling-house.',
+      recall:'Explain why an arrest warrant and permission to enter a home are different. Compare the conditions for each entry exception.',
+      cards:[
+        ['Homes and privacy',[note('The location distinction',43),note('Dwelling-house',44),note('Privacy protection',46),note('Privacy and lawful arrest',54)]],
+        ['Feeney and judicial entry authorization',[note('R. v. Feeney',45),note('Prior authorization',47),note('Presence of the person',48),note('An ordinary arrest warrant',55)]],
+        ['Entry exceptions · separate legal tests',[note('Exigent entry to arrest',49),note('Hot pursuit',50),note('Emergency assistance',51)]],
+        ['Approaching a home and using force',[note('An invitation to knock',52),note('Necessary and justified force',53)]]
+      ]
+    },
+    7: {
+      icon:'⌕', intro:'Identify the legal basis for a warrantless search, then ask whether its purpose, scope and manner stay within that power.',
+      recall:'Compare a protective frisk with a search incident to arrest. Describe Fearon’s limits without using “arrest means search everything.”',
+      cards:[
+        ['Prior authorization and section 8',[note('Prior judicial authorization',56),note('Justifying a warrantless search',57)]],
+        ['Search incident to arrest',[note('Valid connected purposes',58),note('Limits on scope',59),note('Vehicle searches',62)]],
+        ['Protective searches during detention',[note('Safety purpose',60),note('Additional safety grounds',61)]],
+        ['Cellphones · R. v. Fearon',[note('The cellphone-search decision',63),note('Purpose, scope and detailed notes',64)]],
+        ['Consent and another person’s privacy',[note('Withdrawal of consent · review pending',65),note('Landlords and third-party permission',66)]],
+        ['School searches',[note('School officials',67),note('Police involvement',68)]],
+        ['Plain view and continuity',[note('Plain-view seizure',69),note('Continuity of evidence · review pending',70)]],
+        ['Dog sniffs and urgency',[note('Reasonable suspicion',71),note('Exigent circumstances',72)]]
+      ]
+    },
+    8: {
+      icon:'▤', intro:'Follow the warrant from its supporting information to its execution. Pay attention to the facts, disclosure and specific authorization.',
+      recall:'Explain ITO, affiant, nexus and the Three Fs. Then identify the limits that still matter when executing a warrant.',
+      cards:[
+        ['Building a warrant application',[note('Place and evidence',73),note('Nexus',74),note('Specific offence facts',78),note('Location, offence and items',79)]],
+        ['ITO and affiant',[note('Information to Obtain',75),note('The affiant',76),note('Swearing or affirming',94)]],
+        ['Full, fair and frank disclosure',[note('The Three Fs',77),note('Contrary material facts',80),note('Material earlier refusals',81),note('Constitutional problems in evidence collection',82)]],
+        ['Informers, agents and sealing',[note('Informer privilege',83),note('State agency',84),note('Sealing orders',85)]],
+        ['Telewarrants',[note('Telecommunication that does not produce a writing',86)]],
+        ['Executing a warrant',[note('Knock and announce',87),note('Necessary force',88),note('No-knock exceptions',89)]],
+        ['Time, people and re-entry',[note('Night · 9 p.m. to 6 a.m.',90),note('Execution periods',93),note('People inside the premises',91),note('Re-entry after completion · review pending',92)]],
+        ['CPIC',[note('Canadian Police Information Centre',95)]]
+      ]
+    }
+  };
+  let memory = null;
+  function state() {
+    if(memory)return memory;
+    const stored=study.read(KEY,{});
+    memory={selected:Object.hasOwn(topics,String(stored?.selected))?String(stored.selected):'1',reviewed:{}};
+    for(const id of Object.keys(topics))if(stored?.reviewed?.[id]===true)memory.reviewed[id]=true;
+    return memory;
+  }
+  function save(){study.write(KEY,state())}
+  function reset(){memory=null;study.remove(KEY)}
+  function cardHtml(card,index,bank){
+    const sources=new Map(),dates=[];
+    let pending=false;
+    const notes=card[1].map(([label,id])=>{
+      const q=bank.get(id),info=q&&window.PPIQ_LEGAL.studyContent(q);
+      if(!info?.reviewed)pending=true;
+      for(const source of info?.sources||[])sources.set(source.url,source);
+      if(info?.reviewedOn)dates.push(info.reviewedOn);
+      return `<section class="guide-note" data-guide-note="${id}"><h4>${escape(label)}</h4>${info?.reviewed?`${info.studyAid?'<span class="guide-mnemonic">Study mnemonic · not statutory wording</span>':''}<p>${escape(info.explanation)}</p>${info.pinpoint?`<p class="small guide-pinpoint">${escape(info.pinpoint)}</p>`:''}`:'<p class="guide-pending">Legal review pending. This point needs further verification before a substantive study explanation can be displayed.</p>'}</section>`;
+    }).join('');
+    const links=[...sources.values()].map(source=>`<li><a href="${escape(source.url)}" target="_blank" rel="noopener noreferrer">${escape(source.title)}</a></li>`).join('');
+    return `<details class="guide-card" ${index===0?'open':''}><summary><span>${escape(card[0])}</span><span class="guide-card-count">${card[1].length} ${card[1].length===1?'note':'notes'}</span></summary><div class="guide-card-body">${notes}<details class="guide-citations"><summary>${pending?'Sources · some support pending review':'Legislation & court decisions'}</summary>${links?`<ul>${links}</ul>`:'<p class="small">Legal sources are unavailable.</p>'}${dates.length?`<p class="small">Earliest review date for the cleared notes above: ${escape(dates.sort()[0])}. Check the linked sources for current law.</p>`:''}</details></div></details>`;
+  }
+  function mount(host,names,{practice}){
+    const data=state(),ids=Object.keys(topics),bank=new Map((window.PPIQ_QUESTIONS||[]).map(q=>[q.id,q]));
+    host.innerHTML=`<section class="guide-hero"><div><div class="eyebrow">Read · recall · practise</div><h1>Your study <span>guide.</span></h1><p class="sub">Build your understanding one topic at a time. Open the notes, check the legal sources, then put what you know into practice.</p></div><div class="guide-progress"><span class="guide-progress-label">Your reading checklist</span><b id="guideReviewCount"></b><span class="small">Self-marked review · separate from your quiz scores</span></div></section><div class="guide-layout"><aside class="guide-sidebar"><div class="eyebrow">Choose a topic</div><div class="guide-topics" role="tablist" aria-label="Study guide topics" aria-orientation="vertical">${ids.map(id=>`<button class="guide-topic" id="guide-tab-${id}" type="button" role="tab" data-guide-topic="${id}" aria-controls="guide-panel-${id}" aria-selected="${id===data.selected}" tabindex="${id===data.selected?'0':'-1'}"><span class="guide-topic-icon" aria-hidden="true">${topics[id].icon}</span><span>${escape(names[id])}</span><span class="guide-topic-check" aria-hidden="true"></span></button>`).join('')}</div><p class="small guide-source-note">Organized by legal topic, with statutes and court decisions linked in the notes. Review status matches the app’s answer feedback.</p></aside><div class="guide-reading">${ids.map(id=>`<section id="guide-panel-${id}" class="guide-topic-panel" role="tabpanel" tabindex="0" aria-labelledby="guide-tab-${id}" ${id!==data.selected?'hidden':''}><header class="guide-topic-heading"><h2>${escape(names[id])}</h2><p class="sub">${escape(topics[id].intro)}</p><div class="guide-toolbar"><button type="button" class="ghost" data-guide-expand="${id}" aria-expanded="false">Expand all notes</button><button type="button" class="ghost" data-guide-reviewed="${id}" aria-pressed="false">Mark topic reviewed</button></div></header>${topics[id].cards.map((card,i)=>cardHtml(card,i,bank)).join('')}<div class="guide-recall"><div class="eyebrow">Pause & recall</div><h3>Put it in your own words.</h3><p>${escape(topics[id].recall)}</p><button type="button" class="primary" data-guide-practice="${id}">Practice this topic →</button></div></section>`).join('')}<p id="guideSaveStatus" class="small" role="status"></p></div></div>`;
+    const tabs=[...host.querySelectorAll('[data-guide-topic]')];
+    function refresh(){
+      const count=ids.filter(id=>data.reviewed[id]).length;
+      host.querySelector('#guideReviewCount').textContent=`${count} of ${ids.length} topics reviewed`;
+      for(const id of ids){
+        const tab=host.querySelector(`#guide-tab-${id}`),review=host.querySelector(`[data-guide-reviewed="${id}"]`),selected=id===data.selected;
+        tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;
+        tab.querySelector('.guide-topic-check').textContent=data.reviewed[id]?'✓':'';
+        tab.setAttribute('aria-label',`${names[id]}${data.reviewed[id]?', marked reviewed':''}`);
+        host.querySelector(`#guide-panel-${id}`).hidden=!selected;
+        review.setAttribute('aria-pressed',String(!!data.reviewed[id]));
+        review.textContent=data.reviewed[id]?'✓ Topic reviewed':'Mark topic reviewed';
+      }
+      host.querySelector('#guideSaveStatus').textContent=study.storageError?'Browser storage is unavailable. Your reading checklist may not survive closing or reloading.':'';
+    }
+    function activate(tab){data.selected=tab.dataset.guideTopic;save();refresh()}
+    tabs.forEach((tab,i)=>{
+      tab.onclick=()=>activate(tab);
+      tab.onkeydown=event=>{
+        let index;
+        if(['ArrowDown','ArrowRight'].includes(event.key))index=(i+1)%tabs.length;
+        else if(['ArrowUp','ArrowLeft'].includes(event.key))index=(i+tabs.length-1)%tabs.length;
+        else if(event.key==='Home')index=0;
+        else if(event.key==='End')index=tabs.length-1;
+        if(index===undefined)return;
+        event.preventDefault();tabs[index].focus();activate(tabs[index]);
+      };
+    });
+    host.querySelectorAll('[data-guide-reviewed]').forEach(button=>button.onclick=()=>{const id=button.dataset.guideReviewed;data.reviewed[id]=!data.reviewed[id];save();refresh()});
+    host.querySelectorAll('[data-guide-practice]').forEach(button=>button.onclick=()=>practice(button.dataset.guidePractice));
+    host.querySelectorAll('[data-guide-expand]').forEach(button=>{
+      const cards=[...host.querySelectorAll(`#guide-panel-${button.dataset.guideExpand} > .guide-card`)];
+      const sync=()=>{const expanded=cards.every(card=>card.open);button.setAttribute('aria-expanded',String(expanded));button.textContent=expanded?'Collapse all notes':'Expand all notes'};
+      cards.forEach(card=>card.addEventListener('toggle',sync));
+      button.onclick=()=>{const expand=!cards.every(card=>card.open);cards.forEach(card=>card.open=expand);sync()};
+    });
+    refresh();
+  }
+  window.PPIQ_GUIDE={mount,reset};
+})();
