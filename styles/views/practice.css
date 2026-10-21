@@ -1,0 +1,204 @@
+/* views · practice — edit this source, then run npm run build. */
+select:focus,
+button:focus-visible,
+.answer:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.question-area {
+  max-width: 850px;
+  margin: 36px auto;
+}
+.q-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.q-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 30px;
+}
+.q-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+.q-title {
+  font-size: clamp(21px, 3vw, 29px);
+  line-height: 1.4;
+  margin: 16px 0 23px;
+}
+.answer-list {
+  display: grid;
+  gap: 11px;
+}
+.answer {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  text-align: left;
+  color: var(--text);
+  padding: 17px 18px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.answer:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+.answer.selected {
+  border-color: var(--accent);
+  background: var(--selected);
+}
+.answer.good {
+  border-color: var(--success-line);
+  background: var(--success-bg);
+}
+.answer.bad {
+  border-color: var(--error-line);
+  background: var(--error-bg);
+}
+.letter {
+  border-radius: 8px;
+  min-width: 30px;
+  height: 30px;
+  background: var(--track);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+.result-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+.result-item {
+  padding: 16px;
+}
+.result-item p {
+  margin: 8px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.chip {
+  display: inline-block;
+  border-radius: 7px;
+  padding: 4px 8px;
+  background: var(--selected);
+  color: var(--link);
+  font-size: 11px;
+  font-weight: 800;
+}
+.chip.wrong {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+.countdown {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--link);
+}
+@media (max-width: 750px) {
+  .q-header {
+    align-items: flex-start;
+  }
+}
+.question-statements {
+  margin: 0 0 22px;
+  padding-left: 28px;
+  line-height: 1.7;
+}
+.question-statements li {
+  padding: 4px 0 4px 5px;
+}
+.answer-instruction {
+  color: var(--soft);
+  font-weight: 700;
+}
+button:not(:disabled):active,
+.segment.selected,
+.answer.selected {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 3px 7px var(--shadow),
+    inset 0 -1px var(--shine);
+}
+.answer.good,
+.answer.bad {
+  box-shadow: inset 0 2px 5px var(--shadow);
+}
+.answer:disabled:hover {
+  transform: none;
+  background: var(--surface);
+}
+.answer.good:disabled:hover {
+  background: var(--success-bg);
+}
+.answer.bad:disabled:hover {
+  background: var(--error-bg);
+}
+.answer.selected:disabled:hover {
+  background: var(--selected);
+}
+@media (max-width: 750px) {
+  .q-header .pill {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+    padding: 7px;
+  }
+}
+@media (max-width: 750px) {
+  .q-header {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 750px) {
+  .question-area {
+    margin: 24px auto;
+  }
+}
+@media (max-width: 750px) {
+  .answer {
+    padding: 14px 12px;
+  }
+}
+@media (max-width: 750px) {
+  .q-title {
+    font-size: 22px;
+  }
+}
+.time-low {
+  color: var(--error-text);
+}
+@media (max-width: 750px) {
+  .q-card .actions button {
+    min-width: 0;
+  }
+}
+.exam-rules h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.exam-rules ul {
+  padding-left: 20px;
+  margin: 0;
+}
+.exam-rules li {
+  margin: 10px 0;
+  line-height: 1.65;
+}
+.exam-rules li:last-child {
+  margin-bottom: 0;
+}
+.exam-active .question-area {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}

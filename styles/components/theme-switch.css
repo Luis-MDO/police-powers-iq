@@ -1,0 +1,140 @@
+/* components · theme-switch — edit this source, then run npm run build. */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  white-space: nowrap;
+}
+.theme-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: var(--accent);
+}
+.theme-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.theme-control__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--soft);
+  min-width: 66px;
+}
+.power-switch {
+  --power-size: 64px;
+  --power-time: 0.3s;
+  --power-bounce: cubic-bezier(0.42, -1.1, 0.42, 1.5);
+  background: linear-gradient(160deg, var(--bg), var(--surface-hover));
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  isolation: isolate;
+  flex-shrink: 0;
+  width: var(--power-size);
+  height: var(--power-size);
+  padding: 0;
+  box-shadow:
+    inset 0 0 4px var(--shadow),
+    0 2px 2px var(--shine);
+  -webkit-tap-highlight-color: transparent;
+  transition: box-shadow var(--power-time) ease-in-out;
+}
+.power-switch:before,
+.power-switch:after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+  transition:
+    transform var(--power-time) var(--power-bounce),
+    box-shadow var(--power-time) var(--power-bounce),
+    background-color var(--power-time) ease-in-out;
+}
+.power-switch:before {
+  inset: 15%;
+  background: linear-gradient(160deg, var(--surface-hover), var(--bg));
+  box-shadow:
+    0 5px 6px 2px var(--shadow),
+    inset 0 1px var(--shine);
+}
+.power-switch:after {
+  inset: 30%;
+  background: linear-gradient(160deg, var(--bg), var(--surface-hover));
+  box-shadow:
+    inset 0 1px var(--shine),
+    inset 0 -1px var(--shine);
+}
+.power-switch__icon {
+  position: relative;
+  z-index: 1;
+  width: 24%;
+  height: 24%;
+  overflow: visible;
+  color: var(--muted);
+  transition:
+    color var(--power-time) ease-in-out,
+    filter var(--power-time) ease-in-out,
+    transform var(--power-time) var(--power-bounce);
+}
+.power-switch:not(:disabled):is(:hover, :active) {
+  transform: none;
+  box-shadow:
+    inset 0 0 4px var(--shadow),
+    0 2px 2px var(--shine);
+}
+.power-switch:not(:disabled):hover:before {
+  box-shadow:
+    0 6px 8px 2px var(--shadow),
+    inset 0 1px var(--shine);
+}
+.power-switch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.power-switch[aria-pressed="true"]:before,
+.power-switch[aria-pressed="true"]:after,
+.power-switch[aria-pressed="true"] .power-switch__icon,
+.power-switch:active:before,
+.power-switch:active:after,
+.power-switch:active .power-switch__icon {
+  transform: translateY(1px) scale(0.96);
+  transition-timing-function: cubic-bezier(0.42, 0, 0.42, 1.5);
+}
+.power-switch[aria-pressed="true"]:before,
+.power-switch:not(:disabled):active:before {
+  box-shadow:
+    0 2px 3px var(--shadow),
+    inset 0 1px var(--shine);
+}
+.power-switch[aria-pressed="true"]:after {
+  background-color: var(--selected);
+  box-shadow:
+    inset 0 1px var(--accent),
+    inset 0 -1px var(--accent),
+    inset 0 0 9px var(--selected);
+}
+.power-switch[aria-pressed="true"] .power-switch__icon {
+  color: var(--accent);
+  filter: drop-shadow(0 0 3px var(--accent));
+}
+@media (max-width: 750px) {
+  .power-switch {
+    --power-size: 56px;
+  }
+}
+@media (max-width: 750px) {
+  .theme-control {
+    gap: 8px;
+  }
+}
+@media (max-width: 750px) {
+  .theme-control__label {
+    font-size: 11px;
+    min-width: 60px;
+  }
+}

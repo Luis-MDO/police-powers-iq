@@ -1,0 +1,145 @@
+/* Reading completion is independent of quiz performance. */
+.guide-topic {
+  grid-template-columns: 25px minmax(0, 1fr) 54px;
+  gap: 9px;
+  min-height: 84px;
+}
+.guide-topic-progress {
+  display: block;
+}
+.review-ring {
+  display: inline-flex;
+  position: relative;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  color: var(--review);
+}
+.review-ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.review-ring circle {
+  fill: none;
+  stroke-width: 3;
+}
+.review-ring-track {
+  stroke: var(--review-track);
+}
+.review-ring-fill {
+  stroke: var(--review);
+  transition: stroke-dasharray 0.4s ease;
+}
+.review-ring-value {
+  font-size: 11px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+}
+.review-ring-check {
+  display: block;
+  margin-top: 1px;
+  text-align: center;
+  font-size: 12px;
+}
+.guide-action {
+  min-height: 46px;
+  padding: 11px 17px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-control);
+  background: var(--selected);
+  color: var(--link);
+  font-weight: 750;
+}
+.guide-action:hover {
+  background: var(--surface-hover);
+}
+.section-review {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 46px;
+  padding: 10px 15px;
+  margin: 20px 0 0;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-control);
+  color: var(--link);
+  background: var(--selected);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.section-review:hover {
+  box-shadow: 0 0 0 2px var(--selected);
+}
+.section-review input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.section-review:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.section-review-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-size: 13px;
+  color: transparent;
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.section-review.is-reviewed {
+  border-color: var(--review);
+  background: var(--success-bg);
+  color: var(--review);
+}
+.is-reviewed .section-review-icon {
+  color: var(--review);
+  box-shadow: none;
+}
+@media (max-width: 850px) and (min-width: 651px) {
+  .guide-layout {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  .guide-topic {
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 5px;
+    font-size: 12px;
+    padding: 10px;
+  }
+  .review-ring {
+    width: 42px;
+    height: 42px;
+  }
+  .review-ring-value {
+    font-size: 10px;
+  }
+  .guide-topic:last-child {
+    min-height: 68px;
+  }
+  .guide-toolbar .guide-action {
+    flex: 0 1 auto;
+    font-size: 12px;
+  }
+  .section-review {
+    width: 100%;
+    justify-content: center;
+  }
+}
