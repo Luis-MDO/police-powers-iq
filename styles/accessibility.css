@@ -1,0 +1,22 @@
+/* accessibility — edit this source, then run npm run build. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .law-tile {
+    transform: rotateZ(-5deg);
+  }
+  button:not(:disabled):hover,
+  .stat:hover {
+    transform: none;
+  }
+}

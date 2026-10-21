@@ -1,0 +1,106 @@
+/* components · reports — edit this source, then run npm run build. */
+.report-link {
+  margin-top: 14px;
+}
+.app-dialog {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  width: min(680px, calc(100% - 32px));
+  max-height: 85vh;
+  max-height: 85dvh;
+  box-shadow: 0 20px 90px rgba(0, 0, 0, 0.45);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.app-dialog::backdrop {
+  background: rgba(10, 12, 9, 0.7);
+  backdrop-filter: blur(4px);
+}
+.dialog-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+.dialog-heading h2 {
+  font-size: 23px;
+  line-height: 1.35;
+}
+.dialog-close {
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 22px;
+  padding: 5px;
+  flex-shrink: 0;
+}
+.app-dialog textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  resize: vertical;
+  min-height: 120px;
+}
+.app-dialog textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.app-dialog .actions {
+  align-items: center;
+}
+.report-stem {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  line-height: 1.6;
+}
+.report-preview {
+  line-height: 1.6;
+}
+.report-preview dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 16px;
+}
+.report-preview dd {
+  margin: 5px 0;
+  overflow-wrap: anywhere;
+}
+.preserve-lines {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.report-queue {
+  list-style: none;
+  padding: 0;
+}
+.report-queue li {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.report-queue small {
+  color: var(--muted);
+}
+@media (max-width: 750px) {
+  .app-dialog {
+    padding: 18px;
+  }
+}
+@media (max-width: 750px) {
+  .dialog-heading h2 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 750px) {
+  .app-dialog .actions button {
+    flex: 1 1 140px;
+  }
+}

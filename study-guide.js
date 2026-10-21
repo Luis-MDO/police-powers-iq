@@ -69,17 +69,31 @@
       ]
     }
   };
+  const sectionKey = card => card[1].map(([,id])=>id).join('-');
   let memory = null;
   function state() {
     if(memory)return memory;
     const stored=study.read(KEY,{});
-    memory={selected:Object.hasOwn(topics,String(stored?.selected))?String(stored.selected):'1',reviewed:{}};
-    for(const id of Object.keys(topics))if(stored?.reviewed?.[id]===true)memory.reviewed[id]=true;
+    memory={schemaVersion:2,selected:Object.hasOwn(topics,String(stored?.selected))?String(stored.selected):'1',sections:{}};
+    for(const [id,topic] of Object.entries(topics)){
+      const valid=topic.cards.map(sectionKey);
+      // Legacy whole-topic completion means each existing section was reviewed.
+      const previous=stored?.schemaVersion===2&&Array.isArray(stored.sections?.[id])?stored.sections[id]:stored?.reviewed?.[id]===true?valid:[];
+      memory.sections[id]=valid.filter(key=>previous.includes(key));
+    }
     return memory;
   }
   function save(){study.write(KEY,state())}
   function reset(){memory=null;study.remove(KEY)}
-  function cardHtml(card,index,bank){
+  function progress(id){
+    const total=topics[id].cards.length,done=state().sections[id].length;
+    return {total,done,exact:done/total*100,percent:Math.round(done/total*100),complete:done===total};
+  }
+  function ring(id){
+    const p=progress(id);
+    return `<span class="review-ring ${p.complete?'is-complete':''}" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><circle class="review-ring-track" cx="24" cy="24" r="20"/><circle class="review-ring-fill" cx="24" cy="24" r="20" pathLength="100" stroke-dasharray="${p.exact} 100" transform="rotate(-90 24 24)"/></svg><span class="review-ring-value">${p.percent}%${p.complete?'<span class="review-ring-check">✓</span>':''}</span></span>`;
+  }
+  function cardHtml(card,index,bank,topicId){
     const sources=new Map(),dates=[];
     let pending=false;
     const notes=card[1].map(([label,id])=>{
@@ -90,23 +104,25 @@
       return `<section class="guide-note" data-guide-note="${id}"><h4>${escape(label)}</h4>${info?.reviewed?`${info.studyAid?'<span class="guide-mnemonic">Study mnemonic · not statutory wording</span>':''}<p>${escape(info.explanation)}</p>${info.pinpoint?`<p class="small guide-pinpoint">${escape(info.pinpoint)}</p>`:''}`:'<p class="guide-pending">Legal review pending. This point needs further verification before a substantive study explanation can be displayed.</p>'}</section>`;
     }).join('');
     const links=[...sources.values()].map(source=>`<li><a href="${escape(source.url)}" target="_blank" rel="noopener noreferrer">${escape(source.title)}</a></li>`).join('');
-    return `<details class="guide-card" ${index===0?'open':''}><summary><span>${escape(card[0])}</span><span class="guide-card-count">${card[1].length} ${card[1].length===1?'note':'notes'}</span></summary><div class="guide-card-body">${notes}<details class="guide-citations"><summary>${pending?'Sources · some support pending review':'Legislation & court decisions'}</summary>${links?`<ul>${links}</ul>`:'<p class="small">Legal sources are unavailable.</p>'}${dates.length?`<p class="small">Earliest review date for the cleared notes above: ${escape(dates.sort()[0])}. Check the linked sources for current law.</p>`:''}</details></div></details>`;
+    const key=sectionKey(card),checked=state().sections[topicId].includes(key);
+    return `<details class="guide-card" ${index===0?'open':''}><summary><span>${escape(card[0])}</span><span class="guide-card-count">${card[1].length} ${card[1].length===1?'note':'notes'}</span></summary><div class="guide-card-body">${notes}<details class="guide-citations"><summary>${pending?'Sources · some support pending review':'Legislation & court decisions'}</summary>${links?`<ul>${links}</ul>`:'<p class="small">Legal sources are unavailable.</p>'}${dates.length?`<p class="small">Earliest review date for the cleared notes above: ${escape(dates.sort()[0])}. Check the linked sources for current law.</p>`:''}</details><label class="section-review ${checked?'is-reviewed':''}"><input type="checkbox" data-guide-section="${topicId}:${key}" ${checked?'checked':''} aria-label="Mark ${escape(card[0])} reviewed"><span class="section-review-icon" aria-hidden="true">✓</span><span class="section-review-text">${checked?'Section reviewed':'Mark section reviewed'}</span></label></div></details>`;
   }
   function mount(host,names,{practice}){
     const data=state(),ids=Object.keys(topics),bank=new Map((window.PPIQ_QUESTIONS||[]).map(q=>[q.id,q]));
-    host.innerHTML=`<section class="guide-hero"><div><div class="eyebrow">Read · recall · practise</div><h1>Your study <span>guide.</span></h1><p class="sub">Build your understanding one topic at a time. Open the notes, check the legal sources, then put what you know into practice.</p></div><div class="guide-progress"><span class="guide-progress-label">Your reading checklist</span><b id="guideReviewCount"></b><span class="small">Self-marked review · separate from your quiz scores</span></div></section><div class="guide-layout"><aside class="guide-sidebar"><div class="eyebrow">Choose a topic</div><div class="guide-topics" role="tablist" aria-label="Study guide topics" aria-orientation="vertical">${ids.map(id=>`<button class="guide-topic" id="guide-tab-${id}" type="button" role="tab" data-guide-topic="${id}" aria-controls="guide-panel-${id}" aria-selected="${id===data.selected}" tabindex="${id===data.selected?'0':'-1'}"><span class="guide-topic-icon" aria-hidden="true">${topics[id].icon}</span><span>${escape(names[id])}</span><span class="guide-topic-check" aria-hidden="true"></span></button>`).join('')}</div><p class="small guide-source-note">Organized by legal topic, with statutes and court decisions linked in the notes. Review status matches the app’s answer feedback.</p></aside><div class="guide-reading">${ids.map(id=>`<section id="guide-panel-${id}" class="guide-topic-panel" role="tabpanel" tabindex="0" aria-labelledby="guide-tab-${id}" ${id!==data.selected?'hidden':''}><header class="guide-topic-heading"><h2>${escape(names[id])}</h2><p class="sub">${escape(topics[id].intro)}</p><div class="guide-toolbar"><button type="button" class="ghost" data-guide-expand="${id}" aria-expanded="false">Expand all notes</button><button type="button" class="ghost" data-guide-reviewed="${id}" aria-pressed="false">Mark topic reviewed</button></div></header>${topics[id].cards.map((card,i)=>cardHtml(card,i,bank)).join('')}<div class="guide-recall"><div class="eyebrow">Pause & recall</div><h3>Put it in your own words.</h3><p>${escape(topics[id].recall)}</p><button type="button" class="primary" data-guide-practice="${id}">Practice this topic →</button></div></section>`).join('')}<p id="guideSaveStatus" class="small" role="status"></p></div></div>`;
+    host.innerHTML=`<section class="guide-hero"><div><div class="eyebrow">Midterm · Read · recall · practise</div><h1>Your study <span>guide.</span></h1><p class="sub">Build your understanding one topic at a time. Open the notes, check the legal sources, then put what you know into practice.</p></div><div class="guide-progress"><span class="guide-progress-label">Your reading checklist</span><b id="guideReviewCount"></b><span class="small">Self-marked review · separate from your quiz scores</span></div></section><div class="guide-layout"><aside class="guide-sidebar"><div class="eyebrow">Choose a topic</div><div class="guide-topics" role="tablist" aria-label="Study guide topics" aria-orientation="vertical">${ids.map(id=>`<button class="guide-topic" id="guide-tab-${id}" type="button" role="tab" data-guide-topic="${id}" aria-controls="guide-panel-${id}" aria-selected="${id===data.selected}" tabindex="${id===data.selected?'0':'-1'}"><span class="guide-topic-icon" aria-hidden="true">${topics[id].icon}</span><span>${escape(names[id])}</span><span class="guide-topic-progress">${ring(id)}</span></button>`).join('')}</div><p class="small guide-source-note">Organized by legal topic, with statutes and court decisions linked in the notes. Review status matches the app’s answer feedback.</p></aside><div class="guide-reading">${ids.map(id=>`<section id="guide-panel-${id}" class="guide-topic-panel" role="tabpanel" tabindex="0" aria-labelledby="guide-tab-${id}" ${id!==data.selected?'hidden':''}><header class="guide-topic-heading"><h2>${escape(names[id])}</h2><p class="sub">${escape(topics[id].intro)}</p><div class="guide-toolbar"><button type="button" class="guide-action" data-guide-expand="${id}" aria-expanded="false">Expand all notes</button></div></header>${topics[id].cards.map((card,i)=>cardHtml(card,i,bank,id)).join('')}<div class="guide-recall"><div class="eyebrow">Pause & recall</div><h3>Put it in your own words.</h3><p>${escape(topics[id].recall)}</p><button type="button" class="primary" data-guide-practice="${id}">Practice this topic →</button></div></section>`).join('')}<p id="guideSaveStatus" class="small" role="status"></p></div></div>`;
     const tabs=[...host.querySelectorAll('[data-guide-topic]')];
     function refresh(){
-      const count=ids.filter(id=>data.reviewed[id]).length;
-      host.querySelector('#guideReviewCount').textContent=`${count} of ${ids.length} topics reviewed`;
+      const all=ids.map(progress),done=all.reduce((n,p)=>n+p.done,0),total=all.reduce((n,p)=>n+p.total,0);
+      host.querySelector('#guideReviewCount').textContent=`${done} of ${total} sections reviewed`;
       for(const id of ids){
-        const tab=host.querySelector(`#guide-tab-${id}`),review=host.querySelector(`[data-guide-reviewed="${id}"]`),selected=id===data.selected;
+        const tab=host.querySelector(`#guide-tab-${id}`),selected=id===data.selected,p=progress(id);
         tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;
-        tab.querySelector('.guide-topic-check').textContent=data.reviewed[id]?'✓':'';
-        tab.setAttribute('aria-label',`${names[id]}${data.reviewed[id]?', marked reviewed':''}`);
+        const indicator=tab.querySelector('.review-ring');
+        indicator.classList.toggle('is-complete',p.complete);
+        indicator.querySelector('.review-ring-fill').setAttribute('stroke-dasharray',`${p.exact} 100`);
+        indicator.querySelector('.review-ring-value').innerHTML=`${p.percent}%${p.complete?'<span class="review-ring-check">✓</span>':''}`;
+        tab.setAttribute('aria-label',`${names[id]}, ${p.percent}% reviewed, ${p.done} of ${p.total} sections${p.complete?', complete':''}`);
         host.querySelector(`#guide-panel-${id}`).hidden=!selected;
-        review.setAttribute('aria-pressed',String(!!data.reviewed[id]));
-        review.textContent=data.reviewed[id]?'✓ Topic reviewed':'Mark topic reviewed';
       }
       host.querySelector('#guideSaveStatus').textContent=study.storageError?'Browser storage is unavailable. Your reading checklist may not survive closing or reloading.':'';
     }
@@ -123,7 +139,16 @@
         event.preventDefault();tabs[index].focus();activate(tabs[index]);
       };
     });
-    host.querySelectorAll('[data-guide-reviewed]').forEach(button=>button.onclick=()=>{const id=button.dataset.guideReviewed;data.reviewed[id]=!data.reviewed[id];save();refresh()});
+    host.querySelectorAll('[data-guide-section]').forEach(input=>input.onchange=()=>{
+      const [id,key]=input.dataset.guideSection.split(':');
+      const reviewed=new Set(data.sections[id]);
+      if(input.checked)reviewed.add(key);else reviewed.delete(key);
+      data.sections[id]=[...reviewed];
+      const label=input.closest('.section-review');
+      label.classList.toggle('is-reviewed',input.checked);
+      label.querySelector('.section-review-text').textContent=input.checked?'Section reviewed':'Mark section reviewed';
+      save();refresh();
+    });
     host.querySelectorAll('[data-guide-practice]').forEach(button=>button.onclick=()=>practice(button.dataset.guidePractice));
     host.querySelectorAll('[data-guide-expand]').forEach(button=>{
       const cards=[...host.querySelectorAll(`#guide-panel-${button.dataset.guideExpand} > .guide-card`)];

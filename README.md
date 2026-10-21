@@ -1,6 +1,6 @@
 # Police PowersIQ
 
-Interactive Canadian police powers study app. Built as a static website so it can deploy directly from GitHub to Netlify without a build command.
+Interactive Canadian police powers study app. A static website with a small CSS/3D build step. Netlify builds the deployable files into `dist/`.
 
 ## Features
 - Question bank with 230 practice items (including alternate-format testing of some of the same concepts)
@@ -21,14 +21,34 @@ Interactive Canadian police powers study app. Built as a static website so it ca
 - Copper-orange accents with charcoal dark mode and warm cream light mode
 - Persistent theme switch with a responsive layered power button, tactile pressed buttons, CSS 3D scales and reduced-motion support
 - Study Guide tab with five named topics, expandable notes, primary-source links, a separate reading checklist and topic practice
+- Separate Midterm and Final exam entry cards; current material stays within Midterm, with Study guide first
+- Saved per-section review checkboxes and percentage rings based on each topic’s actual section count
+- Optional lazy-loaded Three.js scales with particles, a dimensional SVG fallback, pause control and reduced-motion support
+- Modular native CSS sources bundled and minified into one stylesheet
 - Mobile-friendly interface
 
 ## Deploy
-1. Keep `index.html`, `styles.css`, `app.js`, `appearance.js`, `study-tools.js`, `study-guide.js`, `question-reports.js`, `report-confirmed.html`, `questions.js`, `legal-feedback.js`, `legal-authorities.json`, and `question-feedback.json` together in the repository root.
-2. In Netlify, connect the GitHub repository if not connected already.
-3. Build command: **leave blank**. Publish directory: **`.`** (repository root).
-4. Trigger deploy. Study features need no API keys or environment variables.
-5. For online question reports, enable **Netlify Forms / form detection**, deploy the static `question-report` form in `index.html`, and confirm it appears in the Netlify Forms dashboard. Test a reviewed report on the deployed site. Reports are sent only when a student presses Submit. Until the service is enabled, local save and download remain available. The app uses Netlify’s successful HTTP response to the form POST as its submission acknowledgement; no redirect is required.
+1. Install dependencies with `npm ci` (Node 22 or newer).
+2. Run `npm run build`. This creates one bundled/minified `styles.css`, the optional local 3D bundle in `assets/`, and a deployment-only `dist/` folder.
+3. Netlify configuration is in `netlify.toml`: build command **`npm run build`**, publish directory **`dist`**, Node **22**. Update any old dashboard override that still publishes `.` or omits the build command.
+4. For a manual static deploy, upload the **contents of `dist/`**, not the source or `node_modules/`. No API keys are needed for study features.
+5. Preserve Netlify Forms detection for the `question-report` form in the generated `dist/index.html`. The static form declaration, honeypot and field names are unchanged. Check form detection and one acknowledged submission after a future approved deployment.
+
+## CSS source organization
+
+Edit `styles/`, not the generated root `styles.css`. `styles/styles.css` is the entry point: it imports tokens, shared base rules, component styles, dashboard/practice/guide/landing views, review indicators and accessibility overrides. Build-time imports are combined by esbuild; visitors request one CSS file rather than each source file.
+
+Shared colors and light/dark theme values are in `styles/tokens.css`. Buttons, header, theme switch, reports, feedback and visual effects have individual files under `styles/components/`; view-specific rules are in `styles/views/`. Each source remains ordinary CSS with conventional selectors and media queries; the refactor introduces no cascade layers or native nesting requirement. Existing modern features still have their own browser requirements, and this is not a claim of Internet Explorer support. CSS compilation targets Chrome/Firefox 90 and Safari 14 syntax where esbuild supports a transformation; it cannot polyfill every CSS property or the app’s JavaScript APIs.
+
+Use `npm run watch` while editing source files and serving the repository root. It updates root `styles.css` and `assets/` for local preview; run a full `npm run build` to refresh `dist/`. Run `npm run format:css` to format the source and `npm run check:css` to check formatting. Generated root bundles are included for direct HTTP previews; `dist/` and `node_modules/` are ignored.
+
+## Landing page and exam workspaces
+
+Visitors first choose **Midterm** or **Final exam**. Midterm opens **Study guide**, followed by **Practice & exams** in its navigation; all existing questions, reports, legal feedback, history and exam behavior belong to Midterm. **Choose exam** returns to the entry screen. Final currently shows “Final exam material is not available yet.” It contains no questions, scores or study material. Future final-exam data must use separate progress namespaces; existing storage keys remain Midterm keys to preserve saved history.
+
+`landing.js` renders the immediately usable cards and a dimensional SVG scales illustration. The optional `visuals/landing-scene.js` uses Three.js, bundled locally into `assets/landing-scene.js` with its license notices. It adds copper scales, restrained particles, perspective and slow movement. No graphics CDN or external model is needed. A failed load or missing WebGL2 keeps the SVG; reduced-motion and data-saving preferences skip the 3D download. The scene caps pixel ratio and frame rate, pauses when hidden/offscreen, and disposes GPU resources when leaving. A motion button pauses the artwork. Copper transition effects are omitted for reduced motion. Device/browser limitations can still affect graphics; the cards remain usable independently.
+
+Leaving a mock exam for exam selection or the guide uses the existing submit-or-cancel confirmation. A saved interrupted exam is finalized on startup before students access study notes. Unfinished practice remains resumable through Midterm → Practice & exams.
 
 ## Legal feedback
 Feedback joins `question-feedback.json.feedback[question.id]` to the catalogue in `legal-authorities.json`. The same renderer supplies immediate practice feedback and final practice/mock-exam reviews. It does not fall back to historical slide references or unreviewed explanations in `questions.js`.
@@ -47,7 +67,9 @@ Use **Study guide** beside **Practice & exams**. The five topic selectors use th
 
 The supplied guide provides the organization and recall prompts. `study-guide.js` maps 95 concept notes to the existing Q001A–Q095A records. `PPIQ_LEGAL.studyContent` applies the same source, answer-key and review-status checks used in answer feedback. Legal prose is reused from cleared records; the uploaded professor references, institution/course branding, historical exam date and 90-minute exam instructions are not published. The app’s mock exam remains 30 minutes. No new primary-source audit or status promotion is implied. Consent withdrawal, evidence continuity and completed-search re-entry remain neutral pending notices. The upload’s unsupported additional claims (including the unspecified Mercer reference and procedural teaching models) are not presented as verified law. Its standalone quiz is served through the app’s existing topic-practice flow rather than creating another graded question bank.
 
-“Mark topic reviewed” is a self-assessment, stored with the selected topic under `ppiq_guide_v1`. It never marks questions seen or changes scores or learning schedules. Reset saved progress also resets this checklist. Storage failure shows a warning and retains the checklist for the current visit. “Practice this topic” starts ten questions in that topic and confirms replacement of an unfinished practice session. Opening the guide from practice saves the session so it can be resumed from the dashboard. Opening it during an exam requires confirmation to submit first; cancelling keeps the exam active. Guide text and legal links remain selectable for studying.
+Each expandable section has a “Mark section reviewed” checkbox at its bottom. Topic tabs show green rings with `reviewed sections / actual sections × 100`: Sources 5, Arrest 7, Location/Feeney 4, Warrantless 8 and Warrant 8. The SVG ring uses the exact ratio, fills clockwise from 12 o’clock, and the label rounds to a whole percentage; all sections produce exactly 100% plus a checkmark. Unchecking reverses the ratio. Section identities use their mapped question IDs, so inserted/changed sections are not silently marked reviewed.
+
+The selected topic and section checklist use `ppiq_guide_v1` schema 2. Old completed-topic flags migrate to all of that topic’s existing sections, preserving previous completion. Invalid/unknown sections are ignored. This is self-assessed reading progress: it never marks questions seen or changes scores or learning schedules. Reset saved progress also resets this checklist. Storage failure shows a warning and retains the checklist for the current visit. “Practice this topic” starts ten questions in that topic and confirms replacement of an unfinished practice session. Opening the guide from practice saves the session so it can be resumed from the dashboard. Opening it during an exam requires confirmation to submit first; cancelling keeps the exam active. Guide text and legal links remain selectable for studying.
 
 ## Sessions, review and exam rules
 
@@ -94,7 +116,7 @@ Students can report wording, answer/explanation issues, legal sources or another
 Individual reports and all saved reports download as readable UTF-8 `.txt` files for Notepad, TextEdit or Word. They include the question ID and wording, choices in question-bank order, issue category, student note, timestamps and delivery/local-review status. Downloading does not transmit the report. Internal browser storage remains compatible with existing saved reports. The owner’s legal-maintenance queue retains its JSON export. Local reports can also be marked resolved locally or removed from the dashboard. That local status does not mean the owner has resolved a legal issue. The owner must inspect reports and make reviewed repository changes; reports never alter grading or approve a legal claim automatically. Do not include personal information in a report.
 
 ## Local development and validation
-Serve the repository over HTTP, for example with `python3 -m http.server 8000`. Opening `index.html` directly as a file does not provide the supported JSON-loading workflow.
+After `npm ci` and `npm run build`, serve the repository over HTTP, for example with `python3 -m http.server 8000` (or serve `dist/` for a production preview). Opening `index.html` directly as a file does not provide the supported JSON-loading workflow.
 
 Run `python3 tests/test_legal_feedback.py` with Python, Playwright and Chromium installed. Set `CHROMIUM_PATH` if Chromium is not on `PATH`. The suite starts its own temporary local HTTP server and isolated browser contexts; it does not alter user browser progress. It covers all 230 feedback records, all question types, shuffled answer mapping, exact-set grading, practice and exam review, existing progress, unresolved or missing mappings, failed fetches, escaped text and safe links. Also run `node --check app.js`, `node --check questions.js`, and `node --check legal-feedback.js`, and `node --check appearance.js`, `node --check study-tools.js`, and `node --check question-reports.js`, and `node --check study-guide.js`. Run `python3 tests/test_legal_maintenance.py` for the offline source-monitor tests. Theme checks also cover keyboard switching, persistence, unavailable storage, reduced motion, and responsive layouts.
 

@@ -1,0 +1,106 @@
+/* components · header — edit this source, then run npm run build. */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0 28px;
+  border-bottom: 1px solid var(--line);
+  gap: 20px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 28px;
+}
+.brand strong {
+  font-size: 22px;
+  letter-spacing: -0.8px;
+}
+.brand strong span {
+  color: var(--accent);
+}
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+@media (max-width: 750px) {
+  .header {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 750px) {
+  .header .pill {
+    display: none;
+  }
+}
+@media (max-width: 750px) {
+  .brand strong {
+    font-size: 20px;
+  }
+}
+.header-right {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.header .pill {
+  font-size: 9px;
+}
+.brand-icon {
+  color: var(--accent-ink);
+  box-shadow:
+    0 5px 16px var(--shadow),
+    inset 0 1px var(--shine);
+}
+.brand strong {
+  letter-spacing: -0.7px;
+}
+.brand small {
+  letter-spacing: 1.5px;
+}
+@media (max-width: 1000px) {
+  .header .pill {
+    display: none;
+  }
+}
+@media (max-width: 750px) {
+  .header {
+    gap: 16px;
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 750px) {
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 750px) {
+  .brand-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (max-width: 750px) {
+  .brand small {
+    font-size: 9px;
+  }
+}
