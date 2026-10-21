@@ -1,0 +1,40 @@
+name: Legal source maintenance
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 13 * * 1'
+permissions:
+  contents: read
+jobs:
+  review-queue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore the previous observed source text hashes
+        uses: actions/cache/restore@v4
+        with:
+          path: .legal-source-cache
+          key: legal-source-observations-${{ github.run_id }}
+          restore-keys: legal-source-observations-
+      - name: Check primary sources and generate a manual review queue
+        shell: bash
+        run: |
+          previous=()
+          if [ -f .legal-source-cache/previous.json ]; then
+            previous=(--previous .legal-source-cache/previous.json)
+          fi
+          python3 tools/check_legal_sources.py --check-links "${previous[@]}" --output legal-source-review.json
+          mkdir -p .legal-source-cache
+          cp legal-source-review.json .legal-source-cache/previous.json
+      - name: Save observations for the next comparison
+        uses: actions/cache/save@v4
+        with:
+          path: .legal-source-cache
+          key: legal-source-observations-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: legal-source-review
+          path: legal-source-review.json

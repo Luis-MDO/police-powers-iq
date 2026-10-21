@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.legal-source-cache/
+legal-source-review.json
